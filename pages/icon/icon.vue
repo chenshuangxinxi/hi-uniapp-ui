@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 图标组件演示页面
+ * HiUi - 图标
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
@@ -75,6 +75,7 @@
 
     // 内置图标
     const builtInIcons = ref([
+        { name: "__fuzhi", text: "复制" },
         { name: "__gengduo", text: "更多" },
         { name: "__sousuo", text: "搜索" },
         { name: "__checked", text: "选中" },
