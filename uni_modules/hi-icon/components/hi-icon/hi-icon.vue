@@ -5,7 +5,7 @@
  * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <view class="hi-icon" :class="_classes" :style="_styles" @tap="_emits('click')">
+    <view class="hi-icon" :class="_classes" :style="_styles" :hover-class="hoverClass" @tap="_emits('click')">
         <!-- 字体图标 -->
         <text class="hi-icon__iconfont" :class="_iconfontClasses" v-if="!_isImage"></text>
 
@@ -35,7 +35,7 @@
         const classes = [];
 
         // 禁用
-        if (_props.disabled) classes.push("hi-icon--disabled");
+        if (_props.disabled) classes.push(`${_props.disabledClass} hi-icon--disabled`);
 
         // 图片图标
         if (_isImage.value) classes.push("hi-icon--image");
@@ -126,12 +126,6 @@
         &--image {
             width: var(--hi-icon-image-width, 1em);
             height: var(--hi-icon-image-height, 1em);
-        }
-
-        // 禁用状态
-        &--disabled {
-            opacity: var(--hi-icon-disabled-opacity, var(--hi-opacity-disabled, 0.5));
-            pointer-events: none;
         }
     }
 </style>
