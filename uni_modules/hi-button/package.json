@@ -1,7 +1,7 @@
 {
     "id": "hi-button",
     "displayName": "hi-button",
-    "version": "1.2.12",
+    "version": "2.0.0",
     "description": "按钮组件",
     "keywords": [
         "",
@@ -9,7 +9,7 @@
         "button",
         "按钮"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

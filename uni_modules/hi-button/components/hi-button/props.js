@@ -5,10 +5,22 @@
  * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
  */
 export default {
-    // hover-class
+    // hover class
     hoverClass: {
         type: String,
-        default: "hi-hover-class"
+        default: "hi-hover"
+    },
+
+    // 是否禁用?
+    disabled: {
+        type: Boolean,
+        default: false
+    },
+
+    // disabled class
+    disabledClass: {
+        type: String,
+        default: "hi-disabled"
     },
 
     // 主题
@@ -35,16 +47,76 @@ export default {
         default: "square"
     },
 
-    // 是否是图标按钮？只显示图标
-    iconButton: {
-        type: Boolean,
-        default: false
+    // 文字大小
+    size: {
+        type: String,
+        default: ""
     },
 
-    // 是否禁用?
-    disabled: {
-        type: Boolean,
-        default: false
+    // 文字颜色
+    color: {
+        type: String,
+        default: ""
+    },
+
+    // 副文字大小
+    subSize: {
+        type: String,
+        default: ""
+    },
+
+    // 副文字颜色
+    subColor: {
+        type: String,
+        default: ""
+    },
+
+    // 背景
+    bg: {
+        type: String,
+        default: ""
+    },
+
+    // 圆角
+    radius: {
+        type: String,
+        default: ""
+    },
+
+    // 宽
+    width: {
+        type: String,
+        default: ""
+    },
+
+    // 高
+    height: {
+        type: String,
+        default: ""
+    },
+
+    // 边框颜色
+    borderColor: {
+        type: String,
+        default: ""
+    },
+
+    // 图标大小，影响左侧图标、右侧图标和 loading 图标
+    iconSize: {
+        type: String,
+        default: ""
+    },
+
+    // 图标裁剪模式，影响左侧图标、右侧图标和 loading 图标
+    iconMode: {
+        type: String,
+        default: ""
+    },
+
+    // 图标颜色，影响左侧图标、右侧图标和 loading 图标
+    iconColor: {
+        type: String,
+        default: ""
     },
 
     // 是否显示 loading
@@ -60,39 +132,75 @@ export default {
     },
 
     // loading 图标名称
-    loadingName: {
+    loadingIconName: {
         type: String,
         default: "__loading"
     },
 
-    // loading 图标的其他属性
-    loadingProps: {
-        type: Object,
-        default: null
-    },
-
-    // 按钮前置图标名称，prevIconName 或 prevIconProps.name 为有效值时才会显示前置图标
-    prevIconName: {
+    // loading 图标颜色
+    loadingIconColor: {
         type: String,
         default: ""
     },
 
-    // 按钮前置图标的其他配置，prevIconName 或 prevIconProps.name 为有效值时才会显示前置图标
-    prevIconProps: {
-        type: Object,
-        default: null
-    },
-
-    // 按钮后置图标名称，nextIconName 或 nextIconProps.name 为有效值时才会显示前置图标
-    nextIconName: {
+    // loading 图标大小
+    loadingIconSize: {
         type: String,
         default: ""
     },
 
-    // 按钮后置图标的其他配置，nextIconName 或 nextIconProps.name 为有效值时才会显示前置图标
-    nextIconProps: {
-        type: Object,
-        default: null
+    // loading 图标图片裁剪模式
+    loadingIconMode: {
+        type: String,
+        default: ""
+    },
+
+    // 左侧图标名称
+    leftIconName: {
+        type: String,
+        default: ""
+    },
+
+    // 左侧图标大小
+    leftIconSize: {
+        type: String,
+        default: ""
+    },
+
+    // 左侧图标颜色
+    leftIconColor: {
+        type: String,
+        default: ""
+    },
+
+    // 左侧图标裁剪模式
+    leftIconMode: {
+        type: String,
+        default: ""
+    },
+
+    // 右侧图标名称
+    rightIconName: {
+        type: String,
+        default: ""
+    },
+
+    // 右侧图标大小
+    rightIconSize: {
+        type: String,
+        default: ""
+    },
+
+    // 右侧图标颜色
+    rightIconColor: {
+        type: String,
+        default: ""
+    },
+
+    // 右侧图标裁剪模式
+    rightIconMode: {
+        type: String,
+        default: ""
     },
 
     // 按钮文字

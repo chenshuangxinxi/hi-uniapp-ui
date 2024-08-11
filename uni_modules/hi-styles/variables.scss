@@ -6,53 +6,34 @@
  */
 page {
     // 主题
-    --hi-theme-main: #ff0000;
-    --hi-theme-main-light: #5a1d22;
     --hi-theme-primary: #409eff;
-    --hi-theme-primary-light: #2a4562;
     --hi-theme-success: #67c23a;
-    --hi-theme-success-light: #344e31;
     --hi-theme-warning: #e6a23c;
-    --hi-theme-warning-light: #544631;
     --hi-theme-error: #f56c6c;
-    --hi-theme-error-light: #57383d;
     --hi-theme-info: #909399;
-    --hi-theme-info-light: #454a53;
-
-    // 渐变主题
-    --hi-theme-linear-main: linear-gradient(180deg, #ee86e4, #6269fd);
-
-    // 金钱主题
-    --hi-theme-price-default: #ff4952; // 默认
-    --hi-theme-price-positive: #32cd32; // 进账
-    --hi-theme-price-negative: #ff0000; // 出账
 
     // 背景
     --hi-background-overlay: rgba(0, 0, 0, 0.5);
 
-    // 边框阴影
-    --hi-shadow-main: 0 0 10px 10px rgba(0, 0, 0, 0.068);
-
     /* 文本颜色 */
-    --hi-font-color-main: #333333;
-    --hi-font-color-middle: #666666;
-    --hi-font-color-light: #999999;
-    --hi-font-color-light-aster: #c4c4c4;
-    --hi-font-color-light-bamboo: #eeeeee;
+    --hi-color-main: #333333;
+    --hi-color-middle: #666666;
+    --hi-color-light: #999999;
+    --hi-color-placeholder: #c4c4c4;
 
     /* 透明度 */
     --hi-opacity-hover: 0.8; // 点击状态时元素的透明度，使用透明度实现元素点击态效果
     --hi-opacity-disabled: 0.5; // 禁用状态时元素的透明度，使用透明度实现元素禁用态效果
 
     // 圆角
-    --hi-radius-main: 20rpx;
-    --hi-radius-middle: 10rpx;
+    --hi-radius-big: 20rpx;
+    --hi-radius-default: 10rpx;
     --hi-radius-small: 5rpx;
 
     // 边框
-    --hi-border-color-default: #ebedf0;
+    --hi-border-color: #ebedf0;
 
     // 层级
-    --hi-index-middle: 666;
+    --hi-index-default: 666;
     --hi-index-big: 998;
 }
