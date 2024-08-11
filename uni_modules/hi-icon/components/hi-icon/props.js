@@ -5,10 +5,22 @@
  * @mobile 18560000860 / 18754137913
  */
 export default {
+    // hover class
+    hoverClass: {
+        type: String,
+        default: ""
+    },
+
     // 是否禁用
     disabled: {
         type: Boolean,
         default: false
+    },
+
+    // disabled class
+    disabledClass: {
+        type: String,
+        default: "hi-disabled"
     },
 
     // 图标名称

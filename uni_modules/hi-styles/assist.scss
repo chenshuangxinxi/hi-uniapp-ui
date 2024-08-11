@@ -2,17 +2,18 @@
  * 辅助类
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 
-// hover-class
-.hi-hover-class {
-    opacity: var(--hi-opacity-hover, 0.9);
+// hover class
+.hi-hover {
+    opacity: var(--hi-opacity-hover, 0.8);
 }
 
-// disabled
+// disabled class
 .hi-disabled {
     opacity: var(--hi-opacity-disabled, 0.5);
+    pointer-events: none;
 }
 
 /* 超出行数，自动显示行尾省略号，最多10行 */
