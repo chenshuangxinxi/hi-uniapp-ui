@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "hi-uniapp-ui-iconfont";
+    /* Project id 4615388 */
+    src:
+        url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2');
+}
+
+.hi-uniapp-ui-iconfont {
+    font-family: "hi-uniapp-ui-iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.hi-uniapp-ui-iconfont-daohanglan:before {
+    content: "\e62c";
+}
+
+.hi-uniapp-ui-iconfont-zhuangtailan:before {
+    content: "\e669";
+}
+
+.hi-uniapp-ui-iconfont-header:before {
+    content: "\e61b";
+}
+
+.hi-uniapp-ui-iconfont-tubiao:before {
+    content: "\e625";
+}
+
+.hi-uniapp-ui-iconfont-dingbudaohanglan-daohang:before {
+    content: "\e60e";
+}
+
+.hi-uniapp-ui-iconfont-you:before {
+    content: "\e621";
+}
+
+.hi-uniapp-ui-iconfont-zuo:before {
+    content: "\e622";
+}
+
+.hi-uniapp-ui-iconfont-shang:before {
+    content: "\e623";
+}
+
+.hi-uniapp-ui-iconfont-xia:before {
+    content: "\e624";
+}
+
+.hi-uniapp-ui-iconfont-shezhi:before {
+    content: "\e628";
+}
+
+.hi-uniapp-ui-iconfont-shuaxin:before {
+    content: "\e62f";
+}
+
+.hi-uniapp-ui-iconfont-shanchu:before {
+    content: "\e630";
+}
+
+.hi-uniapp-ui-iconfont-douyin:before {
+    content: "\e8db";
+}
+
+.hi-uniapp-ui-iconfont-zhifubao:before {
+    content: "\e64f";
+}
+
+.hi-uniapp-ui-iconfont-weixin:before {
+    content: "\e8bb";
+}

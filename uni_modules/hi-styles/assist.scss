@@ -1,0 +1,63 @@
+/**
+ * 辅助类
+ *
+ * @author 济南晨霜信息技术有限公司
+ * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ */
+
+// hover-class
+.hi-hover-class {
+    opacity: var(--hi-opacity-hover, 0.9);
+}
+
+// disabled
+.hi-disabled {
+    opacity: var(--hi-opacity-disabled, 0.5);
+}
+
+/* 超出行数，自动显示行尾省略号，最多10行 */
+@for $i from 1 through 10 {
+    .hi-line-#{$i} {
+        /* #ifdef APP-NVUE */
+        // nvue下，可以直接使用lines属性，这是weex特有样式
+        lines: $i;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        flex: 1;
+        /* #endif */
+
+        /* #ifndef APP-NVUE */
+        // vue下，单行和多行显示省略号需要单独处理
+        @if $i == "1" {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        } @else {
+            display: -webkit-box !important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+            -webkit-line-clamp: $i;
+            -webkit-box-orient: vertical !important;
+        }
+        /* #endif */
+    }
+}
+
+// 旋转动画
+.hi-ani-spin {
+    animation-name: hi-ani-spin;
+    animation-iteration-count: infinite;
+    animation-duration: 1500ms;
+    animation-timing-function: linear;
+}
+
+@keyframes hi-ani-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
