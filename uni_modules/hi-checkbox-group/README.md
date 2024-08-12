@@ -1,6 +1,6 @@
-# HiUi - 复选框
+# HiUi - 复选框组
 
-[文档](https://chenshuangxinxi.github.io/hi-uniapp-ui-guide/components/checkbox.html)
+[文档](https://chenshuangxinxi.github.io/hi-uniapp-ui-guide/components/checkbox-group.html)
 
 Tips: 文档有点简陋，正在一点一点的优化完善！！！
 
