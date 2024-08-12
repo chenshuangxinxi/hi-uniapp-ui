@@ -209,6 +209,14 @@
             }
         },
 
+        // 复选框组
+        {
+            "path": "pages/checkbox-group/checkbox-group",
+            "style": {
+                "navigationBarTitleText": "复选框组"
+            }
+        },
+
         // 遮罩层
         {
             "path": "pages/overlay/overlay",

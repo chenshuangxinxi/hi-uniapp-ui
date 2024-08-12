@@ -98,6 +98,7 @@
     // 表单组件
     const formComponents = ref([
         { title: "复选框", icon: "/static/images/icons/checkbox.png", path: "/pages/checkbox/checkbox" },
+        { title: "复选框组", icon: "/static/images/icons/checkbox.png", path: "/pages/checkbox-group/checkbox-group" },
         { title: "步进器", icon: "/static/images/icons/number-step.png", path: "/pages/number-step/number-step" }
     ]);
 

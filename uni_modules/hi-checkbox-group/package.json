@@ -1,8 +1,8 @@
 {
-    "id": "hi-checkbox",
-    "displayName": "hi-checkbox",
+    "id": "hi-checkbox-group",
+    "displayName": "hi-checkbox-group",
     "version": "2.0.0",
-    "description": "复选框组件",
+    "description": "复选框组组件",
     "keywords": [
         "",
         "hi",
@@ -41,7 +41,7 @@
         "dependencies": [
             "hi-config",
             "hi-styles",
-            "hi-icon"
+            "hi-checkbox"
         ],
         "encrypt": [],
         "platforms": {
