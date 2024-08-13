@@ -1,28 +1,28 @@
 {
-    "name": "hi-uniapp-ui",
-    "appid": "__UNI__201C102",
-    "description": "一个基于Vue3的前端组件库",
-    "versionName": "1.0.0",
-    "versionCode": "100",
-    "transformPx": false,
+    "name" : "hi-uniapp-ui",
+    "appid" : "__UNI__201C102",
+    "description" : "一个基于Vue3的前端组件库",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "transformPx" : false,
     /* 5+App特有相关 */
-    "app-plus": {
-        "usingComponents": true,
-        "nvueStyleCompiler": "uni-app",
-        "compilerVersion": 3,
-        "splashscreen": {
-            "alwaysShowBeforeRender": true,
-            "waiting": true,
-            "autoclose": true,
-            "delay": 0
+    "app-plus" : {
+        "usingComponents" : true,
+        "nvueStyleCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
         },
         /* 模块配置 */
-        "modules": {},
+        "modules" : {},
         /* 应用发布信息 */
-        "distribute": {
+        "distribute" : {
             /* android打包配置 */
-            "android": {
-                "permissions": [
+            "android" : {
+                "permissions" : [
                     "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
                     "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
@@ -41,58 +41,61 @@
                 ]
             },
             /* ios打包配置 */
-            "ios": {},
+            "ios" : {},
             /* SDK配置 */
-            "sdkConfigs": {}
+            "sdkConfigs" : {}
         }
     },
     /* 快应用特有相关 */
-    "quickapp": {},
+    "quickapp" : {},
     /* 小程序特有相关 */
-    "mp-weixin": {
-        "appid": "wxe5fcca4c8be075d2",
-        "setting": {
-            "urlCheck": false,
-            "es6": true,
-            "postcss": true,
-            "minified": true
+    "mp-weixin" : {
+        "appid" : "wxe5fcca4c8be075d2",
+        "setting" : {
+            "urlCheck" : false,
+            "es6" : true,
+            "postcss" : true,
+            "minified" : true
         },
-        "usingComponents": true,
+        "usingComponents" : true,
         // 合并组件虚拟节点外层属性（目前仅支持 style、class 属性），uni-app 3.5.1+ 开始支持
-        "mergeVirtualHostAttributes": true
+        "mergeVirtualHostAttributes" : true
     },
-    "mp-alipay": {
-        "usingComponents": true,
+    "mp-alipay" : {
+        "usingComponents" : true,
         // 合并组件虚拟节点外层属性（目前仅支持 style、class 属性），uni-app 3.5.1+ 开始支持
-        "mergeVirtualHostAttributes": true,
+        "mergeVirtualHostAttributes" : true,
         // 组件样式隔离方式，具体配置选项参见：[组件样式隔离](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html#%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F%E9%9A%94%E7%A6%BB)
         // - isolated 表示启用样式隔离，在自定义组件内外，使用 class 指定的样式将不会相互影响（一般情况下的默认值）；
         // - apply-shared 表示页面 wxss 样式将影响到自定义组件，但自定义组件 wxss 中指定的样式不会影响页面；
         // - shared 表示页面 wxss 样式将影响到自定义组件，自定义组件 wxss 中指定的样式也会影响页面和其他设置了 apply-shared 或 shared 的自定义组件。（这个选项在插件中不可用。）
         // 微信小程序在组件 options 中配置，支付宝小程序在 manifest.json -> mp-alipay 中配置
-        "styleIsolation": "shared"
+        "styleIsolation" : "shared"
     },
-    "mp-baidu": {
-        "usingComponents": true
+    "mp-baidu" : {
+        "usingComponents" : true
     },
-    "mp-toutiao": {
-        "usingComponents": true
+    "mp-toutiao" : {
+        "usingComponents" : true
     },
-    "uniStatistics": {
-        "enable": false
+    "uniStatistics" : {
+        "enable" : false
     },
-    "vueVersion": "3",
-    "locale": "zh-Hans",
-    "fallbackLocale": "zh-Hans",
-    "h5": {
-        "router": {
-            "base": "./",
-            "mode": "hash"
+    "vueVersion" : "3",
+    "locale" : "zh-Hans",
+    "fallbackLocale" : "zh-Hans",
+    "h5" : {
+        "router" : {
+            "base" : "./",
+            "mode" : "hash"
         },
-        "optimization": {
-            "treeShaking": {
-                "enable": true
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
             }
+        },
+        "devServer" : {
+            "port" : 5278
         }
     }
 }

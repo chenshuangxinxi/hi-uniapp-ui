@@ -1,13 +1,13 @@
 {
-    "id": "hi-icon",
-    "displayName": "hi-icon",
-    "version": "2.0.3",
-    "description": "图标组件",
+    "id": "hi-radio",
+    "displayName": "hi-radio",
+    "version": "2.0.0",
+    "description": "单选框组件",
     "keywords": [
         "",
         "hi",
-        "icon",
-        "图标"
+        "radio",
+        "单选"
     ],
     "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
@@ -40,7 +40,7 @@
         "dependencies": [
             "hi-config",
             "hi-styles",
-            "hi-functions"
+            "hi-icon"
         ],
         "encrypt": [],
         "platforms": {
