@@ -135,7 +135,7 @@
 
         &__icon {
             --hi-icon-color: var(--hi-checkbox-icon-color);
-            --hi-icon-size: var(--hi-checkbox-icon-size);
+            --hi-icon-size: var(--hi-checkbox-icon-size, calc(var(--hi-checkbox-size, 1.25em) * 0.8));
             opacity: 0;
             transform: scale(0);
             transition: 100ms ease-in-out;
@@ -165,6 +165,7 @@
                 .hi-checkbox__value {
                     background: var(--hi-checkbox-theme);
                     color: var(--hi-checkbox-icon-color, #ffffff);
+                    border-color: var(--hi-checkbox-theme);
                 }
             }
         }

@@ -247,6 +247,22 @@
             "style": {
                 "navigationBarTitleText": "头像组"
             }
+        },
+
+        // 单选框
+        {
+            "path": "pages/radio/radio",
+            "style": {
+                "navigationBarTitleText": "单选框"
+            }
+        },
+
+        // 单选框组
+        {
+            "path": "pages/radio-group/radio-group",
+            "style": {
+                "navigationBarTitleText": "单选框组"
+            }
         }
     ],
     "subPackages": [{

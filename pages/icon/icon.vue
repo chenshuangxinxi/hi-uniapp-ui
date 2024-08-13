@@ -75,6 +75,7 @@
 
     // 内置图标
     const builtInIcons = ref([
+        { name: "__dot", text: "点" },
         { name: "__fuzhi", text: "复制" },
         { name: "__gengduo", text: "更多" },
         { name: "__sousuo", text: "搜索" },
