@@ -8,7 +8,7 @@ export default {
     // hover-class
     hoverClass: {
         type: String,
-        default: "hi-hover-class"
+        default: "hi-hover"
     },
 
     // 是否开启预览?
@@ -41,52 +41,94 @@ export default {
         default: "aspectFit"
     },
 
-    // 是否显示 loading 状态
-    loading: {
+    // 是否关闭loading
+    closeLoading: {
         type: Boolean,
-        default: true
+        default: false
     },
 
-    // loading 图标的名称
+    // loading 图标名称
     loadingIconName: {
         type: String,
         default: "__loading"
     },
 
-    // loading 图标的其他配置
-    loadingIconProps: {
-        type: Object,
-        default: () => ({})
+    // loading 图标大小
+    loadingIconSize: {
+        type: String,
+        default: ""
+    },
+
+    // loading 图标颜色
+    loadingIconColor: {
+        type: String,
+        default: ""
+    },
+
+    // loading 图标裁剪模式
+    loadingIconMode: {
+        type: String,
+        default: ""
     },
 
     // loading 文本
     loadingText: {
         type: String,
-        default: "加载中..."
+        default: ""
     },
 
-    // 是否显示 error
-    error: {
+    // 是否关闭 error 状态
+    closeError: {
         type: Boolean,
-        default: true
+        default: false
     },
 
-    // error 图标的名称
+    // error 图标名称
     errorIconName: {
         type: String,
         default: "__image-error"
     },
 
-    // error 图标的其他配置项
-    errorIconProps: {
-        type: Object,
-        default: () => ({})
+    // error 图标大小
+    errorIconSize: {
+        type: String,
+        default: ""
+    },
+
+    // error 图标颜色
+    errorIconColor: {
+        type: String,
+        default: ""
+    },
+
+    // error 图标裁剪模式
+    errorIconMode: {
+        type: String,
+        default: ""
+    },
+
+    // 圆角
+    radius: {
+        type: String,
+        default: ""
+    },
+
+    // 是否圆形图片
+    circle: {
+        type: Boolean,
+        default: false
+    },
+
+    // 是否自动撑满到父元素的宽高100%
+    fill: {
+        type: Boolean,
+        default: false
     },
 
     // error 状态的文本
     errorText: {
         type: String,
-        default: "加载失败"
+        default: ""
     },
 
     // 是否开启懒加载
