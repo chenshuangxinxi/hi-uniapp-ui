@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 标签组件
+ * HiUi - 标签
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
@@ -18,7 +18,6 @@
         <view class="demo-module">
             <view class="demo-module__title">标签主题</view>
             <view class="demo-module__content">
-                <hi-tag text="标签" theme="main"></hi-tag>
                 <hi-tag text="标签" theme="primary"></hi-tag>
                 <hi-tag text="标签" theme="success"></hi-tag>
                 <hi-tag text="标签" theme="warning"></hi-tag>
@@ -31,7 +30,6 @@
         <view class="demo-module">
             <view class="demo-module__title">镂空标签</view>
             <view class="demo-module__content">
-                <hi-tag text="标签" plain theme="main"></hi-tag>
                 <hi-tag text="标签" plain theme="primary"></hi-tag>
                 <hi-tag text="标签" plain theme="success"></hi-tag>
                 <hi-tag text="标签" plain theme="warning"></hi-tag>
@@ -44,11 +42,11 @@
         <view class="demo-module">
             <view class="demo-module__title">带图标</view>
             <view class="demo-module__content">
-                <hi-tag text="标签" plain theme="primary" iconName="__shaixuan"></hi-tag>
-                <hi-tag text="标签" plain theme="success" iconName="__zhuye"></hi-tag>
-                <hi-tag text="标签" plain theme="warning" iconName="__gouwuche"></hi-tag>
-                <hi-tag text="标签" plain theme="error" iconName="__rexiao"></hi-tag>
-                <hi-tag text="标签" plain theme="info" iconName="__xinpin"></hi-tag>
+                <hi-tag text="标签" theme="primary" iconName="__shaixuan"></hi-tag>
+                <hi-tag text="标签" theme="success" iconName="__zhuye"></hi-tag>
+                <hi-tag text="标签" theme="warning" iconName="__gouwuche"></hi-tag>
+                <hi-tag text="标签" theme="error" iconName="__rexiao"></hi-tag>
+                <hi-tag text="标签" theme="info" iconName="__xinpin"></hi-tag>
             </view>
         </view>
 
@@ -56,19 +54,35 @@
         <view class="demo-module">
             <view class="demo-module__title">显示关闭按钮</view>
             <view class="demo-module__content">
-                <hi-tag text="标签" plain closable theme="primary" iconName="__shaixuan" @close="handleClose(1)"></hi-tag>
-                <hi-tag text="标签" plain closable theme="success" iconName="__zhuye" @close="handleClose(2)"></hi-tag>
-                <hi-tag text="标签" plain closable theme="warning" iconName="__gouwuche" @close="handleClose(3)"></hi-tag>
-                <hi-tag text="标签" plain closable theme="error" iconName="__rexiao" @close="handleClose(4)"></hi-tag>
-                <hi-tag text="标签" plain closable theme="info" iconName="__xinpin" @close="handleClose(5)"></hi-tag>
+                <hi-tag text="标签" closable theme="primary" iconName="__shaixuan" @close="handleClose(1)"></hi-tag>
+                <hi-tag text="标签" closable theme="success" iconName="__zhuye" @close="handleClose(2)"></hi-tag>
+                <hi-tag text="标签" closable theme="warning" iconName="__gouwuche" @close="handleClose(3)"></hi-tag>
+                <hi-tag text="标签" closable theme="error" iconName="__rexiao" @close="handleClose(4)"></hi-tag>
+                <hi-tag text="标签" closable theme="info" iconName="__xinpin" @close="handleClose(5)"></hi-tag>
             </view>
         </view>
 
-        <!-- 实现个性化样式 -->
+        <!-- 关闭按钮位置 -->
         <view class="demo-module">
-            <view class="demo-module__title">实现个性化样式</view>
+            <view class="demo-module__title">关闭按钮位置</view>
             <view class="demo-module__content">
-                <hi-tag text="返弹丸币x3" round iconName="/static/images/icons/pill.png" class="custom-tag"></hi-tag>
+                <hi-tag text="标签" closable closeAbsolute theme="primary" iconName="__shaixuan" @close="handleClose(1)"></hi-tag>
+                <hi-tag text="标签" closable closeAbsolute theme="success" iconName="__zhuye" @close="handleClose(2)"></hi-tag>
+                <hi-tag text="标签" closable closeAbsolute theme="warning" iconName="__gouwuche" @close="handleClose(3)"></hi-tag>
+                <hi-tag text="标签" closable closeAbsolute theme="error" iconName="__rexiao" @close="handleClose(4)"></hi-tag>
+                <hi-tag text="标签" closable closeAbsolute theme="info" iconName="__xinpin" @close="handleClose(5)"></hi-tag>
+            </view>
+        </view>
+
+        <!-- 圆角标签 -->
+        <view class="demo-module">
+            <view class="demo-module__title">圆角标签</view>
+            <view class="demo-module__content">
+                <hi-tag text="标签" round theme="primary"></hi-tag>
+                <hi-tag text="标签" round theme="success"></hi-tag>
+                <hi-tag text="标签" round theme="warning"></hi-tag>
+                <hi-tag text="标签" round theme="error"></hi-tag>
+                <hi-tag text="标签" round theme="info"></hi-tag>
             </view>
         </view>
     </view>
@@ -95,15 +109,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20rpx;
-        }
-
-        .custom-tag {
-            --hi-tag-padding: 0 0.6em 0 0;
-            --hi-tag-icon-image-width: auto;
-            --hi-tag-icon-image-height: 100%;
-            --hi-tag-background: #f1f3f4;
-            --hi-tag-text-font-color: #6269fd;
-            --hi-tag-border-width: 0;
         }
     }
 </style>
