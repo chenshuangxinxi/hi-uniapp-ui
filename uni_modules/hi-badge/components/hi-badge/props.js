@@ -2,13 +2,13 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
     // 主题
     theme: {
         type: String,
-        default: "main"
+        default: ""
     },
 
     // 值
@@ -17,7 +17,7 @@ export default {
         default: 0
     },
 
-    // 值为 0 时是否显示值
+    // 值为 0 时是否显示
     showZero: {
         type: Boolean,
         default: false
@@ -61,5 +61,77 @@ export default {
     discardLastZero: {
         type: Boolean,
         default: true
+    },
+
+    // 背景
+    bg: {
+        type: String,
+        default: ""
+    },
+
+    // 文字颜色
+    color: {
+        type: String,
+        default: ""
+    },
+
+    // 文字大小
+    size: {
+        type: String,
+        default: ""
+    },
+
+    // 宽
+    width: {
+        type: String,
+        default: ""
+    },
+
+    // 高
+    height: {
+        type: String,
+        default: ""
+    },
+
+    // 圆角
+    radius: {
+        type: String,
+        default: ""
+    },
+
+    // 上
+    top: {
+        type: String,
+        default: ""
+    },
+
+    // 下
+    bottom: {
+        type: String,
+        default: ""
+    },
+
+    // 左
+    left: {
+        type: String,
+        default: ""
+    },
+
+    // 右
+    right: {
+        type: String,
+        default: ""
+    },
+
+    // 定位方式
+    position: {
+        type: String,
+        default: ""
+    },
+
+    // 圆点大小
+    dotSize: {
+        type: String,
+        default: ""
     }
 };
