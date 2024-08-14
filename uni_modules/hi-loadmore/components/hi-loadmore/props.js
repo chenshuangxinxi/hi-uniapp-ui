@@ -8,6 +8,18 @@ export default {
     // hover-class
     hoverClass: {
         type: String,
+        default: "hi-hover"
+    },
+
+    // 内容文本字体颜色
+    color: {
+        type: String,
+        default: ""
+    },
+
+    // 内容文本字体大小
+    size: {
+        type: String,
         default: ""
     },
 
@@ -17,16 +29,28 @@ export default {
         default: "loadmore"
     },
 
-    // loading 状态时图标的名称
-    loadingIconName: {
+    // loading 图标名称
+    iconName: {
         type: String,
         default: "__loading"
     },
 
-    // loading 状态时图标的其他配置
-    loadingIconProps: {
-        type: Object,
-        default: () => {}
+    // loading 图标颜色
+    iconColor: {
+        type: String,
+        default: ""
+    },
+
+    // loading 图标大小
+    iconSize: {
+        type: String,
+        default: ""
+    },
+
+    // loading 图标裁剪模式
+    iconMode: {
+        type: String,
+        default: ""
     },
 
     // loadmore 文字
@@ -45,5 +69,11 @@ export default {
     nomoreText: {
         type: String,
         default: " — 没有更多了 — "
+    },
+
+    // 布局方向
+    direction: {
+        type: String,
+        default: "row"
     }
 };
