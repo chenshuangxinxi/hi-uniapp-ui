@@ -5,6 +5,12 @@
  * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
  */
 export default {
+    // 关闭按钮的 hover-class
+    hoverClass: {
+        type: String,
+        default: "hi-hover"
+    },
+
     // 显示状态
     modelValue: {
         type: Boolean,
@@ -31,13 +37,7 @@ export default {
     },
 
     // 是否显示 Header，包括标题和关闭按钮
-    showHead: {
-        type: Boolean,
-        default: true
-    },
-
-    // 是否显示标题
-    showTitle: {
+    showHeader: {
         type: Boolean,
         default: true
     },
@@ -48,26 +48,50 @@ export default {
         default: ""
     },
 
+    // 标题颜色
+    titleColor: {
+        type: String,
+        default: ""
+    },
+
+    // 标题尺寸
+    titleSize: {
+        type: String,
+        default: ""
+    },
+
     // 是否显示关闭按钮
     showClose: {
         type: Boolean,
         default: true
     },
 
-    // 关闭按钮的图标名称
+    // 关闭按钮图标名称
     closeIconName: {
         type: String,
         default: "__shanchu"
     },
 
-    // 关闭按钮的其他配置
-    closeIconProps: {
-        type: Object,
-        default: () => ({})
+    // 关闭按钮图标颜色
+    closeIconColor: {
+        type: String,
+        default: ""
+    },
+
+    // 关闭按钮图标尺寸
+    closeIconSize: {
+        type: String,
+        default: ""
+    },
+
+    // 关闭按钮图标裁剪模式
+    closeIconMode: {
+        type: String,
+        default: ""
     },
 
     // 是否显示 Footer
-    showFoot: {
+    showFooter: {
         type: Boolean,
         default: true
     },
@@ -90,10 +114,64 @@ export default {
         default: ""
     },
 
+    // 最大宽度
+    maxWidth: {
+        type: String,
+        default: ""
+    },
+
+    // 圆角
+    radius: {
+        type: String,
+        default: ""
+    },
+
+    // 背景
+    bg: {
+        type: String,
+        default: ""
+    },
+
+    // 是否显示遮罩
+    showMask: {
+        type: Boolean,
+        default: true
+    },
+
     // 遮罩是否可点击关闭
-    overlayClickable: {
+    maskClickable: {
+        type: Boolean,
+        default: true
+    },
+
+    // 遮罩背景
+    maskBg: {
+        type: String,
+        default: ""
+    },
+
+    // 是否显示内容边框
+    showBorder: {
         type: Boolean,
         default: false
+    },
+
+    // 是否显示内容上边框
+    showBorderTop: {
+        type: Boolean,
+        default: false
+    },
+
+    // 是否显示内容下边框
+    showBorderBottom: {
+        type: Boolean,
+        default: false
+    },
+
+    // 内容边框颜色
+    borderColor: {
+        type: String,
+        default: ""
     },
 
     // 距顶部/左边多远时（单位px），触发 scrolltoupper 事件

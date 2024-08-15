@@ -1,7 +1,7 @@
 {
     "id": "hi-popup",
     "displayName": "hi-popup",
-    "version": "1.0.4",
+    "version": "2.0.0",
     "description": "弹出层组件",
     "keywords": [
         "",
@@ -9,7 +9,7 @@
         "popup",
         "弹出层"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },
@@ -40,8 +40,7 @@
         "dependencies": [
             "hi-config",
             "hi-styles",
-            "hi-icon",
-            "hi-overlay"
+            "hi-icon"
         ],
         "encrypt": [],
         "platforms": {
