@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 弹出层组件
+ * HiUi - 弹出层
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
@@ -10,7 +10,7 @@
         <view class="demo-module">
             <view class="demo-module__title"></view>
             <view class="demo-module__content">
-                <hi-popup v-model="show1" title="标题" @close="handleClose" @asyncClose="handleAsyncClose" overlayClickable>
+                <hi-popup v-model="show1" title="标题" @close="handleClose" @asyncClose="handleAsyncClose" overlayClickable showBorder>
                     <view class="content">
                         <view class="content-title">将进酒·君不见</view>
                         <view>君不见，黄河之水天上来，奔流到海不复回。</view>
@@ -26,8 +26,8 @@
                         <view>主人何为言少钱，径须沽取对君酌。</view>
                         <view>五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。</view>
                     </view>
-                    <template #foot>
-                        <view class="foot">【作者】李白 【朝代】唐</view>
+                    <template #footer>
+                        <view class="footer">【作者】李白 【朝代】唐</view>
                     </template>
                 </hi-popup>
                 <hi-button @tap="handleClickBtn1" theme="primary" text="基础使用"></hi-button>
@@ -54,8 +54,8 @@
                         <view>主人何为言少钱，径须沽取对君酌。</view>
                         <view>五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。</view>
                     </view>
-                    <template #foot>
-                        <view class="foot">【作者】李白 【朝代】唐</view>
+                    <template #footer>
+                        <view class="footer">【作者】李白 【朝代】唐</view>
                     </template>
                 </hi-popup>
                 <hi-button @tap="handleClickBtn2" theme="success" text="异步关闭"></hi-button>
@@ -82,8 +82,8 @@
                         <view>主人何为言少钱，径须沽取对君酌。</view>
                         <view>五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。</view>
                     </view>
-                    <template #foot>
-                        <view class="foot">【作者】李白 【朝代】唐</view>
+                    <template #footer>
+                        <view class="footer">【作者】李白 【朝代】唐</view>
                     </template>
                 </hi-popup>
                 <hi-button @tap="handleClickBtn3('top')" theme="warning" text="内容居上"></hi-button>
@@ -168,7 +168,7 @@
         }
 
         .content {
-            padding: 1.5em;
+            padding: 0.5em 1.5em;
             text-align: justify;
             line-height: 1.8;
         }
@@ -179,7 +179,7 @@
             margin-bottom: 0.25em;
         }
 
-        .foot {
+        .footer {
             padding: 1em 2em;
             font-size: 0.85em;
             color: #999999;
