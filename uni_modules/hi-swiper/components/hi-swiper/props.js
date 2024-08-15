@@ -2,9 +2,15 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
+    // hover-class
+    hoverClass: {
+        type: String,
+        default: "hi-hover"
+    },
+
     // 宽
     width: {
         type: String,
@@ -35,25 +41,43 @@ export default {
         default: 0
     },
 
-    // 是否显示指示点
-    dots: {
-        type: Boolean,
-        default: true
+    // 圆角大小
+    redius: {
+        type: String,
+        default: ""
     },
 
-    // 图片图标的裁剪、缩放模式
+    // 是否显示面板指示点
+    indicatorDots: {
+        type: Boolean,
+        default: false
+    },
+
+    // 指示点颜色
+    indicatorColor: {
+        type: String,
+        default: "rgba(0, 0, 0, .3)"
+    },
+
+    // 当前选中的指示点颜色
+    indicatorActiveColor: {
+        type: String,
+        default: "#000000"
+    },
+
+    // 图片的裁剪、缩放模式
     mode: {
         type: String,
         default: "aspectFill"
     },
 
-    // 图片图标懒加载？
+    // 图片懒加载？
     lazyLoad: {
         type: Boolean,
         default: false
     },
 
-    // 图片图标显示动画效果？
+    // 图片显示动画效果？
     fadeShow: {
         type: Boolean,
         default: true
