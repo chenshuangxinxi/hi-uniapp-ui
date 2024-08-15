@@ -65,6 +65,14 @@
             }
         },
 
+        // 轮播指示器
+        {
+            "path": "pages/swiper-indicator/swiper-indicator",
+            "style": {
+                "navigationBarTitleText": "轮播指示器"
+            }
+        },
+
         // 滚动通知
         {
             "path": "pages/notice-bar/notice-bar",
