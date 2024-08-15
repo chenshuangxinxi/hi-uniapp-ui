@@ -28,5 +28,11 @@ export default {
     duration: {
         type: String,
         default: ""
+    },
+
+    // 背景
+    bg: {
+        type: String,
+        default: ""
     }
 };

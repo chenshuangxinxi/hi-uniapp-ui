@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 遮罩层组件
+ * HiUi - 遮罩层
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-overlay" :class="_classes" :style="_styles" @tap="handleClick" v-if="modelValue">
@@ -45,6 +45,9 @@
         // 过渡效果持续时间
         if (_props.duration) styles.push(`--hi-overlay-duration: ${_props.duration}`);
 
+        // 背景
+        if (_props.bg) styles.push(`--hi-overlay-background: ${_props.bg}`);
+
         return styles;
     });
 
@@ -72,13 +75,14 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--hi-overlay-background, var(--hi-background-overlay));
+        background: var(--hi-overlay-background, var(--hi-background-overlay));
         opacity: 0;
         z-index: var(--hi-overlay-index, var(--hi-index-big));
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
 
         &--show {
             animation-name: hi-overlay-ani;
