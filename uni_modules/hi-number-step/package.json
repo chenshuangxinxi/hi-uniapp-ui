@@ -9,7 +9,7 @@
         "number-step",
         "步进器"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },
