@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 状态栏组件
+ * HiUi - 状态栏
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-status-bar" :class="_classes" :style="_styles"></view>
@@ -34,6 +34,12 @@
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
+
+        // 背景
+        if (_props.bg) styles.push(`--hi-status-bar-background: ${_props.bg}`);
+
+        // 高度
+        if (_props.height) styles.push(`--hi-status-bar-height: ${_props.height}`);
 
         // 状态栏默认高度
         styles.push(`--hi-status-bar-height--default: ${uni.getSystemInfoSync().statusBarHeight}px`);
