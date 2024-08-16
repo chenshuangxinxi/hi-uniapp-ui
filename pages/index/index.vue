@@ -109,7 +109,6 @@
     const navComponents = ref([
         { title: "状态栏", icon: "/static/images/icons/status-bar.png", path: "/pages/status-bar/status-bar" },
         { title: "导航栏", icon: "/static/images/icons/navigation-bar.png", path: "/pages/navigation-bar/navigation-bar" },
-        { title: "页面头部", icon: "/static/images/icons/page-header.png", path: "/pages/page-header/page-header" },
         { title: "内容为空", icon: "/static/images/icons/empty.png", path: "/pages/empty/empty" },
         { title: "电梯导航", icon: "/static/images/icons/elevator.png", path: "/pages/elevator/elevator" }
     ]);
