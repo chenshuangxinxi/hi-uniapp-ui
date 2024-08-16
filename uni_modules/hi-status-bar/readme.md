@@ -1,4 +1,4 @@
-# HiUi - 图标
+# HiUi - 状态栏
 
 [文档](https://chenshuangxinxi.github.io/hi-uniapp-ui-guide/components/status-bar.html)
 
