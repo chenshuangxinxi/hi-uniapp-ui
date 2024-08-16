@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 步进器组件
+ * HiUi - 步进器
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
@@ -66,7 +66,7 @@
         <view class="demo-module">
             <view class="demo-module__title">异步变更</view>
             <view class="demo-module__content">
-                <hi-number-step v-model="number8" @change="onChange" async></hi-number-step>
+                <hi-number-step v-model="number8" @asyncChange="onChange" async></hi-number-step>
             </view>
         </view>
     </view>

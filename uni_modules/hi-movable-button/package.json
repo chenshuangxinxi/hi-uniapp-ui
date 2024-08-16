@@ -1,7 +1,7 @@
 {
     "id": "hi-movable-button",
     "displayName": "hi-movable-button",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "可拖动按钮组件",
     "keywords": [
         "",
@@ -40,8 +40,7 @@
         "dependencies": [
             "hi-config",
             "hi-styles",
-            "hi-icon",
-            "hi-badge"
+            "hi-icon"
         ],
         "encrypt": [],
         "platforms": {
