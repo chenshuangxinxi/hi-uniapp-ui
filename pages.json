@@ -121,11 +121,11 @@
             }
         },
 
-        // 拖动按钮
+        // 可拖动按钮
         {
             "path": "pages/movable-button/movable-button",
             "style": {
-                "navigationBarTitleText": "拖动按钮"
+                "navigationBarTitleText": "可拖动按钮"
             }
         },
 

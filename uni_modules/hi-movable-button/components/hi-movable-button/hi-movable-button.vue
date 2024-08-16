@@ -1,14 +1,14 @@
 <!--
- * hi-ui - 可拖动内容组件
+ * HiUi - 可拖动按钮
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <movable-area class="hi-movable" :scale-area="scaleArea" :class="_classes" :style="_styles">
+    <movable-area class="hi-movable-button" :scale-area="scaleArea" :class="_classes" :style="_styles">
         <!-- #ifndef MP -->
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             :direction="direction"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -21,21 +21,22 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName" :size="iconSize" :color="iconColor" :mode="iconMode"></hi-icon>
+                <text class="hi-movable-button__text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <!-- #endif -->
 
         <!-- 小程序的 direction 属性使用 props 中的值绑定不生效，只能一个一个的判断了，头疼~~~ -->
         <!-- #ifdef MP -->
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             direction="all"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -48,18 +49,19 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
             v-if="direction === 'all'"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName" :size="iconSize" :color="iconColor" :mode="iconMode"></hi-icon>
+                <text class="hi-movable-button__text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             direction="vertical"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -72,18 +74,19 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
             v-else-if="direction === 'vertical'"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName" :size="iconSize" :color="iconColor" :mode="iconMode"></hi-icon>
+                <text class="hi-movable-button__text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             direction="horizontal"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -96,18 +99,19 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
             v-else-if="direction === 'horizontal'"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName" :size="iconSize" :color="iconColor" :mode="iconMode"></hi-icon>
+                <text class="hi-movable-button__text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             direction="none"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -120,15 +124,16 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
             v-else-if="direction === 'none'"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName" :size="iconSize" :color="iconColor" :mode="iconMode"></hi-icon>
+                <text class="hi-movable-button__text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <!-- #endif -->
     </movable-area>
@@ -154,7 +159,10 @@
         const classes = [];
 
         // 初始位置
-        classes.push("hi-movable--" + _props.position);
+        if (_props.position) classes.push("hi-movable-button--" + _props.position);
+
+        // 边框
+        if (_props.showBorder) classes.push("hi-movable-button--border");
 
         return classes;
     });
@@ -162,157 +170,197 @@
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
-        return styles;
-    });
 
-    // 按钮样式
-    const _buttonStyles = computed(() => {
-        const styles = [];
+        // 文字大小
+        if (_props.size) styles.push("--hi-movable-button-font-size: " + _props.size);
+
+        // 文字颜色
+        if (_props.color) styles.push("--hi-movable-button-color: " + _props.color);
+
+        // 宽和高
+        if (_props.btnSize) {
+            styles.push("--hi-movable-button-width: " + _props.btnSize);
+            styles.push("--hi-movable-button-height: " + _props.btnSize);
+        }
 
         // 宽
-        styles.push("width: " + _props.width);
-        styles.push("--hi-movable-button-width: " + _props.width);
+        if (_props.width) styles.push("--hi-movable-button-width: " + _props.width);
 
         // 高
-        styles.push("height: " + _props.height);
-        styles.push("--hi-movable-button-height: " + _props.height);
+        if (_props.height) styles.push("--hi-movable-button-height: " + _props.height);
+
+        // 阴影
+        if (_props.shadow) styles.push("--hi-movable-button-box-shadow: " + _props.shadow);
+
+        // 背景
+        if (_props.bg) styles.push("--hi-movable-button-background: " + _props.bg);
+
+        // 圆角
+        if (_props.radius) styles.push("--hi-movable-button-border-radius: " + _props.radius);
+
+        // 边框颜色
+        if (_props.borderColor) styles.push("--hi-movable-button-border-color: " + _props.borderColor);
+
+        // 上下左右
+        if (_props.top) styles.push("--hi-movable-button-top: " + _props.top);
+        if (_props.right) styles.push("--hi-movable-button-right: " + _props.right);
+        if (_props.bottom) styles.push("--hi-movable-button-bottom: " + _props.bottom);
+        if (_props.left) styles.push("--hi-movable-button-left: " + _props.left);
+
+        // 文字颜色
+        if (_props.textColor) styles.push("--hi-movable-button-text-color: " + _props.textColor);
+
+        // 文字大小
+        if (_props.textSize) styles.push("--hi-movable-button-text-font-size: " + _props.textSize);
 
         return styles;
     });
 </script>
 
 <style lang="scss" scoped>
-    .hi-movable {
-        width: var(--hi-movable-width, 100%);
+    .hi-movable-button {
+        width: var(--hi-movable-button-container-width, 100%);
         // #ifdef H5
-        height: var(--hi-movable-height, calc(100% - var(--window-top) - var(--window-bottom)));
-        left: var(--hi-movable-left, 0);
-        top: var(--hi-movable-top, var(--window-top));
+        height: var(--hi-movable-button-container-height, calc(100% - var(--window-top) - var(--window-bottom)));
+        left: var(--hi-movable-button-container-left, 0);
+        top: var(--hi-movable-button-container-top, var(--window-top));
         // #endif
         // #ifndef H5
-        height: var(--hi-movable-height, 100%);
-        left: 0;
-        top: var(--hi-movable-top, 0);
+        height: var(--hi-movable-button-container-height, 100%);
+        left: var(--hi-movable-button-container-left, 0);
+        top: var(--hi-movable-button-container-top, 0);
         // #endif
         position: fixed;
-        z-index: var(--hi-movable-index, var(--hi-index-middle));
+        z-index: var(--hi-movable-button-index, var(--hi-index-default));
         pointer-events: none;
 
-        &__button {
+        &__movable-view {
             pointer-events: all;
             width: var(--hi-movable-button-width, 88rpx);
             height: var(--hi-movable-button-height, 88rpx);
-            left: var(--hi-movable-button-left, 20rpx);
-            right: var(--hi-movable-button-right, 20rpx);
-            top: var(--hi-movable-button-top, 20rpx);
-            bottom: var(--hi-movable-button-bottom, 20rpx);
-            margin-left: var(--hi-movable-button-margin-left);
-            margin-top: var(--hi-movable-button-margin-top);
+            left: var(--hi-movable-button-left, 10px);
+            right: var(--hi-movable-button-right, 10px);
+            top: var(--hi-movable-button-top, 10px);
+            bottom: var(--hi-movable-button-bottom, 10px);
+            margin: var(--hi-movable-button-margin);
+            padding: var(--hi-movable-button-padding);
             background: var(--hi-movable-button-background, #ffffff);
             border-radius: var(--hi-movable-button-border-radius, 50%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--hi-movable-button-font-color);
+            color: var(--hi-movable-button-color);
             font-size: var(--hi-movable-button-font-size);
-            box-shadow: var(--hi-movable-button-shadow, var(--hi-shadow-main));
+            box-shadow: var(--hi-movable-button-box-shadow, 0 0 10px 10px rgba(0, 0, 0, 0.1));
+            border-width: var(--hi-movable-button-border-width, 0);
+            border-style: var(--hi-movable-button-border-style, solid);
+            border-color: var(--hi-movable-button-border-color, var(--hi-border-color));
+            line-height: var(--hi-movable-button-line-height, 1);
+        }
 
-            &__icon {
-                --hi-icon-color: var(--hi-movable-button-icon-color, var(--hi-movable-button-font-color));
-                --hi-icon-size: var(--hi-movable-button-icon-size, 1.5em);
-            }
+        &__icon {
+            --hi-icon-color: var(--hi-movable-button-icon-color);
+            --hi-icon-size: var(--hi-movable-button-icon-size, 48rpx);
+        }
 
-            &__text {
-                color: var(--hi-movable-button-text-color, var(--hi-movable-button-font-color));
-                font-size: var(--hi-movable-button-text-size, 0.6em);
+        &__text {
+            color: var(--hi-movable-button-text-color);
+            font-size: var(--hi-movable-button-text-font-size, 18rpx);
+        }
+
+        &--border {
+            .hi-movable-button__movable-view {
+                border-width: var(--hi-movable-button-border-width, 0.5px);
             }
         }
 
         &--left-top {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 20rpx);
+            .hi-movable-button__movable-view {
+                left: var(--hi-movable-button-left, 10px);
                 right: var(--hi-movable-button-right, auto);
-                top: var(--hi-movable-button-top, 20rpx);
+                top: var(--hi-movable-button-top, 10px);
                 bottom: var(--hi-movable-button-bottom, auto);
             }
         }
 
         &--left-center {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 20rpx);
+            .hi-movable-button__movable-view {
+                left: var(--hi-movable-button-left, 10px);
                 right: var(--hi-movable-button-right, auto);
                 top: var(--hi-movable-button-top, 50%);
                 bottom: var(--hi-movable-button-bottom, auto);
-                margin-top: var(--hi-movable-button-margin-top, calc(-1 * var(--hi-movable-button-height, 100rpx) / 2));
+                margin: var(--hi-movable-button-margin, calc(-1 * var(--hi-movable-button-height, 88rpx) / 2) 0 0 0);
             }
         }
 
         &--left-bottom {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 20rpx);
+            .hi-movable-button__movable-view {
+                left: var(--hi-movable-button-left, 10px);
                 right: var(--hi-movable-button-right, auto);
                 top: var(--hi-movable-button-top, auto);
-                bottom: var(--hi-movable-button-bottom, 20rpx);
+                bottom: var(--hi-movable-button-bottom, 10px);
             }
         }
 
         &--right-top {
-            .hi-movable__button {
+            .hi-movable-button__movable-view {
                 left: var(--hi-movable-button-left, auto);
-                right: var(--hi-movable-button-right, 20rpx);
-                top: var(--hi-movable-button-top, 20rpx);
+                right: var(--hi-movable-button-right, 10px);
+                top: var(--hi-movable-button-top, 10px);
                 bottom: var(--hi-movable-button-bottom, auto);
             }
         }
 
         &--right-center {
-            .hi-movable__button {
+            .hi-movable-button__movable-view {
                 left: var(--hi-movable-button-left, auto);
-                right: var(--hi-movable-button-right, 20rpx);
+                right: var(--hi-movable-button-right, 10px);
                 top: var(--hi-movable-button-top, 50%);
                 bottom: var(--hi-movable-button-bottom, auto);
-                margin-top: var(--hi-movable-button-margin-top, calc(-1 * var(--hi-movable-button-height, 100rpx) / 2));
+                margin: var(--hi-movable-button-margin, calc(-1 * var(--hi-movable-button-height, 88rpx) / 2) 0 0 0);
             }
         }
 
         &--right-bottom {
-            .hi-movable__button {
+            .hi-movable-button__movable-view {
                 left: var(--hi-movable-button-left, auto);
-                right: var(--hi-movable-button-right, 20rpx);
+                right: var(--hi-movable-button-right, 10px);
                 top: var(--hi-movable-button-top, auto);
-                bottom: var(--hi-movable-button-bottom, 20rpx);
+                bottom: var(--hi-movable-button-bottom, 10px);
             }
         }
 
         &--center-top {
-            .hi-movable__button {
+            .hi-movable-button__movable-view {
                 left: var(--hi-movable-button-left, 50%);
                 right: var(--hi-movable-button-right, auto);
-                top: var(--hi-movable-button-top, 20rpx);
+                top: var(--hi-movable-button-top, 10px);
                 bottom: var(--hi-movable-button-bottom, auto);
-                margin-left: var(--hi-movable-button-margin-left, calc(-1 * var(--hi-movable-button-width, 100rpx) / 2));
+                margin: var(--hi-movable-button-margin, 0 0 0 calc(-1 * var(--hi-movable-button-width, 88rpx) / 2));
             }
         }
 
         &--center-center {
-            .hi-movable__button {
+            .hi-movable-button__movable-view {
                 left: var(--hi-movable-button-left, 50%);
                 right: var(--hi-movable-button-right, auto);
                 top: var(--hi-movable-button-top, 50%);
                 bottom: var(--hi-movable-button-bottom, auto);
-                margin-left: var(--hi-movable-button-margin-left, calc(-1 * var(--hi-movable-button-width, 100rpx) / 2));
-                margin-top: calc(-1 * var(--hi-movable-button-height, 100rpx) / 2);
+                margin: var(
+                    --hi-movable-button-margin,
+                    calc(-1 * var(--hi-movable-button-height, 88rpx) / 2) 0 0 calc(-1 * var(--hi-movable-button-width, 88rpx) / 2)
+                );
             }
         }
 
         &--center-bottom {
-            .hi-movable__button {
+            .hi-movable-button__movable-view {
                 left: var(--hi-movable-button-left, 50%);
                 right: var(--hi-movable-button-right, auto);
                 top: var(--hi-movable-button-top, auto);
-                bottom: var(--hi-movable-button-bottom, 20rpx);
-                margin-left: var(--hi-movable-button-margin-left, calc(-1 * var(--hi-movable-button-width, 100rpx) / 2));
+                bottom: var(--hi-movable-button-bottom, 10px);
+                margin: var(--hi-movable-button-margin, 0 0 0 calc(-1 * var(--hi-movable-button-width, 88rpx) / 2));
             }
         }
     }
