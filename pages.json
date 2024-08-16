@@ -40,15 +40,6 @@
             }
         },
 
-        // 页面头部
-        {
-            "path": "pages/page-header/page-header",
-            "style": {
-                "navigationBarTitleText": "页面头部",
-                "navigationStyle": "custom"
-            }
-        },
-
         // 按钮
         {
             "path": "pages/button/button",
