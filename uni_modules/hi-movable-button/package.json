@@ -1,7 +1,7 @@
 {
     "id": "hi-movable-button",
     "displayName": "hi-movable-button",
-    "version": "1.0.7",
+    "version": "2.0.0",
     "description": "可拖动按钮组件",
     "keywords": [
         "",
@@ -9,7 +9,7 @@
         "movable-button",
         "拖动按钮"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

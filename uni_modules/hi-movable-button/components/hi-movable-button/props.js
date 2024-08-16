@@ -2,41 +2,134 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
     // hover-class
     hoverClass: {
         type: String,
-        default: "hi-hover-class"
+        default: "hi-hover"
+    },
+
+    // 文字大小
+    size: {
+        type: String,
+        default: ""
+    },
+
+    // 文字颜色
+    color: {
+        type: String,
+        default: ""
     },
 
     // 宽
     width: {
         type: String,
-        default: "88rpx"
+        default: ""
     },
 
     // 高
     height: {
         type: String,
+        default: ""
+    },
+
+    // 宽和高
+    btnSize: {
+        type: String,
         default: "88rpx"
     },
 
-    // 图标
+    // 阴影
+    shadow: {
+        type: String,
+        default: "0 0 10px 10px rgba(0,0,0,0.1)"
+    },
+
+    // 背景
+    bg: {
+        type: String,
+        default: ""
+    },
+
+    // 圆角
+    radius: {
+        type: String,
+        default: ""
+    },
+
+    // 是否显示边框
+    showBorder: {
+        type: Boolean,
+        default: false
+    },
+
+    // 边框颜色
+    borderColor: {
+        type: String,
+        default: ""
+    },
+
+    // 上下左右
+    top: {
+        type: String,
+        default: ""
+    },
+
+    bottom: {
+        type: String,
+        default: ""
+    },
+
+    left: {
+        type: String,
+        default: ""
+    },
+
+    right: {
+        type: String,
+        default: ""
+    },
+
+    // 图标名称
     iconName: {
         type: String,
         default: "__zhuye"
     },
 
-    // 图标的其他配置
-    iconProps: {
-        type: Object,
-        default: () => ({})
+    // 图标颜色
+    iconColor: {
+        type: String,
+        default: ""
+    },
+
+    // 图标大小
+    iconSize: {
+        type: String,
+        default: ""
+    },
+
+    // 图标裁剪模式
+    iconMode: {
+        type: String,
+        default: ""
     },
 
     // 文字
     text: {
+        type: String,
+        default: ""
+    },
+
+    // 文字颜色
+    textColor: {
+        type: String,
+        default: ""
+    },
+
+    // 文字大小
+    textSize: {
         type: String,
         default: ""
     },
@@ -124,23 +217,5 @@ export default {
     animation: {
         type: Boolean,
         default: true
-    },
-
-    // 是否显示徽标数？
-    showBadge: {
-        type: Boolean,
-        default: false
-    },
-
-    // 徽标数的值
-    badgeValue: {
-        type: Number,
-        default: 0
-    },
-
-    // 徽标数的其他配置
-    badgeProps: {
-        type: Object,
-        default: () => ({})
     }
 };

@@ -92,7 +92,7 @@
     const layoutComponents = ref([
         { title: "轮播", icon: "/static/images/icons/swiper.png", path: "/pages/swiper/swiper" },
         { title: "轮播指示器", icon: "/static/images/icons/swiper.png", path: "/pages/swiper-indicator/swiper-indicator" },
-        { title: "拖动按钮", icon: "/static/images/icons/movable-button.png", path: "/pages/movable-button/movable-button" },
+        { title: "可拖动按钮", icon: "/static/images/icons/movable-button.png", path: "/pages/movable-button/movable-button" },
         { title: "遮罩层", icon: "/static/images/icons/overlay.png", path: "/pages/overlay/overlay" }
     ]);
 
