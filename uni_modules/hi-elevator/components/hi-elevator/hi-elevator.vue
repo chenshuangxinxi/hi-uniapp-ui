@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 电梯导航组件
+ * hi-elevator - 电梯导航
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-elevator" :class="_classes" :style="_styles">
@@ -11,9 +11,9 @@
             <scroll-view class="hi-elevator__floors__scroll-view" scroll-y :scroll-into-view="scrollIntoViewId" scroll-with-animation>
                 <view
                     class="hi-elevator__floor"
-                    v-for="(_item, _index) in floors"
+                    v-for="(_item, _index) in list"
                     :key="_index"
-                    :class="{ 'hi-elevator__floor--active': _index === _current, 'hi-elevator__floor--disabled': !!_item?.disabled }"
+                    :class="{ 'hi-elevator__floor--active': _index === _current, 'hi-disabled hi-elevator__floor--disabled': !!_item?.disabled }"
                     :id="`hiElevatorFloor${_index}`"
                     @tap="handleFloorClick(_index)"
                 >
@@ -29,25 +29,12 @@
         <!-- 右侧房间 -->
         <view class="hi-elevator__rooms">
             <swiper class="hi-elevator__swiper" :current="_current" vertical @change="onSwiperChange">
-                <swiper-item class="hi-elevator__swiper__item hi-elevator__list" v-for="(_item, _index) in floors" :key="_index">
+                <swiper-item class="hi-elevator__swiper__item hi-elevator__list" v-for="(_item, _index) in list" :key="_index">
                     <scroll-view
                         class="hi-elevator__list__scroll-view"
                         scroll-y
-                        :upper-threshold="upperThreshold"
-                        :lower-threshold="lowerThreshold"
-                        :refresher-enabled="refresherEnabled"
-                        :refresher-threshold="refresherThreshold"
-                        :refresher-default-style="refresherDefaultStyle"
-                        :refresher-background="refresherBackground"
-                        :scroll-anchoring="scrollAnchoring"
-                        :refresher-triggered="_item?.refresherTriggered"
-                        @scrolltoupper="_emits('scrolltoupper', _index)"
                         @scrolltolower="_emits('scrolltolower', _index)"
                         @scroll="_emits('scroll', $event, _index)"
-                        @refresherpulling="_emits('refresherpulling', _index)"
-                        @refresherrefresh="_emits('refresherrefresh', _index)"
-                        @refresherrestore="_emits('refresherrestore', _index)"
-                        @refresherabort="_emits('refresherabort', _index)"
                     >
                         <slot name="rightItem" :item="_item" :index="_index"></slot>
                     </scroll-view>
@@ -70,16 +57,7 @@
     const _props = defineProps(props);
 
     // 组件事件
-    const _emits = defineEmits([
-        "change",
-        "scrolltoupper",
-        "scrolltolower",
-        "scroll",
-        "refresherpulling",
-        "refresherrefresh",
-        "refresherrestore",
-        "refresherabort"
-    ]);
+    const _emits = defineEmits(["change", "scrolltolower", "scroll"]);
 
     // 组件类名
     const _classes = computed(() => {
@@ -133,21 +111,17 @@
 
 <style lang="scss" scoped>
     .hi-elevator {
-        width: var(--hi-elevator-width, 100%);
-        height: var(--hi-elevator-height, 100%);
+        width: 100%;
+        height: 100%;
         display: flex;
         flex: 1;
 
         &__floors {
-            width: var(--hi-elevator-floors-width, 180rpx);
+            width: 180rpx;
             flex-shrink: 0;
-            height: var(--hi-elevator-floors-height);
-            background: var(--hi-elevator-floors-background, #f1f3f4);
+            background: #f1f3f4;
             overflow: hidden;
-            font-size: var(--hi-elevator-floors-font-size);
-            color: var(--hi-elevator-floors-font-color);
-            text-align: var(--hi-elevator-floors-text-align, center);
-            font-weight: var(--hi-elevator-floors-font-weight, 400);
+            text-align: center;
 
             &__scroll-view {
                 width: 100%;
@@ -157,21 +131,19 @@
 
         &__floor {
             &__content {
-                padding: var(--hi-elevator-floor-padding, 1em 0.5em);
+                padding: 1em 0.5em;
                 position: relative;
-                transition: var(--hi-elevator-floors-bar-transition, 0.3s ease-in-out);
+                transition: 0.3s ease-in-out;
 
                 &::before {
                     content: "";
-                    width: var(--hi-elevator-floors-bar-width, 0);
-                    height: var(--hi-elevator-floors-bar-height, 0);
-                    border-radius: var(--hi-elevator-floors-bar-border-radius, var(--hi-radius-small));
-                    background: var(--hi-elevator-floors-bar-background, var(--hi-theme-main));
+                    width: 0;
+                    height: 0;
+                    border-radius: 10px;
+                    background: var(--hi-theme-primary);
                     position: absolute;
-                    left: var(--hi-elevator-floors-bar-left, 0);
-                    top: var(--hi-elevator-floors-bar-top, 50%);
-                    right: var(--hi-elevator-floors-bar-right, auto);
-                    bottom: var(--hi-elevator-floors-bar-bottom, auto);
+                    left: 0;
+                    top: 50%;
                     transform: translateY(-50%);
                     transition: inherit;
                     opacity: 0;
@@ -180,28 +152,21 @@
             }
 
             &--active {
-                background: var(--hi-elevator-floors-active-background, #ffffff);
-                font-size: var(--hi-elevator-floors-active-font-size);
-                color: var(--hi-elevator-floors-active-font-color, var(--hi-theme-main));
-                font-weight: var(--hi-elevator-floors-active-font-weight, 800);
+                background: #ffffff;
+                color: var(--hi-theme-primary);
+                font-weight: 700;
 
                 .hi-elevator__floor__content::before {
-                    width: var(--hi-elevator-floors-bar-width, 6rpx);
-                    height: var(--hi-elevator-floors-bar-height, 1em);
+                    width: 3px;
+                    height: 1em;
                     opacity: 1;
                 }
-            }
-
-            &--disabled {
-                opacity: var(--hi-elevator-floors-disabled-opacity, var(--hi-opacity-disabled));
-                pointer-events: none;
             }
         }
 
         &__rooms {
             flex: 1;
             overflow: hidden;
-            height: var(--hi-elevator-rooms-height);
         }
 
         &__swiper {

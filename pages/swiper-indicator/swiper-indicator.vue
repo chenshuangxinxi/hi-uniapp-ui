@@ -1,5 +1,5 @@
 <!--
- * HiUi - 轮播指示器
+ * hi-swiper-indicator - 轮播指示器
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913

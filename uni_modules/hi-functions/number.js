@@ -2,7 +2,7 @@
  * @descript Number 类型数据处理工具函数集
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  *
  * @list 函数列表
  * ========================================================================================================================
@@ -16,7 +16,7 @@
  * @returns {Boolean} true: 是 Number 类型数据；false: 不是 Number 类型数据；
  */
 export function isNumber(num) {
-    return !Number.isNaN(num) && typeof num === 'number';
+    return !Number.isNaN(num) && typeof num === "number";
 }
 
 /**
@@ -28,9 +28,9 @@ export function isNumber(num) {
  */
 export function formatFloat(num = 0, digit = 2, abandonEnd = true) {
     let str = num.toFixed(digit);
-    let parts = str.split('.');
+    let parts = str.split(".");
     if (parts[1] && abandonEnd) {
-        parts[1] = parts[1].replace(/0+$/, '');
+        parts[1] = parts[1].replace(/0+$/, "");
     }
-    return Number(parts.join('.'));
+    return Number(parts.join("."));
 }

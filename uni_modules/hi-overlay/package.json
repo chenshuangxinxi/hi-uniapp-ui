@@ -1,8 +1,8 @@
 {
     "id": "hi-overlay",
     "displayName": "hi-overlay",
-    "version": "2.0.0",
-    "description": "遮罩层组件",
+    "version": "3.0.0",
+    "description": "遮罩层",
     "keywords": [
         "",
         "hi",

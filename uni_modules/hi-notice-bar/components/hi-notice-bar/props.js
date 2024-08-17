@@ -30,39 +30,27 @@ export default {
     },
 
     // 是否显示通知图标
-    showNoticeIcon: {
+    showIcon: {
         type: Boolean,
         default: true
     },
 
     // 通知图标名称
-    noticeIconName: {
+    iconName: {
         type: String,
         default: "__gonggao"
     },
 
-    // 通知图标颜色
-    noticeIconColor: {
-        type: String,
-        default: ""
+    // 是否显示更多按钮
+    showArrow: {
+        type: Boolean,
+        default: false
     },
 
-    // 通知图标的大小
-    noticeIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // 通知图标的裁剪模式
-    noticeIconMode: {
-        type: String,
-        default: ""
-    },
-
-    // 模式。arrow: 显示箭头图标，closable: 显示关闭图标，"arrow closable": 同时显示两个图标，为空则不显示图标
-    mode: {
-        type: String,
-        default: "arrow"
+    // 是否显示关闭按钮
+    showClose: {
+        type: Boolean,
+        default: false
     },
 
     // 箭头图标名称
@@ -71,52 +59,16 @@ export default {
         default: "__you"
     },
 
-    // 箭头图标大小
-    arrowIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // 箭头图标颜色
-    arrowIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // 箭头图标的裁剪模式
-    arrowIconMode: {
-        type: String,
-        default: ""
-    },
-
     // 关闭图标名称
     closeIconName: {
         type: String,
         default: "__shanchu"
     },
 
-    // 关闭图标大小
-    closeIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // 关闭图标颜色
-    closeIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // 关闭图标的裁剪模式
-    closeIconMode: {
-        type: String,
-        default: ""
-    },
-
-    // 方向。row | column
-    direction: {
-        type: String,
-        default: "row"
+    // 是否纵向
+    vertical: {
+        type: Boolean,
+        default: false
     },
 
     // 滚动持续时长，单位秒，duration 和 speed 两者只能存在一个
@@ -141,35 +93,5 @@ export default {
     step: {
         type: Boolean,
         default: false
-    },
-
-    // 背景
-    bg: {
-        type: String,
-        default: ""
-    },
-
-    // 文字颜色
-    color: {
-        type: String,
-        default: ""
-    },
-
-    // 文字大小
-    size: {
-        type: String,
-        default: ""
-    },
-
-    // 文本区域的高度
-    height: {
-        type: String,
-        default: ""
-    },
-
-    // 内边距
-    padding: {
-        type: String,
-        default: ""
     }
 };

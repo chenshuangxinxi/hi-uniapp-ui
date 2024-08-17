@@ -1,5 +1,5 @@
 <!--
- * HiUi - loadmore - 加载更多
+ * hi-loadmore - 加载更多
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -13,7 +13,7 @@
 
         <!-- loading -->
         <view class="hi-loadmore__body hi-loadmore__body--loading" v-else-if="status === 'loading'">
-            <hi-icon class="hi-loadmore__icon" :name="iconName" :size="iconSize" :color="iconColor" :mode="iconMode"></hi-icon>
+            <hi-icon class="hi-loadmore__icon" :name="iconName"></hi-icon>
             <text class="hi-loadmore__text">{{ loadingText }}</text>
         </view>
 
@@ -42,23 +42,12 @@
     // 组件类名
     const _classes = computed(() => {
         const classes = [];
-
-        // 布局方向
-        classes.push(`hi-loadmore--${_props.direction}`);
-
         return classes;
     });
 
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
-
-        // 文字颜色
-        if (_props.color) styles.push(`--hi-loadmore-color: ${_props.color}`);
-
-        // 文字大小
-        if (_props.size) styles.push(`--hi-loadmore-font-size: ${_props.size}`);
-
         return styles;
     });
 </script>
@@ -68,32 +57,23 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: var(--hi-loadmore-padding, 10px);
-        font-size: var(--hi-loadmore-font-size, 0.8em);
-        color: var(--hi-loadmore-color, var(--hi-color-light));
+        color: var(--hi-color-light);
+        font-size: 0.8em;
 
         &__body {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: row;
-            gap: var(--hi-loadmore-gap, 5px);
+            gap: 5px;
         }
 
         &__icon {
-            font-size: var(--hi-loadmore-icon-size, 1.25em);
-            color: var(--hi-loadmore-icon-color);
+            font-size: 1.5em;
             animation-name: hi-ani-spin;
-            animation-duration: var(--hi-loadmore-duration, 1500ms);
+            animation-duration: 1500ms;
             animation-iteration-count: infinite;
-            animation-timing-function: var(--hi-loadmore-function, linear);
-        }
-
-        &--column {
-            .hi-loadmore__body {
-                flex-direction: column;
-                gap: var(--hi-loadmore-gap, 2px);
-            }
+            animation-timing-function: linear;
         }
     }
 </style>

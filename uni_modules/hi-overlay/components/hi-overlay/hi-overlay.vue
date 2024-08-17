@@ -1,11 +1,11 @@
 <!--
- * HiUi - 遮罩层
+ * hi-overlay - 遮罩层
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <view class="hi-overlay" :class="_classes" :style="_styles" @tap="handleClick" v-if="modelValue">
+    <view class="hi-overlay" :class="_classes" :style="_styles" @tap="handleClick" v-if="show">
         <slot></slot>
     </view>
 </template>
@@ -23,7 +23,7 @@
     const _props = defineProps(props);
 
     // 组件事件
-    const _emits = defineEmits(["close", "asyncClose", "update:modelValue"]);
+    const _emits = defineEmits(["close"]);
 
     // 组件类名
     const _classes = computed(() => {
@@ -33,7 +33,7 @@
         classes.push(`hi-overlay--${_props.align}`);
 
         // 是否显示
-        if (_props.modelValue) classes.push("hi-overlay--show");
+        if (_props.show) classes.push("hi-overlay--show");
 
         return classes;
     });
@@ -41,13 +41,6 @@
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
-
-        // 过渡效果持续时间
-        if (_props.duration) styles.push(`--hi-overlay-duration: ${_props.duration}`);
-
-        // 背景
-        if (_props.bg) styles.push(`--hi-overlay-background: ${_props.bg}`);
-
         return styles;
     });
 
@@ -55,13 +48,6 @@
      * 点击事件
      */
     function handleClick() {
-        // 异步关闭
-        if (_props.async) {
-            _emits("asyncClose");
-            return;
-        }
-
-        _emits("update:modelValue", false);
         _emits("close");
     }
 </script>
@@ -75,9 +61,9 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: var(--hi-overlay-background, var(--hi-background-overlay));
+        background: var(--hi-background-overlay);
         opacity: 0;
-        z-index: var(--hi-overlay-index, var(--hi-index-big));
+        z-index: var(--hi-index-big);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -86,8 +72,8 @@
 
         &--show {
             animation-name: hi-overlay-ani;
-            animation-duration: var(--hi-overlay-duration, 300ms);
-            animation-timing-function: var(--hi-overlay-function, ease-in-out);
+            animation-duration: 300ms;
+            animation-timing-function: linear;
             animation-fill-mode: forwards;
         }
 

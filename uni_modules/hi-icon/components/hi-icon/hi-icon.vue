@@ -1,5 +1,5 @@
 <!--
- * HiUi - 图标
+ * hi-icon - 图标
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -35,6 +35,12 @@
         if (_isImage.value) classes.push("hi-icon--image");
 
         return classes;
+    });
+
+    // styles
+    const _styles = computed(() => {
+        const styles = [];
+        return styles;
     });
 
     // 图标名称（类名）
@@ -98,13 +104,13 @@
         &__image {
             display: inline-block;
             font-size: 1em;
-            width: var(--hi-icon-image-width, 1em);
-            height: var(--hi-icon-image-height, 1em);
+            width: 1em;
+            height: 1em;
         }
 
         &--image {
-            width: var(--hi-icon-image-width, 1em);
-            height: var(--hi-icon-image-height, 1em);
+            width: 1em;
+            height: 1em;
         }
     }
 </style>

@@ -1,5 +1,5 @@
 <!--
- * HiUi - loading - 加载
+ * hi-loading - 加载
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -19,14 +19,6 @@
             <view class="demo-module__title">加载文字</view>
             <view class="demo-module__content">
                 <hi-loading text="加载中..."></hi-loading>
-            </view>
-        </view>
-
-        <!-- 布局方向 -->
-        <view class="demo-module">
-            <view class="demo-module__title">布局方向</view>
-            <view class="demo-module__content">
-                <hi-loading text="加载中..." direction="column"></hi-loading>
             </view>
         </view>
     </view>

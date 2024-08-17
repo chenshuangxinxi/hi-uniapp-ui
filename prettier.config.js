@@ -3,7 +3,7 @@
  * Prettier配置文档：https://prettier.io/docs/en/options.html
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 module.exports = {
     printWidth: 158, // 指定自动换行的行长

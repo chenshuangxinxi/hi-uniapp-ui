@@ -1,8 +1,8 @@
 {
     "id": "hi-notice-bar",
     "displayName": "hi-notice-bar",
-    "version": "2.0.0",
-    "description": "滚动通知组件",
+    "version": "3.0.0",
+    "description": "滚动通知",
     "keywords": [
         "",
         "hi",

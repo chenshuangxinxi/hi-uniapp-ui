@@ -1,11 +1,11 @@
 <!--
- * HiUi - 图片
+ * hi-image - 图片
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <view class="hi-image" :class="_classes" :style="_styles" :hover-class="hoverClass" @tap="handleClick">
+    <view class="hi-image" :class="_classes" :style="_styles">
         <image
             class="hi-image__image"
             :src="src"
@@ -18,24 +18,12 @@
             @load="onLoad"
             @error="onError"
         />
-        <view class="hi-image__status hi-image__status--loading" v-if="status === 'loading' && !closeLoading">
-            <hi-icon
-                class="hi-image__status__icon hi-image__status__icon--loading"
-                :name="loadingIconName"
-                :size="loadingIconSize"
-                :color="loadingIconColor"
-                :mode="loadingIconMode"
-            ></hi-icon>
+        <view class="hi-image__status hi-image__status--loading" v-if="status === 'loading' && showLoading">
+            <hi-icon class="hi-image__status__icon hi-image__status__icon--loading" :name="loadingIconName"></hi-icon>
             <text class="hi-image__status__text hi-image__status__text--loading">{{ loadingText }}</text>
         </view>
-        <view class="hi-image__status hi-image__status--error" v-if="status === 'error' && !closeError">
-            <hi-icon
-                class="hi-image__status__icon hi-image__status__icon--error"
-                :name="errorIconName"
-                :size="errorIconSize"
-                :color="errorIconColor"
-                :mode="errorIconMode"
-            ></hi-icon>
+        <view class="hi-image__status hi-image__status--error" v-if="status === 'error' && showError">
+            <hi-icon class="hi-image__status__icon hi-image__status__icon--error" :name="errorIconName"></hi-icon>
             <text class="hi-image__status__text hi-image__status__text--error">{{ errorText }}</text>
         </view>
     </view>
@@ -54,18 +42,11 @@
     const _props = defineProps(props);
 
     // 组件事件
-    const _emits = defineEmits(["load", "error", "click"]);
+    const _emits = defineEmits(["load", "error"]);
 
     // 组件类名
     const _classes = computed(() => {
         const classes = [];
-
-        // 圆形图片
-        if (_props.circle) classes.push("hi-image--circle");
-
-        // 自动撑满
-        if (_props.fill) classes.push("hi-image--fill");
-
         return classes;
     });
 
@@ -78,9 +59,6 @@
 
         // 高
         if (_props.height) styles.push(`--hi-image-height: ${_props.height}`);
-
-        // 圆角
-        if (_props.radius) styles.push(`--hi-image-border-radius: ${_props.radius}`);
 
         return styles;
     });
@@ -103,32 +81,14 @@
         status.value = "error";
         _emits("error");
     }
-
-    /**
-     * 点击事件
-     */
-    function handleClick() {
-        _emits("click");
-
-        // 开启了预览
-        if (_props.preview) {
-            uni.previewImage({
-                urls: [_props.src],
-                current: 0
-            });
-        }
-    }
-
-    // 组件对外暴漏的属性或方法
-    defineExpose({});
 </script>
 
 <style lang="scss" scoped>
     .hi-image {
         width: var(--hi-image-width, 360rpx);
         height: var(--hi-image-height, 360rpx);
-        border-radius: var(--hi-image-border-radius);
         position: relative;
+        color: var(--hi-color-light);
 
         &__image {
             width: 100%;
@@ -147,46 +107,22 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: var(--hi-image-status-gap, 2px);
             border-radius: inherit;
 
             &__icon {
-                --hi-icon-size: var(--hi-image-status-icon-size, 1.5em);
-                --hi-icon-color: var(--hi-image-status-icon-color, var(--hi-color-light));
+                font-size: 1.8em;
 
                 &--loading {
-                    --hi-icon-size: var(--hi-image-loading-icon-size, var(--hi-image-status-icon-size, 1.5em));
-                    --hi-icon-color: var(--hi-image-loading-icon-color, var(--hi-image-status-icon-color, var(--hi-color-light)));
                     animation-name: hi-ani-spin;
-                    animation-duration: var(--hi-image-loading-duration, 1500ms);
+                    animation-duration: 1500ms;
                     animation-iteration-count: infinite;
-                    animation-timing-function: var(--hi-image-loading-function, linear);
-                }
-
-                &--error {
-                    --hi-icon-size: var(--hi-image-error-icon-size, var(--hi-image-status-icon-size, 1.5em));
-                    --hi-icon-color: var(--hi-image-error-icon-color, var(--hi-image-status-icon-color, var(--hi-color-light)));
+                    animation-timing-function: linear;
                 }
             }
 
             &__text {
-                font-size: var(--hi-image-status-text-font-size, 0.75em);
-                color: var(--hi-image-status-text-color, var(--hi-color-light));
-
-                &--loading {
-                    --hi-loading-text-size: var(--hi-image-loading-text-font-size, var(--hi-image-status-text-font-size, 0.75em));
-                    --hi-loading-text-color: var(--hi-image-loading-text-color, var(--hi-image-status-text-color, var(--hi-color-light)));
-                }
-
-                &--error {
-                    font-size: var(--hi-image-error-text-font-size, var(--hi-image-status-text-font-size, 0.75em));
-                    color: var(--hi-image-error-text-color, var(--hi-image-status-text-color, var(--hi-color-light)));
-                }
+                font-size: 0.75em;
             }
-        }
-
-        &--circle {
-            border-radius: 50%;
         }
     }
 </style>

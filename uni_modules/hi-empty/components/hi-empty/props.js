@@ -5,40 +5,10 @@
  * @mobile 18560000860 / 18754137913
  */
 export default {
-    // 高度
-    height: {
-        type: String,
-        default: ""
-    },
-
-    // 背景
-    bg: {
-        type: String,
-        default: ""
-    },
-
-    // 圆角
-    radius: {
-        type: String,
-        default: ""
-    },
-
     // 图标名称
     iconName: {
         type: String,
         default: "__kongshuju"
-    },
-
-    // 图标颜色
-    iconColor: {
-        type: String,
-        default: ""
-    },
-
-    // 图标大小
-    iconSize: {
-        type: String,
-        default: ""
     },
 
     // 图标裁剪模式
@@ -53,33 +23,21 @@ export default {
         default: "Ops! 暂无数据~"
     },
 
-    // 提示文字大小
-    tipsSize: {
-        type: String,
-        default: "14"
-    },
-
-    // 提示文字颜色
-    tipsColor: {
-        type: String,
-        default: ""
-    },
-
     // 是否显示按钮
     showBtn: {
         type: Boolean,
         default: false
     },
 
-    // 按钮主题
-    btnTheme: {
-        type: String,
-        default: "primary"
-    },
-
     // 按钮文字
     btnText: {
         type: String,
         default: "继续逛逛"
+    },
+
+    // 按钮其他配置
+    btnProps: {
+        type: Object,
+        default: () => ({})
     }
 };

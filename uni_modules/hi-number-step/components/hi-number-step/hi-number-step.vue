@@ -1,5 +1,5 @@
 <!--
- * HiUi - 步进器
+ * hi-number-step - 步进器
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -11,9 +11,6 @@
             class="hi-number-step__icon hi-number-step__icon--minus"
             :hover-class="hoverClass"
             :name="minusIconName"
-            :size="minusIconSize || iconSize"
-            :color="minusIconColor || iconColor"
-            :mode="minusIconMode || iconMode"
             @tap="onMinus"
             :class="{ 'hi-number-step__icon--disabled': _disabledMinus }"
             v-if="showMinus"
@@ -27,9 +24,6 @@
             class="hi-number-step__icon hi-number-step__icon--plus"
             :hover-class="hoverClass"
             :name="plusIconName"
-            :size="plusIconSize || iconSize"
-            :color="plusIconColor || iconColor"
-            :mode="plusIconMode || iconMode"
             @tap="onPlus"
             :class="{ 'hi-number-step__icon--disabled': _disabledPlus }"
             v-if="showPlus"
@@ -57,10 +51,7 @@
         const classes = [];
 
         // 是否禁用全部？
-        if (_props.disabled) classes.push(`hi-number-step--disabled`);
-
-        // 边框
-        if (_props.showBorder) classes.push(`hi-number-step--border`);
+        if (_props.disabled) classes.push(`hi-disabled hi-number-step--disabled`);
 
         return classes;
     });
@@ -68,46 +59,6 @@
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
-
-        // 文字大小
-        if (_props.size) styles.push(`--hi-number-step-font-size: ${_props.size}`);
-
-        // 文字颜色
-        if (_props.color) styles.push(`--hi-number-step-color: ${_props.color}`);
-
-        // 背景
-        if (_props.bg) styles.push(`--hi-number-step-background: ${_props.bg}`);
-
-        // 圆角
-        if (_props.radius) styles.push(`--hi-number-step-border-radius: ${_props.radius}`);
-
-        // 边框颜色
-        if (_props.borderColor) styles.push(`--hi-number-step-border-color: ${_props.borderColor}`);
-
-        // 聚焦时边框颜色
-        if (_props.focusBorderColor) styles.push(`--hi-number-step-focus-border-color: ${_props.focusBorderColor}`);
-
-        // 宽
-        if (_props.width) styles.push(`--hi-number-step-width: ${_props.width}`);
-
-        // 高
-        if (_props.height) styles.push(`--hi-number-step-height: ${_props.height}`);
-
-        // 按钮宽
-        if (_props.btnWidth) styles.push(`--hi-number-step-button-width: ${_props.btnWidth}`);
-
-        // 输入框宽度
-        if (_props.inputWidth) styles.push(`--hi-number-step-input-width: ${_props.inputWidth}`);
-
-        // 输入框文字大小
-        if (_props.inputSize) styles.push(`--hi-number-step-input-font-size: ${_props.inputSize}`);
-
-        // 输入框文字颜色
-        if (_props.inputColor) styles.push(`--hi-number-step-input-color: ${_props.inputColor}`);
-
-        // 输入框背景
-        if (_props.inputBg) styles.push(`--hi-number-step-input-background: ${_props.inputBg}`);
-
         return styles;
     });
 
@@ -221,42 +172,20 @@
 <style lang="scss" scoped>
     .hi-number-step {
         display: inline-flex;
-        width: var(--hi-number-step-width);
-        height: var(--hi-number-step-height, 2em);
-        border-width: var(--hi-number-step-border-width, 0);
-        border-style: var(--hi-number-step-border-style, solid);
-        border-color: var(--hi-number-step-border-color, var(--hi-border-color));
-        border-radius: var(--hi-number-step-border-radius, var(--hi-radius-small));
-        background: var(--hi-number-step-background, #ffffff);
-        font-size: var(--hi-number-step-font-size);
-        color: var(--hi-number-step-color);
+        height: 2em;
+        border: 0.5px solid var(--hi-border-color);
         overflow: hidden;
         align-items: stretch;
+        text-align: center;
 
         &__icon {
-            --hi-icon-color: var(--hi-number-step-button-color);
-            --hi-icon-size: var(--hi-number-step-button-size);
-            width: var(--hi-number-step-button-width, 2em);
+            width: 2em;
             flex-shrink: 0;
-            background: var(--hi-number-step-button-background);
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100%;
-
-            &--minus {
-                --hi-icon-color: var(--hi-number-step-minus-button-color, var(--hi-number-step-button-color));
-                --hi-icon-size: var(--hi-number-step-minus-button-size, var(--hi-number-step-button-size));
-                background: var(--hi-number-step-minus-button-background, var(--hi-number-step-button-background));
-                width: var(--hi-number-step-minus-button-width, var(--hi-number-step-button-width, 2em));
-            }
-
-            &--plus {
-                --hi-icon-color: var(--hi-number-step-plus-button-color, var(--hi-number-step-button-color));
-                --hi-icon-size: var(--hi-number-step-plus-button-size, var(--hi-number-step-button-size));
-                background: var(--hi-number-step-plus-button-background, var(--hi-number-step-button-background));
-                width: var(--hi-number-step-plus-button-width, var(--hi-number-step-button-width, 2em));
-            }
+            width: 2em;
 
             &--disabled {
                 pointer-events: none;
@@ -265,44 +194,12 @@
         }
 
         &__input {
-            border-style: var(--hi-number-step-input-border-style, inherit);
-            border-color: var(--hi-number-step-input-border-color, inherit);
-            border-left-width: var(--hi-number-step-input-border-left-width, 0);
-            border-right-width: var(--hi-number-step-input-border-right-width, 0);
-            border-top-width: var(--hi-number-step-input-border-top-width, 0);
-            border-bottom-width: var(--hi-number-step-input-border-bottom-width, 0);
+            border-left: inherit;
+            border-right: inherit;
             height: 100%;
-            text-align: var(--hi-number-step-input-text-align, center);
-            padding: var(--hi-number-step-input-padding);
-            margin: var(--hi-number-step-input-margin);
-            width: var(--hi-number-step-input-width, 3em);
-            font-size: var(--hi-number-step-input-font-size, inherit);
-            color: var(--hi-number-step-input-color, inherit);
-            border-radius: var(--hi-number-step-input-border-radius, 0);
-            background: var(--hi-number-step-input-background);
+            width: 3em;
             flex: 1;
-        }
-
-        &--border {
-            border-width: var(--hi-number-step-border-width, 0.5px);
-
-            .hi-number-step__input {
-                border-left-width: var(--hi-number-step-input-border-left-width, inherit);
-                border-right-width: var(--hi-number-step-input-border-right-width, inherit);
-            }
-
-            &:focus-within {
-                border-color: var(--hi-number-step-focus-border-color, var(--hi-border-color));
-
-                .hi-number-step__input {
-                    border-color: var(--hi-number-step-focus-border-color, var(--hi-number-step-input-border-color, inherit));
-                }
-            }
-        }
-
-        &--disabled {
-            pointer-events: none;
-            opacity: var(--hi-opacity-disabled);
+            font-size: inherit;
         }
     }
 </style>

@@ -2,7 +2,7 @@
  * @descript "@/pages.json" 文件数据处理工具函数集
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  *
  * @list 函数列表
  * ========================================================================================================================
@@ -14,9 +14,7 @@
  * ========================================================================================================================
  */
 import pagesJson from "@/pages.json";
-import {
-    getUrlMainPart
-} from "./url";
+import { getUrlMainPart } from "./url";
 
 /**
  * 获取所有在 pages.json 中定义的页面数据，包含主包和所有分包
@@ -102,8 +100,7 @@ export function isTabBar(pagePath) {
         const urlMainPart = getUrlMainPart(pagePath);
 
         // 判断并返回该路径对应的页面是否是 tabBar 页面
-        return pagesJson?.tabBar?.list?.find((item) => urlMainPart === item?.pagePath || urlMainPart ===
-            `/${item?.pagePath}`);
+        return pagesJson?.tabBar?.list?.find((item) => urlMainPart === item?.pagePath || urlMainPart === `/${item?.pagePath}`);
     }
 
     // 2. 传入的参数为空
@@ -128,5 +125,5 @@ export function isPageExist(pagePath) {
     // 所有页面数据
     const pages = getPages();
 
-    return pages.find(item => item.fullPath === pagePath || item.fullPath === `/${pagePath}`);
+    return pages.find((item) => item.fullPath === pagePath || item.fullPath === `/${pagePath}`);
 }

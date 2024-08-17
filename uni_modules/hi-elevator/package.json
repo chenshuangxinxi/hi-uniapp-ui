@@ -1,16 +1,15 @@
 {
     "id": "hi-elevator",
     "displayName": "hi-elevator",
-    "version": "1.0.8",
-    "description": "电梯导航组件",
+    "version": "3.0.0",
+    "description": "电梯导航",
     "keywords": [
         "",
         "hi",
         "elevator",
-        "电梯",
-        "导航"
+        "电梯导航"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

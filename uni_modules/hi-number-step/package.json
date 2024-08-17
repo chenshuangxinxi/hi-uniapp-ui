@@ -1,8 +1,8 @@
 {
     "id": "hi-number-step",
     "displayName": "hi-number-step",
-    "version": "2.0.0",
-    "description": "步进器组件",
+    "version": "3.0.0",
+    "description": "步进器",
     "keywords": [
         "",
         "hi",

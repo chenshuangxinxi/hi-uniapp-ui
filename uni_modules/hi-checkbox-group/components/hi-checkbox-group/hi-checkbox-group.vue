@@ -1,5 +1,5 @@
 <!--
- * HiUi - 复选框组
+ * hi-checkbox-group - 复选框组
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -34,10 +34,6 @@
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
-
-        // 间距
-        if (_props.gap) styles.push(`--hi-checkbox-group-gap: ${_props.gap}`);
-
         return styles;
     });
 
@@ -83,6 +79,6 @@
     .hi-checkbox-group {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--hi-checkbox-group-gap, 10px);
+        gap: 10px;
     }
 </style>

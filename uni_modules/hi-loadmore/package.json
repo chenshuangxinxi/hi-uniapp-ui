@@ -1,14 +1,13 @@
 {
     "id": "hi-loadmore",
     "displayName": "hi-loadmore",
-    "version": "2.0.0",
-    "description": "加载更多组件",
+    "version": "3.0.0",
+    "description": "加载更多",
     "keywords": [
         "",
         "hi",
         "loadmore",
-        "加载",
-        "更多"
+        "加载更多"
     ],
     "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
