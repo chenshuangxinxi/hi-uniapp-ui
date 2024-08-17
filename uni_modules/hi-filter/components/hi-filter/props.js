@@ -13,19 +13,84 @@ export default {
 
     // 过滤条件 items
     // 数据格式为：
-    // item.value: key，需保证唯一性
-    // item.label: 可选，文本
-    // item.checkedLabel: 可选，选中时的文本
-    // item.iconName: 可选，图标名称
-    // item.checkedIconName: 可选，选中时的图标名称
-    // item.iconProps: 可选，图标的其他属性
-    // item.checkedIconProps: 可选，选中时的图标的其他属性
-    // item.reverse: 可选，默认图标在前，文字在后，此数值为真时，图标在后，文字在前
-    // item.disabled: 可选，是否禁用
+    // item.showIcon: 是否显示图标
+    // item.iconName: 图标名称
+    // item.checkedIconName: 选中时的图标名称
+    // item.iconColor: 图标颜色
+    // item.checkedIconColor: 选中时的图标颜色
+    // item.iconSize: 图标大小
+    // item.checkedIconSize: 选中时的图标大小
+    // item.iconMode: 图标裁剪模式
+    // item.checkedIconMode: 选中时的图标裁剪模式
+    // item.showText: 是否显示文字
+    // item.text: 文本
+    // item.checkedText: 选中时的文本
+    // item.reverse: 默认图标在前，文字在后，此数值为真时，图标在后，文字在前
+    // item.disabled: 是否禁用
     // item.checked: 是否选中/激活
     items: {
         type: Array,
         default: () => []
+    },
+
+    // item 图标大小
+    itemIconSize: {
+        type: String,
+        default: ""
+    },
+
+    // item 图标颜色
+    itemIconColor: {
+        type: String,
+        default: ""
+    },
+
+    // item 图标裁剪模式
+    itemIconMode: {
+        type: String,
+        default: ""
+    },
+
+    // item 激活时图标大小
+    checkedItemIconSize: {
+        type: String,
+        default: ""
+    },
+
+    // item 激活时图标颜色
+    checkedItemIconColor: {
+        type: String,
+        default: ""
+    },
+
+    // item 激活时图标裁剪模式
+    checkedItemIconMode: {
+        type: String,
+        default: ""
+    },
+
+    // item 文本大小
+    itemTextSize: {
+        type: String,
+        default: ""
+    },
+
+    // item 文本颜色
+    itemTextColor: {
+        type: String,
+        default: ""
+    },
+
+    // item 激活时文本大小
+    checkedItemTextSize: {
+        type: String,
+        default: ""
+    },
+
+    // item 激活时文本颜色
+    checkedItemTextColor: {
+        type: String,
+        default: ""
     },
 
     // 是否显示右侧内容
