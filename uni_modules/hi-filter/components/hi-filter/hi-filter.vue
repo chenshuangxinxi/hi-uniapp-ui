@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 过滤器组件
+ * HiUi - 过滤器
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-filter" :class="_classes" :style="_styles">
@@ -14,7 +14,7 @@
                         :class="{
                             'hi-filter__item--active': _item?.checked,
                             'hi-filter__item--disabled': _item?.disabled,
-                            'hi-filter__item--reverse': _item.reverse
+                            'hi-filter__item--reverse': _item?.reverse
                         }"
                         v-for="(_item, _index) in items"
                         :key="_index"
@@ -23,18 +23,9 @@
                     >
                         <slot name="item" :item="_item" :index="_index">
                             <view class="hi-filter__item__content">
-                                <hi-icon
-                                    class="hi-filter__item__icon"
-                                    :name="_item?.checked && _item?.checkedIconName ? _item?.checkedIconName : _item?.iconName"
-                                    v-bind="_item?.checked && _item?.checkedIconProps ? _item?.checkedIconProps : _item?.iconProps"
-                                    v-if="
-                                        _item?.checked
-                                            ? _item?.checkedIconName || _item?.checkedIconProps?.name || _item?.iconName || _item?.iconProps?.name
-                                            : _item?.iconName || _item?.iconProps?.name
-                                    "
-                                ></hi-icon>
-                                <view class="hi-filter__item__label" v-if="_item?.checked ? _item.checkedLabel ?? _item?.label : _item?.label">
-                                    {{ _item?.checked ? _item?.checkedLabel ?? _item?.label : _item?.label }}
+                                <hi-icon class="hi-filter__item__icon" v-bind="calcItemIconProps(_item)" v-if="_item.showIcon"></hi-icon>
+                                <view class="hi-filter__item__text" v-if="_item.showText">
+                                    {{ _item?.checked ? _item?.checkedText ?? _item?.text : _item?.text }}
                                 </view>
                             </view>
                         </slot>
@@ -43,8 +34,15 @@
             </scroll-view>
         </view>
         <view class="hi-filter__right" v-if="showRight" :hover-class="hoverClass" @tap="_emits('rightClick')">
-            <view class="hi-filter__right__text" v-if="rightText">{{ rightText }}</view>
-            <hi-icon class="hi-filter__right__icon" :name="rightIconName" :props="rightIconProps" v-if="rightIconName || rightIconProps?.name"></hi-icon>
+            <view class="hi-filter__right__text" v-if="showRightText">{{ rightText }}</view>
+            <hi-icon
+                class="hi-filter__right__icon"
+                :name="rightIconName"
+                :size="rightIconSize"
+                :color="rightIconColor"
+                :mode="rightIconMode"
+                v-if="showRightIcon"
+            ></hi-icon>
         </view>
     </view>
 </template>
@@ -75,6 +73,28 @@
         const styles = [];
         return styles;
     });
+
+    /**
+     * 计算过滤项图标的 props
+     * @param {Object} item 过滤项数据
+     */
+    function calcItemIconProps(item) {
+        if (item?.checked) {
+            return {
+                name: item?.checkedIconName ?? item?.iconName,
+                color: item?.checkedIconColor ?? _props.checkedItemIconColor ?? item?.iconColor ?? _props.itemIconColor,
+                size: item?.checkedIconSize ?? _props.checkedItemIconSize ?? item?.iconSize ?? _props.itemIconSize,
+                mode: item?.checkedIconMode ?? _props?.checkedItemIconMode ?? item?.iconMode ?? _props.itemIconMode
+            };
+        }
+
+        return {
+            name: item?.iconName,
+            color: item?.iconColor ?? _props.itemIconColor,
+            size: item?.iconSize ?? _props.itemIconSize,
+            mode: item?.iconMode ?? _props.itemIconMode
+        };
+    }
 </script>
 
 <style lang="scss" scoped>
