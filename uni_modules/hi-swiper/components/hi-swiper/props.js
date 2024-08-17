@@ -41,12 +41,6 @@ export default {
         default: 0
     },
 
-    // 圆角大小
-    redius: {
-        type: String,
-        default: ""
-    },
-
     // 是否显示面板指示点
     indicatorDots: {
         type: Boolean,

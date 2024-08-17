@@ -2,7 +2,7 @@
  * 固定在页面底部的组件
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-fixed-bottom-bamboo" :class="_classes" :style="_styles">

@@ -1,5 +1,5 @@
 <!--
- * HiUi - 按钮
+ * hi-button - 按钮
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -14,50 +14,11 @@
             </view>
         </view>
 
-        <!-- 主题按钮 -->
-        <view class="demo-module">
-            <view class="demo-module__title">主题按钮</view>
-            <view class="demo-module__content">
-                <hi-button text="主题按钮" theme="primary"></hi-button>
-                <hi-button text="主题按钮" theme="success"></hi-button>
-                <hi-button text="主题按钮" theme="warning"></hi-button>
-                <hi-button text="主题按钮" theme="error"></hi-button>
-                <hi-button text="主题按钮" theme="info"></hi-button>
-            </view>
-        </view>
-
-        <!-- 扩展主题 -->
-        <view class="demo-module">
-            <view class="demo-module__title">扩展主题</view>
-            <view class="demo-module__tips">通过设置 `--hi-theme-xxx` 格式的变量来扩展 HiUi 的主题</view>
-            <view class="demo-module__content">
-                <hi-button text="扩展主题" theme="aster"></hi-button>
-                <hi-button text="扩展主题" theme="bamboo"></hi-button>
-                <hi-button text="扩展主题" theme="camellia"></hi-button>
-            </view>
-        </view>
-
-        <!-- 镂空按钮 -->
-        <view class="demo-module">
-            <view class="demo-module__title">镂空按钮</view>
-            <view class="demo-module__content">
-                <hi-button text="镂空按钮" theme="primary" plain></hi-button>
-                <hi-button text="镂空按钮" theme="success" plain></hi-button>
-                <hi-button text="镂空按钮" theme="warning" plain></hi-button>
-                <hi-button text="镂空按钮" theme="error" plain></hi-button>
-                <hi-button text="镂空按钮" theme="info" plain></hi-button>
-            </view>
-        </view>
-
         <!-- 禁用按钮 -->
         <view class="demo-module">
             <view class="demo-module__title">禁用按钮</view>
             <view class="demo-module__content">
-                <hi-button text="禁用按钮" theme="primary" disabled></hi-button>
-                <hi-button text="禁用按钮" theme="success" disabled></hi-button>
-                <hi-button text="禁用按钮" theme="warning" disabled></hi-button>
-                <hi-button text="禁用按钮" theme="error" disabled></hi-button>
-                <hi-button text="禁用按钮" theme="info" disabled></hi-button>
+                <hi-button text="禁用按钮" disabled></hi-button>
             </view>
         </view>
 
@@ -75,18 +36,8 @@
         <view class="demo-module">
             <view class="demo-module__title">加载按钮</view>
             <view class="demo-module__content">
-                <hi-button text="加载按钮" theme="primary" loading></hi-button>
-                <hi-button text="加载按钮" theme="success" loading loadingText="正在努力加载中..."></hi-button>
-                <hi-button text="加载按钮" theme="warning" loading shape="circle"></hi-button>
-            </view>
-        </view>
-
-        <!-- 按钮形状 -->
-        <view class="demo-module">
-            <view class="demo-module__title">按钮形状</view>
-            <view class="demo-module__content">
-                <hi-button text="圆角按钮" theme="primary" shape="round"></hi-button>
-                <hi-button text="圆形按钮" theme="success" shape="circle" rightIconName="__gonggao"></hi-button>
+                <hi-button text="加载按钮" loading></hi-button>
+                <hi-button text="加载按钮" loading loadingText="正在努力加载中..."></hi-button>
             </view>
         </view>
 
@@ -94,16 +45,7 @@
         <view class="demo-module">
             <view class="demo-module__title">副文字按钮</view>
             <view class="demo-module__content">
-                <hi-button text="带副文字的按钮" subText="我是副文字" theme="info"></hi-button>
-            </view>
-        </view>
-
-        <!-- 块级按钮 -->
-        <view class="demo-module">
-            <view class="demo-module__title">块级按钮</view>
-            <view class="demo-module__content">
-                <hi-button text="块级按钮" theme="warning" shape="round" block></hi-button>
-                <hi-button text="块级按钮" theme="error" block></hi-button>
+                <hi-button text="带副文字的按钮" subText="我是副文字"></hi-button>
             </view>
         </view>
     </view>
@@ -115,10 +57,6 @@
 
 <style lang="scss" scoped>
     .demo-module {
-        --hi-theme-aster: #219041;
-        --hi-theme-bamboo: #1417ca;
-        --hi-theme-camellia: #a8096b;
-
         &__content {
             display: flex;
             flex-wrap: wrap;

@@ -2,28 +2,16 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
-    // hover-class
-    hoverClass: {
-        type: String,
-        default: "hi-hover"
-    },
-
-    // 是否开启预览?
-    preview: {
-        type: Boolean,
-        default: false
-    },
-
-    // 图片宽度
+    // 宽
     width: {
         type: String,
         default: ""
     },
 
-    // 图片高度
+    // 高
     height: {
         type: String,
         default: ""
@@ -41,10 +29,10 @@ export default {
         default: "aspectFit"
     },
 
-    // 是否关闭loading
-    closeLoading: {
+    // 是否显示 loading 状态
+    showLoading: {
         type: Boolean,
-        default: false
+        default: true
     },
 
     // loading 图标名称
@@ -53,76 +41,22 @@ export default {
         default: "__loading"
     },
 
-    // loading 图标大小
-    loadingIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // loading 图标颜色
-    loadingIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // loading 图标裁剪模式
-    loadingIconMode: {
-        type: String,
-        default: ""
-    },
-
     // loading 文本
     loadingText: {
         type: String,
         default: ""
     },
 
-    // 是否关闭 error 状态
-    closeError: {
+    // 是否显示 error 状态
+    showError: {
         type: Boolean,
-        default: false
+        default: true
     },
 
     // error 图标名称
     errorIconName: {
         type: String,
         default: "__image-error"
-    },
-
-    // error 图标大小
-    errorIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // error 图标颜色
-    errorIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // error 图标裁剪模式
-    errorIconMode: {
-        type: String,
-        default: ""
-    },
-
-    // 圆角
-    radius: {
-        type: String,
-        default: ""
-    },
-
-    // 是否圆形图片
-    circle: {
-        type: Boolean,
-        default: false
-    },
-
-    // 是否自动撑满到父元素的宽高100%
-    fill: {
-        type: Boolean,
-        default: false
     },
 
     // error 状态的文本

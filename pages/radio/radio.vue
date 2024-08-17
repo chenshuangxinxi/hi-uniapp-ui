@@ -1,5 +1,5 @@
 <!--
- * HiUi - 单选框
+ * hi-radio - 单选框
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -17,42 +17,12 @@
             </view>
         </view>
 
-        <!-- 主题 -->
-        <view class="demo-module">
-            <view class="demo-module__title">主题</view>
-            <view class="demo-module__content">
-                <hi-radio-group v-model="checked2">
-                    <hi-radio v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :theme="item.theme"></hi-radio>
-                </hi-radio-group>
-            </view>
-        </view>
-
-        <!-- 镂空 -->
-        <view class="demo-module">
-            <view class="demo-module__title">镂空</view>
-            <view class="demo-module__content">
-                <hi-radio-group v-model="checked3">
-                    <hi-radio v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :theme="item.theme" plain></hi-radio>
-                </hi-radio-group>
-            </view>
-        </view>
-
         <!-- 禁用 -->
         <view class="demo-module">
             <view class="demo-module__title">禁用</view>
             <view class="demo-module__content">
                 <hi-radio-group v-model="checked4">
                     <hi-radio v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :theme="item.theme" disabled></hi-radio>
-                </hi-radio-group>
-            </view>
-        </view>
-
-        <!-- 方形 -->
-        <view class="demo-module">
-            <view class="demo-module__title">方形</view>
-            <view class="demo-module__content">
-                <hi-radio-group v-model="checked6">
-                    <hi-radio v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :theme="item.theme" square></hi-radio>
                 </hi-radio-group>
             </view>
         </view>

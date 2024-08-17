@@ -11,30 +11,6 @@ export default {
         default: "hi-hover"
     },
 
-    // 内容文字大小
-    size: {
-        type: String,
-        default: ""
-    },
-
-    // 内容文字颜色
-    color: {
-        type: String,
-        default: ""
-    },
-
-    // 高度
-    height: {
-        type: String,
-        default: ""
-    },
-
-    // 内容文本字重
-    weight: {
-        type: [Number, String],
-        default: undefined
-    },
-
     // 标题文本
     title: {
         type: String,
@@ -52,24 +28,6 @@ export default {
     align: {
         type: String,
         default: "center"
-    },
-
-    // 标题颜色
-    titleColor: {
-        type: String,
-        default: ""
-    },
-
-    // 标题文字尺寸
-    titleSize: {
-        type: String,
-        default: ""
-    },
-
-    // 标题字重
-    titleWeight: {
-        type: [Number, String],
-        default: undefined
     },
 
     // 是否显示返回按钮？
@@ -103,114 +61,13 @@ export default {
         default: "__zuo"
     },
 
-    // 返回按钮图标颜色
-    backIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // 返回按钮图标尺寸
-    backIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // 返回按钮图标裁剪模式
-    backIconMode: {
-        type: String,
-        default: ""
-    },
-
-    // 返回文字大小
-    backTextSize: {
-        type: String,
-        default: ""
-    },
-
-    // 返回文字颜色
-    backTextColor: {
-        type: String,
-        default: ""
-    },
-
-    // 返回文字字重
-    backTextWeight: {
-        type: [Number, String],
-        default: undefined
-    },
-
-    // 返回按钮中图标和文字的间距
-    backGap: {
-        type: String,
-        default: ""
-    },
-
-    // 按钮间距
-    menuGap: {
-        type: String,
-        default: ""
-    },
-
-    // 按钮图标颜色
-    menuIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // 按钮图标尺寸
-    menuIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // 按钮图标裁剪模式
-    menuIconMode: {
-        type: String,
-        default: ""
-    },
-
-    // 显示菜单按钮图标
-    showMenuIcon: {
-        type: Boolean,
-        default: true
-    },
-
-    // 显示按钮图标文本
-    showMenuText: {
-        type: Boolean,
-        default: false
-    },
-
-    // 菜单按钮文字大小
-    menuTextSize: {
-        type: String,
-        default: ""
-    },
-
-    // 菜单按钮文字颜色
-    menuTextColor: {
-        type: String,
-        default: ""
-    },
-
-    // 菜单按钮文字字重
-    menuTextWeight: {
-        type: [Number, String],
-        default: undefined
-    },
-
     // 左侧菜单数据
     // 数据格式为：
-    // item.show: [Boolean] 是否显示？
+    // item.class: [String, Array, Object] 按钮的 class
     // item.style: [String, Array, Object] 按钮样式
     // item.hoverClass: [String] 按钮的 hover-class
-    // item.showIcon: [Boolean] 是否显示图标
     // item.iconName: [String] 按钮图标名称
-    // item.iconColor: [String] 按钮图标颜色
-    // item.iconSize: [String] 按钮图标大小
-    // item.iconMode: [String] 按钮图标裁剪模式
     // item.iconStyle: [String, Array, Object] 按钮图标的样式
-    // item.showText: [Boolean] 是否显示文本
     // item.text: [String] 按钮文本
     // item.textStyle: [String, Array, Object] 按钮文本的样式
     leftMenu: {

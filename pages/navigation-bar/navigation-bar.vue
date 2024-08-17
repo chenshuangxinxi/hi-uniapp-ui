@@ -1,5 +1,5 @@
 <!--
- * HiUi - 导航栏
+ * hi-navigation-bar - 导航栏
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -41,13 +41,7 @@
                     @leftMenuClick="handleLeftClick"
                     @rightMenuClick="handleRightClick"
                 ></hi-navigation-bar>
-            </view>
-        </view>
-
-        <!-- 自定义菜单按钮 -->
-        <view class="demo-module">
-            <view class="demo-module__title">自定义菜单按钮</view>
-            <view class="demo-module__content">
+                <view class="gap"></view>
                 <hi-navigation-bar
                     align="center"
                     :leftMenu="menus2"
@@ -55,13 +49,7 @@
                     @leftMenuClick="handleLeftClick"
                     @rightMenuClick="handleRightClick"
                 ></hi-navigation-bar>
-            </view>
-        </view>
-
-        <!-- 自定义菜单按钮 -->
-        <view class="demo-module">
-            <view class="demo-module__title">自定义菜单按钮</view>
-            <view class="demo-module__content">
+                <view class="gap"></view>
                 <hi-navigation-bar
                     align="center"
                     :leftMenu="menus3"
@@ -84,13 +72,13 @@
     ]);
 
     const menus2 = ref([
-        { show: true, iconName: "weixin", text: "微信", showIcon: false, showText: true },
-        { show: true, iconName: "douyin", text: "抖音", showIcon: false, showText: true }
+        { show: true, iconName: "weixin" },
+        { show: true, iconName: "douyin" }
     ]);
 
     const menus3 = ref([
-        { show: true, iconName: "weixin", text: "微信", showText: true },
-        { show: true, iconName: "douyin", text: "抖音", showText: true }
+        { show: true, text: "微信" },
+        { show: true, text: "抖音" }
     ]);
 
     /**
@@ -120,5 +108,8 @@
 
 <style lang="scss" scoped>
     .demo-module {
+        .gap {
+            height: 10px;
+        }
     }
 </style>

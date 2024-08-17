@@ -11,12 +11,6 @@ export default {
         default: () => []
     },
 
-    // 选项之间的间距
-    gap: {
-        type: String,
-        default: ""
-    },
-
     // 是否异步变更
     async: {
         type: Boolean,

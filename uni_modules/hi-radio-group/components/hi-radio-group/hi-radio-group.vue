@@ -1,5 +1,5 @@
 <!--
- * HiUi - 单选框组
+ * hi-radio-group - 单选框组
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -34,10 +34,6 @@
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
-
-        // 间距
-        if (_props.gap) styles.push(`--hi-radio-group-gap: ${_props.gap}`);
-
         return styles;
     });
 
@@ -45,24 +41,6 @@
     provide(
         "hiRadioGroupValue",
         computed(() => _props.modelValue)
-    );
-
-    // 将给当前组设置的主题、镂空、圆角和形状等属性传递给子组件
-    provide(
-        "hiRadioGroupTheme",
-        computed(() => _props.theme)
-    );
-    provide(
-        "hiRadioGroupPlain",
-        computed(() => _props.plain)
-    );
-    provide(
-        "hiRadioGroupRadius",
-        computed(() => _props.radius)
-    );
-    provide(
-        "hiRadioGroupSquare",
-        computed(() => _props.square)
     );
 
     /**
@@ -91,6 +69,6 @@
     .hi-radio-group {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--hi-radio-group-gap, 10px);
+        gap: 10px;
     }
 </style>

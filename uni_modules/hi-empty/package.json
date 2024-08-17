@@ -1,13 +1,12 @@
 {
     "id": "hi-empty",
     "displayName": "hi-empty",
-    "version": "2.0.0",
-    "description": "内容为空组件",
+    "version": "3.0.0",
+    "description": "内容为空",
     "keywords": [
         "",
         "hi",
         "empty",
-        "空",
         "内容为空"
     ],
     "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",

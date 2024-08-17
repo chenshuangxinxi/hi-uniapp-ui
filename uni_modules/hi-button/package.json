@@ -1,8 +1,8 @@
 {
     "id": "hi-button",
     "displayName": "hi-button",
-    "version": "2.0.0",
-    "description": "按钮组件",
+    "version": "3.0.0",
+    "description": "按钮",
     "keywords": [
         "",
         "hi",

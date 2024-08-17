@@ -1,5 +1,5 @@
 <!--
- * HiUi - 轮播
+ * hi-swiper - 轮播
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -91,9 +91,6 @@
         // 高
         if (_props.height) styles.push(`--hi-swiper-height: ${_props.height};`);
 
-        // 圆角
-        if (_props.redius) styles.push(`--hi-swiper-border-radius: ${_props.redius};`);
-
         return styles;
     });
 
@@ -120,9 +117,8 @@
 
 <style lang="scss" scoped>
     .hi-swiper {
-        height: var(--hi-swiper-height, 280rpx);
-        width: var(--hi-swiper-width, 100%);
-        border-radius: var(--hi-swiper-border-radius);
+        height: 280rpx;
+        width: 100%;
         position: relative;
         display: flex;
 
@@ -147,7 +143,6 @@
 
             &__content {
                 border-radius: inherit;
-                background: var(--hi-swiper-content-background);
                 position: absolute;
                 left: 0;
                 top: 0;

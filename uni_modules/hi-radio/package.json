@@ -1,13 +1,13 @@
 {
     "id": "hi-radio",
     "displayName": "hi-radio",
-    "version": "2.0.0",
-    "description": "单选框组件",
+    "version": "3.0.0",
+    "description": "单选框",
     "keywords": [
         "",
         "hi",
         "radio",
-        "单选"
+        "单选框"
     ],
     "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {

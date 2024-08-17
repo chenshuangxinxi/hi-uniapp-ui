@@ -1,13 +1,13 @@
 {
     "id": "hi-movable-button",
     "displayName": "hi-movable-button",
-    "version": "2.0.1",
-    "description": "可拖动按钮组件",
+    "version": "3.0.0",
+    "description": "可拖动按钮",
     "keywords": [
         "",
         "hi",
         "movable-button",
-        "拖动按钮"
+        "可拖动按钮"
     ],
     "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {

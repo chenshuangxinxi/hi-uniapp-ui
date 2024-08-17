@@ -1,5 +1,5 @@
 <!--
- * HiUi - 轮播指示器
+ * hi-swiper-indicator - 轮播指示器
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -30,7 +30,7 @@
 </script>
 
 <script setup>
-    import { ref, computed, onMounted } from "vue";
+    import { ref, computed } from "vue";
     import props from "./props.js";
 
     // 组件属性
@@ -56,17 +56,6 @@
         // 数量
         styles.push(`--hi-swiper-indicator-count: ${_props.count};`);
 
-        // 点指示器
-        if (_props.dotColor) styles.push(`--hi-swiper-indicator-dot-color: ${_props.dotColor};`);
-        if (_props.activeDotColor) styles.push(`--hi-swiper-indicator-active-dot-color: ${_props.activeDotColor};`);
-        if (_props.dotWidth) styles.push(`--hi-swiper-indicator-dot-width: ${_props.dotWidth};`);
-        if (_props.activeDotWidth) styles.push(`--hi-swiper-indicator-active-dot-width: ${_props.activeDotWidth};`);
-        if (_props.dotHeight) styles.push(`--hi-swiper-indicator-dot-height: ${_props.dotHeight};`);
-        if (_props.activeDotHeight) styles.push(`--hi-swiper-indicator-active-dot-height: ${_props.activeDotHeight};`);
-        if (_props.dotRedius) styles.push(`--hi-swiper-indicator-dot-border-redius: ${_props.dotRedius};`);
-        if (_props.activeDotRedius) styles.push(`--hi-swiper-indicator-active-dot-border-redius: ${_props.activeDotRedius};`);
-        if (_props.dotGap) styles.push(`--hi-swiper-indicator-dot-gap: ${_props.dotGap};`);
-
         return styles;
     });
 
@@ -86,26 +75,6 @@
         }
         return styles;
     });
-
-    // 激活项的下标
-    const index = ref(0);
-
-    /**
-     * 切换事件
-     * @param {Object} event event.detail.current 切换后的下标
-     */
-    function onChange(event) {
-        index.value = event.detail.current;
-        _emits("change", event);
-    }
-
-    // 设置默认激活项
-    onMounted(() => {
-        index.value = _props.current;
-    });
-
-    // 组件对外暴漏的属性或方法
-    defineExpose({});
 </script>
 
 <style lang="scss" scoped>
@@ -115,271 +84,178 @@
         justify-content: center;
         position: absolute;
         z-index: 5;
-        top: var(--hi-swiper-indicator-top);
-        bottom: var(--hi-swiper-indicator-bottom, 10px);
-        left: var(--hi-swiper-indicator-left, 50%);
-        right: var(--hi-swiper-indicator-right);
-        transform: var(--hi-swiper-indicator-transform, translate(-50%, 0));
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%, 0);
 
         &__dots {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: var(--hi-swiper-indicator-dot-gap, 10rpx);
+            gap: 10rpx;
+            flex-direction: row;
 
             &__item {
-                width: var(--hi-swiper-indicator-dot-width, 16rpx);
-                height: var(--hi-swiper-indicator-dot-height, 8rpx);
-                border-radius: var(--hi-swiper-indicator-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-dot-color, #ffffff);
-                transition: var(--hi-swiper-indicator-transition, 500ms);
+                width: 16rpx;
+                height: 8rpx;
+                border-radius: 8rpx;
+                background: #ffffff;
+                transition: 500ms;
 
                 &--active {
-                    width: var(--hi-swiper-indicator-active-dot-width, 32rpx);
-                    height: var(--hi-swiper-indicator-active-dot-height, 8rpx);
-                    border-radius: var(--hi-swiper-indicator-active-dot-border-redius, 8rpx);
-                    background: var(--hi-swiper-indicator-active-dot-color, var(--hi-theme-primary));
+                    width: 32rpx;
+                    height: 8rpx;
+                    border-radius: 8rpx;
+                    background: var(--hi-theme-primary);
                 }
             }
         }
 
         &__line {
-            width: var(--hi-swiper-indicator-line-width, calc(var(--hi-swiper-indicator-count) * 32rpx));
-            height: var(--hi-swiper-indicator-line-height, 8rpx);
-            border-radius: var(--hi-swiper-indicator-line-border-redius, 8rpx);
-            background: var(--hi-swiper-indicator-line-color, #ffffff);
+            width: calc(var(--hi-swiper-indicator-count) * 32rpx);
+            height: 8rpx;
+            border-radius: 8rpx;
+            background: #ffffff;
             position: relative;
             overflow: hidden;
 
             &__bar {
                 position: absolute;
                 border-radius: inherit;
-                background: var(--hi-swiper-indicator-line-bar-color, var(--hi-theme-primary));
-                transition: var(--hi-swiper-indicator-transition, 500ms);
+                background: var(--hi-theme-primary);
+                transition: 500ms;
             }
         }
 
         &--bottom-center {
-            top: var(--hi-swiper-indicator-top);
-            bottom: var(--hi-swiper-indicator-bottom, 10px);
-            left: var(--hi-swiper-indicator-left, 50%);
-            right: var(--hi-swiper-indicator-right);
-            transform: var(--hi-swiper-indicator-transform, translate(-50%, 0));
-
-            &.hi-swiper-indicator__dots {
-                flex-direction: row;
-            }
-
-            .hi-swiper-indicator__dots__item {
-                width: var(--hi-swiper-indicator-dot-width, 16rpx);
-                height: var(--hi-swiper-indicator-dot-height, 8rpx);
-                border-radius: var(--hi-swiper-indicator-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-dot-color, #ffffff);
-                transition: var(--hi-swiper-indicator-transition, 500ms);
-            }
-
-            .hi-swiper-indicator__dots__item--active {
-                width: var(--hi-swiper-indicator-active-dot-width, 32rpx);
-                height: var(--hi-swiper-indicator-active-dot-height, 8rpx);
-                border-radius: var(--hi-swiper-indicator-active-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-active-dot-color, var(--hi-theme-primary));
-            }
-
-            .hi-swiper-indicator__line {
-                width: var(--hi-swiper-indicator-line-width, calc(var(--hi-swiper-indicator-count) * 32rpx));
-                height: var(--hi-swiper-indicator-line-height, 8rpx);
-            }
+            top: auto;
+            bottom: 10px;
+            left: 50%;
+            right: auto;
+            transform: translate(-50%, 0);
         }
 
         &--bottom-left {
-            top: var(--hi-swiper-indicator-top);
-            bottom: var(--hi-swiper-indicator-bottom, 10px);
-            left: var(--hi-swiper-indicator-left, 10px);
-            right: var(--hi-swiper-indicator-right);
-            transform: var(--hi-swiper-indicator-transform, translate(0, 0));
-
-            &.hi-swiper-indicator__dots {
-                flex-direction: row;
-            }
-
-            .hi-swiper-indicator__dots__item {
-                width: var(--hi-swiper-indicator-dot-width, 16rpx);
-                height: var(--hi-swiper-indicator-dot-height, 8rpx);
-                border-radius: var(--hi-swiper-indicator-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-dot-color, #ffffff);
-                transition: var(--hi-swiper-indicator-transition, 500ms);
-            }
-
-            .hi-swiper-indicator__dots__item--active {
-                width: var(--hi-swiper-indicator-active-dot-width, 32rpx);
-                height: var(--hi-swiper-indicator-active-dot-height, 8rpx);
-                border-radius: var(--hi-swiper-indicator-active-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-active-dot-color, var(--hi-theme-primary));
-            }
-
-            .hi-swiper-indicator__line {
-                width: var(--hi-swiper-indicator-line-width, calc(var(--hi-swiper-indicator-count) * 32rpx));
-                height: var(--hi-swiper-indicator-line-height, 8rpx);
-            }
+            top: auto;
+            bottom: 10px;
+            left: 10px;
+            right: auto;
+            transform: translate(0, 0);
         }
 
         &--bottom-right {
-            top: var(--hi-swiper-indicator-top);
-            bottom: var(--hi-swiper-indicator-bottom, 10px);
-            left: var(--hi-swiper-indicator-left, auto);
-            right: var(--hi-swiper-indicator-right, 10px);
-            transform: var(--hi-swiper-indicator-transform, translate(0, 0));
-
-            &.hi-swiper-indicator__dots {
-                flex-direction: row;
-            }
-
-            .hi-swiper-indicator__dots__item {
-                width: var(--hi-swiper-indicator-dot-width, 16rpx);
-                height: var(--hi-swiper-indicator-dot-height, 8rpx);
-                border-radius: var(--hi-swiper-indicator-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-dot-color, #ffffff);
-                transition: var(--hi-swiper-indicator-transition, 500ms);
-            }
-
-            .hi-swiper-indicator__dots__item--active {
-                width: var(--hi-swiper-indicator-active-dot-width, 32rpx);
-                height: var(--hi-swiper-indicator-active-dot-height, 8rpx);
-                border-radius: var(--hi-swiper-indicator-active-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-active-dot-color, var(--hi-theme-primary));
-            }
-
-            .hi-swiper-indicator__line {
-                width: var(--hi-swiper-indicator-line-width, calc(var(--hi-swiper-indicator-count) * 32rpx));
-                height: var(--hi-swiper-indicator-line-height, 8rpx);
-            }
+            top: auto;
+            bottom: 10px;
+            left: auto;
+            right: 10px;
+            transform: translate(0, 0);
         }
 
         &--left-center {
-            top: var(--hi-swiper-indicator-top, 50%);
-            bottom: var(--hi-swiper-indicator-bottom, auto);
-            left: var(--hi-swiper-indicator-left, 10px);
-            right: var(--hi-swiper-indicator-right, auto);
-            transform: var(--hi-swiper-indicator-transform, translate(0, -50%));
+            top: 50%;
+            bottom: auto;
+            left: 10px;
+            right: auto;
+            transform: translate(0, -50%);
 
             .hi-swiper-indicator__dots {
                 flex-direction: column;
             }
 
             .hi-swiper-indicator__dots__item {
-                width: var(--hi-swiper-indicator-dot-width, 8rpx);
-                height: var(--hi-swiper-indicator-dot-height, 16rpx);
-                border-radius: var(--hi-swiper-indicator-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-dot-color, #ffffff);
-                transition: var(--hi-swiper-indicator-transition, 500ms);
+                width: 8rpx;
+                height: 16rpx;
             }
 
             .hi-swiper-indicator__dots__item--active {
-                width: var(--hi-swiper-indicator-active-dot-width, 8rpx);
-                height: var(--hi-swiper-indicator-active-dot-height, 32rpx);
-                border-radius: var(--hi-swiper-indicator-active-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-active-dot-color, var(--hi-theme-primary));
+                width: 8rpx;
+                height: 32rpx;
             }
 
             .hi-swiper-indicator__line {
-                width: var(--hi-swiper-indicator-line-width, 8rpx);
-                height: var(--hi-swiper-indicator-line-height, calc(var(--hi-swiper-indicator-count) * 32rpx));
+                width: 8rpx;
+                height: calc(var(--hi-swiper-indicator-count) * 32rpx);
             }
         }
 
         &--left-bottom {
-            top: var(--hi-swiper-indicator-top, auto);
-            bottom: var(--hi-swiper-indicator-bottom, 10px);
-            left: var(--hi-swiper-indicator-left, 10px);
-            right: var(--hi-swiper-indicator-right, auto);
-            transform: var(--hi-swiper-indicator-transform, translate(0, 0));
+            top: auto;
+            bottom: 10px;
+            left: 10px;
+            right: auto;
+            transform: translate(0, 0);
 
             .hi-swiper-indicator__dots {
                 flex-direction: column;
             }
 
             .hi-swiper-indicator__dots__item {
-                width: var(--hi-swiper-indicator-dot-width, 8rpx);
-                height: var(--hi-swiper-indicator-dot-height, 16rpx);
-                border-radius: var(--hi-swiper-indicator-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-dot-color, #ffffff);
-                transition: var(--hi-swiper-indicator-transition, 500ms);
+                width: 8rpx;
+                height: 16rpx;
             }
 
             .hi-swiper-indicator__dots__item--active {
-                width: var(--hi-swiper-indicator-active-dot-width, 8rpx);
-                height: var(--hi-swiper-indicator-active-dot-height, 32rpx);
-                border-radius: var(--hi-swiper-indicator-active-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-active-dot-color, var(--hi-theme-primary));
+                width: 8rpx;
+                height: 32rpx;
             }
 
             .hi-swiper-indicator__line {
-                width: var(--hi-swiper-indicator-line-width, 8rpx);
-                height: var(--hi-swiper-indicator-line-height, calc(var(--hi-swiper-indicator-count) * 32rpx));
+                width: 8rpx;
+                height: calc(var(--hi-swiper-indicator-count) * 32rpx);
             }
         }
 
         &--right-center {
-            top: var(--hi-swiper-indicator-top, 50%);
-            bottom: var(--hi-swiper-indicator-bottom, auto);
-            left: var(--hi-swiper-indicator-left, auto);
-            right: var(--hi-swiper-indicator-right, 10px);
-            transform: var(--hi-swiper-indicator-transform, translate(0, -50%));
+            top: 50%;
+            bottom: auto;
+            left: auto;
+            right: 10px;
+            transform: translate(0, -50%);
 
             .hi-swiper-indicator__dots {
                 flex-direction: column;
             }
 
             .hi-swiper-indicator__dots__item {
-                width: var(--hi-swiper-indicator-dot-width, 8rpx);
-                height: var(--hi-swiper-indicator-dot-height, 16rpx);
-                border-radius: var(--hi-swiper-indicator-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-dot-color, #ffffff);
-                transition: var(--hi-swiper-indicator-transition, 500ms);
+                width: 8rpx;
+                height: 16rpx;
             }
 
             .hi-swiper-indicator__dots__item--active {
-                width: var(--hi-swiper-indicator-active-dot-width, 8rpx);
-                height: var(--hi-swiper-indicator-active-dot-height, 32rpx);
-                border-radius: var(--hi-swiper-indicator-active-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-active-dot-color, var(--hi-theme-primary));
+                width: 8rpx;
+                height: 32rpx;
             }
 
             .hi-swiper-indicator__line {
-                width: var(--hi-swiper-indicator-line-width, 8rpx);
-                height: var(--hi-swiper-indicator-line-height, calc(var(--hi-swiper-indicator-count) * 32rpx));
+                width: 8rpx;
+                height: calc(var(--hi-swiper-indicator-count) * 32rpx);
             }
         }
 
         &--right-bottom {
-            top: var(--hi-swiper-indicator-top, auto);
-            bottom: var(--hi-swiper-indicator-bottom, 10px);
-            left: var(--hi-swiper-indicator-left, auto);
-            right: var(--hi-swiper-indicator-right, 10px);
-            transform: var(--hi-swiper-indicator-transform, translate(0, 0));
+            top: auto;
+            bottom: 10px;
+            left: auto;
+            right: 10px;
+            transform: translate(0, 0);
 
             .hi-swiper-indicator__dots {
                 flex-direction: column;
             }
 
             .hi-swiper-indicator__dots__item {
-                width: var(--hi-swiper-indicator-dot-width, 8rpx);
-                height: var(--hi-swiper-indicator-dot-height, 16rpx);
-                border-radius: var(--hi-swiper-indicator-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-dot-color, #ffffff);
-                transition: var(--hi-swiper-indicator-transition, 500ms);
+                width: 8rpx;
+                height: 16rpx;
             }
 
             .hi-swiper-indicator__dots__item--active {
-                width: var(--hi-swiper-indicator-active-dot-width, 8rpx);
-                height: var(--hi-swiper-indicator-active-dot-height, 32rpx);
-                border-radius: var(--hi-swiper-indicator-active-dot-border-redius, 8rpx);
-                background: var(--hi-swiper-indicator-active-dot-color, var(--hi-theme-primary));
+                width: 8rpx;
+                height: 32rpx;
             }
 
             .hi-swiper-indicator__line {
-                width: var(--hi-swiper-indicator-line-width, 8rpx);
-                height: var(--hi-swiper-indicator-line-height, calc(var(--hi-swiper-indicator-count) * 32rpx));
+                width: 8rpx;
+                height: calc(var(--hi-swiper-indicator-count) * 32rpx);
             }
         }
     }

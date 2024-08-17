@@ -1,8 +1,8 @@
 {
     "id": "hi-popup",
     "displayName": "hi-popup",
-    "version": "2.0.0",
-    "description": "弹出层组件",
+    "version": "3.0.0",
+    "description": "弹出层",
     "keywords": [
         "",
         "hi",

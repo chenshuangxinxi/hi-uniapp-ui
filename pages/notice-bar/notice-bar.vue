@@ -1,32 +1,24 @@
 <!--
- * HiUi - 通知公告
+ * hi-notice-bar - 通知公告
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
-        <!-- 基础使用 - 横向 -->
+        <!-- 横向滚动 -->
         <view class="demo-module">
-            <view class="demo-module__title">基础使用 - 横向滚动</view>
+            <view class="demo-module__title">横向滚动</view>
             <view class="demo-module__content">
                 <hi-notice-bar :list="list"></hi-notice-bar>
             </view>
         </view>
 
-        <!-- 基础使用 - 纵向 -->
+        <!-- 纵向滚动 -->
         <view class="demo-module">
-            <view class="demo-module__title">基础使用 - 纵向滚动</view>
+            <view class="demo-module__title">纵向滚动</view>
             <view class="demo-module__content">
-                <hi-notice-bar :list="list" direction="column"></hi-notice-bar>
-            </view>
-        </view>
-
-        <!-- 设置背景和颜色 -->
-        <view class="demo-module">
-            <view class="demo-module__title">设置背景、颜色和内边距</view>
-            <view class="demo-module__content">
-                <hi-notice-bar :list="list" bg="#fdf6ec" color="#f9ae3d" padding="0.6em"></hi-notice-bar>
+                <hi-notice-bar :list="list" vertical></hi-notice-bar>
             </view>
         </view>
 
@@ -34,7 +26,7 @@
         <view class="demo-module">
             <view class="demo-module__title">每秒移动固定距离</view>
             <view class="demo-module__content">
-                <hi-notice-bar :list="list" :speed="50" bg="#fdf6ec" color="#f9ae3d" padding="0.6em"></hi-notice-bar>
+                <hi-notice-bar :list="list" :speed="50"></hi-notice-bar>
             </view>
         </view>
 
@@ -42,23 +34,15 @@
         <view class="demo-module">
             <view class="demo-module__title">关闭按钮</view>
             <view class="demo-module__content">
-                <hi-notice-bar :list="list" mode="closable" bg="#fdf6ec" color="#f9ae3d" padding="0.6em"></hi-notice-bar>
+                <hi-notice-bar :list="list" showClose></hi-notice-bar>
             </view>
         </view>
 
-        <!-- 同时显示箭头和关闭 -->
+        <!-- 显示箭头 -->
         <view class="demo-module">
-            <view class="demo-module__title">同时显示箭头和关闭</view>
+            <view class="demo-module__title">显示箭头</view>
             <view class="demo-module__content">
-                <hi-notice-bar :list="list" mode="arrow closable" bg="#fdf6ec" color="#f9ae3d" padding="0.6em"></hi-notice-bar>
-            </view>
-        </view>
-
-        <!-- 右侧不显示任何按钮 -->
-        <view class="demo-module">
-            <view class="demo-module__title">右侧不显示任何按钮</view>
-            <view class="demo-module__content">
-                <hi-notice-bar :list="list" mode="" bg="#fdf6ec" color="#f9ae3d" padding="0.6em"></hi-notice-bar>
+                <hi-notice-bar :list="list" showArrow></hi-notice-bar>
             </view>
         </view>
 
@@ -66,7 +50,7 @@
         <view class="demo-module">
             <view class="demo-module__title">设置滚动间隔</view>
             <view class="demo-module__content">
-                <hi-notice-bar :list="list" :interval="1.5" bg="#fdf6ec" color="#f9ae3d" padding="0.6em"></hi-notice-bar>
+                <hi-notice-bar :list="list" :interval="1.5"></hi-notice-bar>
             </view>
         </view>
 
@@ -74,9 +58,9 @@
         <view class="demo-module demo-module--styles">
             <view class="demo-module__title">步近模式</view>
             <view class="demo-module__content">
-                <hi-notice-bar :list="list" step :interval="2.5" bg="#fdf6ec" color="#f9ae3d" padding="0.6em"></hi-notice-bar>
+                <hi-notice-bar :list="list" step :interval="2.5"></hi-notice-bar>
                 <view class="gap"></view>
-                <hi-notice-bar :list="list" direction="column" step :interval="2.5" bg="#fdf6ec" color="#f9ae3d" padding="0.6em"></hi-notice-bar>
+                <hi-notice-bar :list="list" vertical step :interval="2.5"></hi-notice-bar>
             </view>
         </view>
     </view>
@@ -100,7 +84,12 @@
 <style lang="scss" scoped>
     .demo-module {
         .gap {
-            height: 20rpx;
+            height: 10px;
+        }
+        .hi-notice-bar {
+            background: #f5af55;
+            color: #ffffff;
+            padding: 8px;
         }
     }
 </style>

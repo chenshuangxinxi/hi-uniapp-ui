@@ -1,12 +1,12 @@
 <!--
- * hi-ui - 内容为空组件
+ * hi-elevator - 电梯导航
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
-        <hi-elevator :floors="floors">
+        <hi-elevator :list="list">
             <template #rightItem="{ item, index }">
                 <view class="list" v-if="!item?.disabled">
                     <view class="list-item" v-for="(_item, _current) in lists[index]" :key="_current">
@@ -23,7 +23,7 @@
     import { ref } from "vue";
 
     // 电梯数据
-    const floors = ref([
+    const list = ref([
         { text: "热门" },
         { text: "数码" },
         { text: "美妆" },

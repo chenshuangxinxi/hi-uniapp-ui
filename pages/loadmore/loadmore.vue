@@ -1,5 +1,5 @@
 <!--
- * HiUi - loadmore - 加载更多
+ * hi-loadmore - 加载更多
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -29,14 +29,6 @@
                 <hi-loadmore status="nomore"></hi-loadmore>
             </view>
         </view>
-
-        <!-- 纵向布局 -->
-        <view class="demo-module">
-            <view class="demo-module__title">纵向布局</view>
-            <view class="demo-module__content">
-                <hi-loadmore status="loading" direction="column"></hi-loadmore>
-            </view>
-        </view>
     </view>
 </template>
 
@@ -48,6 +40,7 @@
     .demo-module {
         .hi-loadmore {
             background: #ffffff;
+            padding: 20px;
         }
     }
 </style>

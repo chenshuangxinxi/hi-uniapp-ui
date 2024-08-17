@@ -1,15 +1,15 @@
 {
     "id": "hi-countdown",
     "displayName": "hi-countdown",
-    "version": "1.0.0",
-    "description": "倒计时组件",
+    "version": "3.0.0",
+    "description": "倒计时",
     "keywords": [
         "",
         "hi",
         "countdown",
         "倒计时"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

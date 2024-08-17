@@ -1,5 +1,5 @@
 <!--
- * HiUi - 导航栏
+ * hi-navigation-bar - 导航栏
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -13,7 +13,7 @@
                 <slot name="back">
                     <!-- 返回按钮 -->
                     <view class="hi-navigation-bar__back__icon">
-                        <hi-icon :name="backIconName" :color="backIconColor" :size="backIconSize" :mode="backIconMode"></hi-icon>
+                        <hi-icon :name="backIconName"></hi-icon>
                     </view>
                     <!-- 返回文字 -->
                     <text class="hi-navigation-bar__back__text" v-if="backText">{{ backText }}</text>
@@ -27,27 +27,14 @@
                         <view
                             class="hi-navigation-bar__button hi-navigation-bar__button--left"
                             @tap="handleMenuClick('left', btn, btnCurrent)"
+                            :class="btn?.class"
                             :style="btn?.style"
-                            v-if="btn?.show"
                             :hover-class="btn?.hoverClass ?? hoverClass"
                         >
-                            <view
-                                class="hi-navigation-bar__button__icon hi-navigation-bar__button__icon--left"
-                                v-if="btn?.showIcon || (btn?.showIcon !== false && showMenuIcon)"
-                                :style="btn?.iconStyle"
-                            >
-                                <hi-icon
-                                    :name="btn?.iconName"
-                                    :color="btn?.iconColor ?? menuIconColor"
-                                    :size="btn?.iconSize ?? menuIconSize"
-                                    :mode="btn?.iconMode ?? menuIconMode"
-                                ></hi-icon>
+                            <view class="hi-navigation-bar__button__icon hi-navigation-bar__button__icon--left" :style="btn?.iconStyle" v-if="btn?.iconName">
+                                <hi-icon :name="btn?.iconName"></hi-icon>
                             </view>
-                            <text
-                                class="hi-navigation-bar__button__text hi-navigation-bar__button__text--left"
-                                v-if="btn?.showText || showMenuText"
-                                :style="btn?.textStyle"
-                            >
+                            <text class="hi-navigation-bar__button__text hi-navigation-bar__button__text--left" :style="btn?.textStyle" v-if="btn?.text">
                                 {{ btn?.text }}
                             </text>
                         </view>
@@ -74,27 +61,18 @@
                             <view
                                 class="hi-navigation-bar__button hi-navigation-bar__button--right"
                                 @tap="handleMenuClick('right', btn, btnCurrent)"
+                                :class="btn?.class"
                                 :style="btn?.style"
-                                v-if="btn?.show"
                                 :hover-class="btn?.hoverClass ?? hoverClass"
                             >
                                 <view
                                     class="hi-navigation-bar__button__icon hi-navigation-bar__button__icon--right"
-                                    v-if="btn?.showIcon || (btn?.showIcon !== false && showMenuIcon)"
                                     :style="btn?.iconStyle"
+                                    v-if="btn?.iconName"
                                 >
-                                    <hi-icon
-                                        :name="btn?.iconName"
-                                        :color="btn?.iconColor ?? menuIconColor"
-                                        :size="btn?.iconSize ?? menuIconSize"
-                                        :mode="btn?.iconMode ?? menuIconMode"
-                                    ></hi-icon>
+                                    <hi-icon :name="btn?.iconName"></hi-icon>
                                 </view>
-                                <text
-                                    class="hi-navigation-bar__button__text hi-navigation-bar__button__text--right"
-                                    v-if="btn?.showText || showMenuText"
-                                    :style="btn?.textStyle"
-                                >
+                                <text class="hi-navigation-bar__button__text hi-navigation-bar__button__text--right" :style="btn?.textStyle" v-if="btn?.text">
                                     {{ btn?.text }}
                                 </text>
                             </view>
@@ -160,51 +138,6 @@
                 currentPageData.value?.style?.navigationBarBackgroundColor ?? pages?.globalStyle?.navigationBarBackgroundColor
             };`
         );
-
-        // 内容文字颜色
-        if (_props.color) styles.push(`--hi-navigation-bar-color: ${_props.color};`);
-
-        // 内容文字大小
-        if (_props.size) styles.push(`--hi-navigation-bar-font-size: ${_props.size};`);
-
-        // 内容文字字重
-        if (_props.weight) styles.push(`--hi-navigation-bar-font-weight: ${_props.weight};`);
-
-        // 高度
-        if (_props.height) styles.push(`--hi-navigation-bar-height: ${_props.height};`);
-
-        // 标题颜色
-        if (_props.titleColor) styles.push(`--hi-navigation-bar-title-color: ${_props.titleColor};`);
-
-        // 标题文字大小
-        if (_props.titleSize) styles.push(`--hi-navigation-bar-title-font-size: ${_props.titleSize};`);
-
-        // 标题字重
-        if (_props.titleWeight) styles.push(`--hi-navigation-bar-title-font-weight: ${_props.titleWeight};`);
-
-        // 返回文字大小
-        if (_props.backTextSize) styles.push(`--hi-navigation-bar-back-text-font-size: ${_props.backTextSize};`);
-
-        // 返回文字颜色
-        if (_props.backTextColor) styles.push(`--hi-navigation-bar-back-text-color: ${_props.backTextColor};`);
-
-        // 返回文字字重
-        if (_props.backTextWeight) styles.push(`--hi-navigation-bar-back-text-font-weight: ${_props.backTextWeight};`);
-
-        // 返回按钮内容之间的间距
-        if (_props.backGap) styles.push(`--hi-navigation-bar-back-gap: ${_props.backGap};`);
-
-        // 按钮间距
-        if (_props.menuGap) styles.push(`--hi-navigation-bar-menu-gap: ${_props.menuGap};`);
-
-        // 菜单按钮文字大小
-        if (_props.menuTextSize) styles.push(`--hi-navigation-bar-menu-text-font-size: ${_props.menuTextSize};`);
-
-        // 菜单按钮文字颜色
-        if (_props.menuTextColor) styles.push(`--hi-navigation-bar-menu-text-color: ${_props.menuTextColor};`);
-
-        // 菜单按钮文字字重
-        if (_props.menuTextWeight) styles.push(`--hi-navigation-bar-menu-text-font-weight: ${_props.menuTextWeight};`);
 
         return styles;
     });
@@ -286,14 +219,12 @@
 
 <style lang="scss" scoped>
     .hi-navigation-bar {
-        height: var(--hi-navigation-bar-height, 44px);
+        height: 44px;
         display: flex;
         align-items: center;
-        padding: var(--hi-navigation-bar-padding, 0 8px);
-        background: var(--hi-navigation-bar-background, var(--hi-navigation-bar-background--default));
-        color: var(--hi-navigation-bar-color, var(--hi-navigation-bar-color--default));
-        font-size: var(--hi-navigation-bar-font-size);
-        font-weight: var(--hi-navigation-bar-font-weight);
+        padding: 0 8px;
+        background: var(--hi-navigation-bar-background--default);
+        color: var(--hi-navigation-bar-color--default);
 
         &__left {
             flex-shrink: 0;
@@ -304,32 +235,25 @@
         &__back {
             display: flex;
             align-items: center;
-            font-size: var(--hi-navigation-bar-back-font-size);
-            color: var(--hi-navigation-bar-back-color);
-            gap: var(--hi-navigation-bar-back-gap, 2px);
-            font-weight: var(--hi-navigation-bar-back-font-weight);
+            gap: 2px;
 
             &__icon {
-                font-size: var(--hi-navigation-bar-back-icon-size, 22px);
-                color: var(--hi-navigation-bar-back-icon-color, inherit);
+                font-size: 22px;
             }
 
             &__text {
-                font-size: var(--hi-navigation-bar-back-text-font-size, 14px);
-                color: var(--hi-navigation-bar-back-text-color, inherit);
-                font-weight: var(--hi-navigation-bar-back-text-font-weight, inherit);
+                font-size: 14px;
             }
         }
 
         &__center {
             flex-shrink: 0;
-            font-size: var(--hi-navigation-bar-title-font-size, 16px);
-            color: var(--hi-navigation-bar-title-color, inherit);
-            font-weight: var(--hi-navigation-bar-title-font-weight, 600);
+            font-size: 16px;
+            font-weight: 700;
         }
 
         &__title {
-            padding: var(--hi-navigation-bar-title-padding, 0 5px);
+            padding: 0 5px;
             text-align: center;
         }
 
@@ -349,26 +273,22 @@
         &__buttons {
             display: flex;
             align-items: center;
-            font-size: var(--hi-navigation-bar-menu-font-size, 18px);
-            color: var(--hi-navigation-bar-menu-color, inherit);
-            font-weight: var(--hi-navigation-bar-menu-font-weight, 500);
-            line-height: var(--hi-navigation-bar-menu-line-height, 1);
-            gap: var(--hi-navigation-bar-menu-gap, 8px);
-            padding: var(--hi-navigation-bar-buttons-padding, 0 5px);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1;
+            gap: 8px;
+            padding: 0 5px;
         }
 
         &__button {
             display: flex;
-            flex-direction: var(--hi-navigation-bar-menu-direction, column);
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            gap: var(--hi-navigation-bar-menu-gap);
 
             &__text {
-                font-size: var(--hi-navigation-bar-menu-text-font-size, 10px);
-                color: var(--hi-navigation-bar-menu-text-color, inherit);
-                font-weight: var(--hi-navigation-bar-menu-text-font-weight, inherit);
+                font-size: 10px;
             }
         }
 

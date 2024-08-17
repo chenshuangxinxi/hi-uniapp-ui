@@ -1,14 +1,13 @@
 {
     "id": "hi-swiper-indicator",
     "displayName": "hi-swiper-indicator",
-    "version": "2.0.0",
-    "description": "轮播指示器组件。",
+    "version": "3.0.0",
+    "description": "轮播指示器。",
     "keywords": [
         "",
         "hi",
-        "swiper",
-        "indicator",
-        "轮播"
+        "swiper-indicator",
+        "轮播指示器。"
     ],
     "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
