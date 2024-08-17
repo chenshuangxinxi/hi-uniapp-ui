@@ -1,7 +1,7 @@
 {
     "id": "hi-price",
     "displayName": "hi-price",
-    "version": "1.0.9",
+    "version": "2.0.0",
     "description": "价格组件",
     "keywords": [
         "",
@@ -9,7 +9,7 @@
         "price",
         "价格"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },
@@ -34,9 +34,7 @@
         "npmurl": ""
     },
     "uni_modules": {
-        "scripts": {
-
-        },
+        "scripts": {},
         "dependencies": [
             "hi-config",
             "hi-styles"
