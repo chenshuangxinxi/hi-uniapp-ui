@@ -52,7 +52,7 @@
         gap: 3px;
         position: relative;
         font-size: 0.8em;
-        height: 2em;
+        height: 1.5em;
         line-height: 1;
 
         &__icon {

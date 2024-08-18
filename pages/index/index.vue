@@ -84,7 +84,7 @@
 
     // 反馈组件
     const feedbackComponents = ref([
-        { title: "通知公告", icon: "/static/images/icons/notice-bar.png", path: "/pages/notice-bar/notice-bar" },
+        { title: "滚动通知", icon: "/static/images/icons/notice-bar.png", path: "/pages/notice-bar/notice-bar" },
         { title: "弹出层", icon: "/static/images/icons/popup.png", path: "/pages/popup/popup" }
     ]);
 
@@ -93,7 +93,8 @@
         { title: "轮播", icon: "/static/images/icons/swiper.png", path: "/pages/swiper/swiper" },
         { title: "轮播指示器", icon: "/static/images/icons/swiper.png", path: "/pages/swiper-indicator/swiper-indicator" },
         { title: "可拖动按钮", icon: "/static/images/icons/movable-button.png", path: "/pages/movable-button/movable-button" },
-        { title: "遮罩层", icon: "/static/images/icons/overlay.png", path: "/pages/overlay/overlay" }
+        { title: "遮罩层", icon: "/static/images/icons/overlay.png", path: "/pages/overlay/overlay" },
+        { title: "列表", icon: "/static/images/icons/list.png", path: "/pages/list/list" }
     ]);
 
     // 表单组件
