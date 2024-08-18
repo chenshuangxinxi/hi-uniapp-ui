@@ -1,15 +1,15 @@
 {
-    "id": "hi-tag",
-    "displayName": "hi-tag",
-    "version": "3.0.1",
-    "description": "标签",
+    "id": "zz-attrs-apple",
+    "displayName": "zz-attrs-apple",
+    "version": "3.0.2",
+    "description": "属性",
     "keywords": [
         "",
         "hi",
-        "tag",
-        "标签"
+        "attrs-apple",
+        "属性"
     ],
-    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
+    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },
@@ -34,11 +34,12 @@
         "npmurl": ""
     },
     "uni_modules": {
-        "scripts": {},
+        "scripts": {
+            "init": ""
+        },
         "dependencies": [
             "hi-config",
-            "hi-styles",
-            "hi-icon"
+            "hi-styles"
         ],
         "encrypt": [],
         "platforms": {

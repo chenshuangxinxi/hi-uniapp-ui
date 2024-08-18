@@ -1,15 +1,15 @@
 {
-    "id": "hi-tag",
-    "displayName": "hi-tag",
-    "version": "3.0.1",
-    "description": "标签",
+    "id": "zz-button-group-cherry",
+    "displayName": "zz-button-group-cherry",
+    "version": "3.0.0",
+    "description": "按钮组合",
     "keywords": [
         "",
         "hi",
-        "tag",
-        "标签"
+        "button-group-cherry",
+        "按钮组合"
     ],
-    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
+    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },
@@ -34,11 +34,13 @@
         "npmurl": ""
     },
     "uni_modules": {
-        "scripts": {},
+        "scripts": {
+            "init": ""
+        },
         "dependencies": [
             "hi-config",
             "hi-styles",
-            "hi-icon"
+            "hi-button"
         ],
         "encrypt": [],
         "platforms": {

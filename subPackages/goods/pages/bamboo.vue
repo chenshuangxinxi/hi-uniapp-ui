@@ -1,5 +1,5 @@
 <!--
- * hi-ui - 商品组件
+ * zz-goods-bamboo - 商品组件
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -7,12 +7,17 @@
 <template>
     <view class="page-view">
         <!-- 基础使用 -->
-        <view class="demo-module demo-module--default">
-            <view class="demo-module__title">基础使用</view>
-            <view class="demo-module__content list-wrapper">
-                <view class="list-item" v-for="(item, index) in goodsList" :key="index">
-                    <hi-goods-bamboo :item="item"></hi-goods-bamboo>
-                </view>
+        <view class="demo-module">
+            <view class="demo-module__content">
+                <hi-list columns="1" gap="20rpx">
+                    <zz-goods-bamboo
+                        :item="item"
+                        v-for="(item, index) in goodsList"
+                        :key="index"
+                        @asyncChange="onAsyncChange($event, item)"
+                        @delete="onDelete(index)"
+                    ></zz-goods-bamboo>
+                </hi-list>
             </view>
         </view>
     </view>
@@ -52,12 +57,32 @@
             number: 1
         }
     ]);
+
+    /**
+     * 加减数量
+     */
+    function onAsyncChange(value, item) {
+        console.log(value);
+        uni.showLoading({
+            title: "正在更新",
+            mask: true
+        });
+        let timer = setTimeout(() => {
+            item.number = value;
+            clearTimeout(timer);
+            uni.hideLoading();
+        }, 500);
+    }
+
+    /**
+     * 删除
+     */
+    function onDelete(index) {
+        goodsList.value.splice(index, 1);
+    }
 </script>
 
 <style lang="scss" scoped>
     .demo-module {
-        .list-item {
-            margin: 20rpx 0;
-        }
     }
 </style>

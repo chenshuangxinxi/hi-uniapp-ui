@@ -1,5 +1,5 @@
 <!--
- * hi-ui - 扩展组件
+ * hi-ui - 扩展组件 - 属性组件
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -7,7 +7,7 @@
 <template>
     <view class="page-view">
         <view class="components">
-            <view class="component" v-for="item in extendComponents" :key="item.name" @tap="handleComponentClick(item)">
+            <view class="component" v-for="item in attrsCpmponents" :key="item.name" @tap="handleComponentClick(item)">
                 <hi-icon class="component__icon" :name="item.icon"></hi-icon>
                 <view class="component__title">{{ item.title }}</view>
                 <hi-icon class="component__arrow" name="__you"></hi-icon>
@@ -19,14 +19,8 @@
 <script setup>
     import { ref } from "vue";
 
-    // 扩展组件
-    const extendComponents = ref([
-        { title: "商品组件", icon: "/static/images/icons/goods.png", path: "/subPackages/goods/pages/list" },
-        { title: "分类组件", icon: "/static/images/icons/classify.png", path: "/subPackages/classify/pages/list" },
-        { title: "属性组件", icon: "/static/images/icons/attrs.png", path: "/subPackages/attrs/pages/list" },
-        { title: "参数组件", icon: "/static/images/icons/params.png", path: "/subPackages/params/pages/list" },
-        { title: "按钮组合", icon: "/static/images/icons/button-group.png", path: "/subPackages/button-group/pages/list" }
-    ]);
+    // 商品列表
+    const attrsCpmponents = ref([{ title: "Apple", icon: "/static/images/icons/attrs.png", path: "/subPackages/attrs/pages/apple" }]);
 
     /**
      * 组件列表项点击事件

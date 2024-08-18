@@ -1,13 +1,13 @@
 {
-    "id": "hi-tag",
-    "displayName": "hi-tag",
-    "version": "3.0.1",
-    "description": "标签",
+    "id": "hi-list",
+    "displayName": "hi-list",
+    "version": "3.0.0",
+    "description": "列表",
     "keywords": [
         "",
         "hi",
-        "tag",
-        "标签"
+        "list",
+        "列表"
     ],
     "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
@@ -34,11 +34,12 @@
         "npmurl": ""
     },
     "uni_modules": {
-        "scripts": {},
+        "scripts": {
+            "init": ""
+        },
         "dependencies": [
             "hi-config",
-            "hi-styles",
-            "hi-icon"
+            "hi-styles"
         ],
         "encrypt": [],
         "platforms": {
