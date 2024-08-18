@@ -1,7 +1,7 @@
 {
     "id": "hi-config",
     "displayName": "hi-config",
-    "version": "1.2.3",
+    "version": "2.0.1",
     "description": "hi-uniapp-ui 基础依赖配置",
     "keywords": [
         "",
@@ -9,7 +9,7 @@
         "config",
         "hi-config"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

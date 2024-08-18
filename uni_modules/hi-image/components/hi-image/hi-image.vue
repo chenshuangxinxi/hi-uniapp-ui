@@ -1,11 +1,11 @@
 <!--
- * hi-ui 图片组件
+ * hi-image - 图片
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <view class="hi-image" :class="_classes" :style="_styles" :hover-class="hoverClass" @tap="handleClick">
+    <view class="hi-image" :class="_classes" :style="_styles">
         <image
             class="hi-image__image"
             :src="src"
@@ -18,12 +18,12 @@
             @load="onLoad"
             @error="onError"
         />
-        <view class="hi-image__status hi-image__status--loading" v-if="status === 'loading' && loading">
-            <hi-icon class="hi-image__status__icon hi-image__status__icon--loading" :name="loadingIconName" v-bind="loadingIconProps"></hi-icon>
+        <view class="hi-image__status hi-image__status--loading" v-if="status === 'loading' && showLoading">
+            <hi-icon class="hi-image__status__icon hi-image__status__icon--loading" :name="loadingIconName"></hi-icon>
             <text class="hi-image__status__text hi-image__status__text--loading">{{ loadingText }}</text>
         </view>
-        <view class="hi-image__status hi-image__status--error" v-if="status === 'error' && error">
-            <hi-icon class="hi-image__status__icon hi-image__status__icon--error" :name="errorIconName" v-bind="errorIconProps"></hi-icon>
+        <view class="hi-image__status hi-image__status--error" v-if="status === 'error' && showError">
+            <hi-icon class="hi-image__status__icon hi-image__status__icon--error" :name="errorIconName"></hi-icon>
             <text class="hi-image__status__text hi-image__status__text--error">{{ errorText }}</text>
         </view>
     </view>
@@ -42,7 +42,7 @@
     const _props = defineProps(props);
 
     // 组件事件
-    const _emits = defineEmits(["load", "error", "click"]);
+    const _emits = defineEmits(["load", "error"]);
 
     // 组件类名
     const _classes = computed(() => {
@@ -81,24 +81,6 @@
         status.value = "error";
         _emits("error");
     }
-
-    /**
-     * 点击事件
-     */
-    function handleClick() {
-        _emits("click");
-
-        // 开启了预览
-        if (_props.preview) {
-            uni.previewImage({
-                urls: [_props.src],
-                current: 0
-            });
-        }
-    }
-
-    // 组件对外暴漏的属性或方法
-    defineExpose({});
 </script>
 
 <style lang="scss" scoped>
@@ -106,10 +88,12 @@
         width: var(--hi-image-width, 360rpx);
         height: var(--hi-image-height, 360rpx);
         position: relative;
+        color: var(--hi-color-light);
 
         &__image {
             width: 100%;
             height: 100%;
+            border-radius: inherit;
         }
 
         &__status {
@@ -123,38 +107,21 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            border-radius: inherit;
 
             &__icon {
-                margin: var(--hi-image-status-icon-margin, 8px 0);
+                font-size: 1.8em;
 
                 &--loading {
-                    --hi-icon-size: var(--hi-image-loading-icon-size, 1.5em);
-                    --hi-icon-color: var(--hi-image-loading-icon-color, var(--hi-font-color-light));
-                    animation-name: hi-ani-apin;
-                    animation-duration: var(--hi-image-loading-duration, 1500ms);
+                    animation-name: hi-ani-spin;
+                    animation-duration: 1500ms;
                     animation-iteration-count: infinite;
-                    animation-timing-function: var(--hi-image-loading-function, linear);
-                }
-
-                &--error {
-                    --hi-icon-size: var(--hi-image-error-icon-size, 1.75em);
-                    --hi-icon-color: var(--hi-image-error-icon-color, var(--hi-font-color-light));
+                    animation-timing-function: linear;
                 }
             }
 
             &__text {
-                font-size: var(--hi-image-status-text-font-size, 0.75em);
-                color: var(--hi-image-status-text-color, var(--hi-font-color-light));
-
-                &--loading {
-                    --hi-loading-text-size: var(--hi-image-loading-text-font-size, var(--hi-image-status-text-font-size, 0.75em));
-                    --hi-loading-text-color: var(--hi-image-loading-text-color, var(--hi-image-status-text-color, var(--hi-font-color-light)));
-                }
-
-                &--error {
-                    font-size: var(--hi-image-error-text-font-size, var(--hi-image-status-text-font-size, 0.75em));
-                    color: var(--hi-image-error-text-color, var(--hi-image-status-text-color, var(--hi-font-color-light)));
-                }
+                font-size: 0.75em;
             }
         }
     }

@@ -1,5 +1,5 @@
 <!--
- * HiUi - 图标
+ * hi-icon - 图标
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
@@ -39,7 +39,7 @@
         <!-- 内置图标 -->
         <view class="icons">
             <view class="icons__title">内置图标</view>
-            <view class="icons__tips">标准通用图标正在设计中，欢迎设计小伙伴加入我们！</view>
+            <view class="icons__tips">完善补充中</view>
             <view class="icons__list">
                 <view class="icons__list__item" v-for="item in builtInIcons" :key="item.name" @tap="handleIconClick(item)">
                     <hi-icon class="icons__list__item__icon" :name="item.name"></hi-icon>
@@ -75,6 +75,7 @@
 
     // 内置图标
     const builtInIcons = ref([
+        { name: "__dot", text: "点" },
         { name: "__fuzhi", text: "复制" },
         { name: "__gengduo", text: "更多" },
         { name: "__sousuo", text: "搜索" },
@@ -155,7 +156,7 @@
                 justify-content: center;
 
                 .hi-icon {
-                    --hi-icon-size: 40rpx;
+                    font-size: 40rpx;
                 }
             }
         }

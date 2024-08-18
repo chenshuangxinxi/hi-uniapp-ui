@@ -2,22 +2,16 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
-    // 主题
-    theme: {
-        type: String,
-        default: "main"
-    },
-
     // 值
     value: {
         type: Number,
         default: 0
     },
 
-    // 值为 0 时是否显示值
+    // 值为 0 时是否显示
     showZero: {
         type: Boolean,
         default: false
@@ -61,5 +55,5 @@ export default {
     discardLastZero: {
         type: Boolean,
         default: true
-    }
+    },
 };

@@ -1,14 +1,14 @@
 <!--
- * hi-ui - 可拖动内容组件
+ * hi-movable-button - 可拖动按钮
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <movable-area class="hi-movable" :scale-area="scaleArea" :class="_classes" :style="_styles">
+    <movable-area class="hi-movable-button" :scale-area="scaleArea" :class="_classes" :style="_styles">
         <!-- #ifndef MP -->
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             :direction="direction"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -21,21 +21,22 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName"></hi-icon>
+                <text class="hi-movable-button__text" v-if="text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <!-- #endif -->
 
         <!-- 小程序的 direction 属性使用 props 中的值绑定不生效，只能一个一个的判断了，头疼~~~ -->
         <!-- #ifdef MP -->
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             direction="all"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -48,18 +49,19 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
             v-if="direction === 'all'"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName"></hi-icon>
+                <text class="hi-movable-button__text" v-if="text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             direction="vertical"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -72,18 +74,19 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
             v-else-if="direction === 'vertical'"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName"></hi-icon>
+                <text class="hi-movable-button__text" v-if="text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             direction="horizontal"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -96,18 +99,19 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
             v-else-if="direction === 'horizontal'"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName"></hi-icon>
+                <text class="hi-movable-button__text" v-if="text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <movable-view
-            class="hi-movable__button"
+            class="hi-movable-button__movable-view"
             direction="none"
             :inertia="inertia"
             :out-of-bounds="outOfBounds"
@@ -120,15 +124,16 @@
             :scale-value="scaleValue"
             :animation="animation"
             :hover-class="hoverClass"
-            :style="_buttonStyles"
             @tap="_emits('click')"
             @change="_emits('change')"
             @scale="_emits('scale')"
             v-else-if="direction === 'none'"
         >
-            <hi-icon class="hi-movable__button__icon" :name="iconName" v-bind="iconProps"></hi-icon>
-            <text class="hi-movable__button__text">{{ text }}</text>
-            <hi-badge class="hi-movable__button__badge" v-if="showBadge" :value="badgeValue" v-bind="badgeProps"></hi-badge>
+            <slot>
+                <hi-icon class="hi-movable-button__icon" :name="iconName"></hi-icon>
+                <text class="hi-movable-button__text" v-if="text">{{ text }}</text>
+            </slot>
+            <slot name="other"></slot>
         </movable-view>
         <!-- #endif -->
     </movable-area>
@@ -154,7 +159,7 @@
         const classes = [];
 
         // 初始位置
-        classes.push("hi-movable--" + _props.position);
+        if (_props.position) classes.push("hi-movable-button--" + _props.position);
 
         return classes;
     });
@@ -164,155 +169,133 @@
         const styles = [];
         return styles;
     });
-
-    // 按钮样式
-    const _buttonStyles = computed(() => {
-        const styles = [];
-
-        // 宽
-        styles.push("width: " + _props.width);
-        styles.push("--hi-movable-button-width: " + _props.width);
-
-        // 高
-        styles.push("height: " + _props.height);
-        styles.push("--hi-movable-button-height: " + _props.height);
-
-        return styles;
-    });
 </script>
 
 <style lang="scss" scoped>
-    .hi-movable {
-        width: var(--hi-movable-width, 100%);
+    .hi-movable-button {
+        width: 100%;
+        left: 0;
         // #ifdef H5
-        height: var(--hi-movable-height, calc(100% - var(--window-top) - var(--window-bottom)));
-        left: var(--hi-movable-left, 0);
-        top: var(--hi-movable-top, var(--window-top));
+        height: calc(100% - var(--window-top) - var(--window-bottom));
+        top: var(--window-top);
         // #endif
         // #ifndef H5
-        height: var(--hi-movable-height, 100%);
-        left: 0;
-        top: var(--hi-movable-top, 0);
+        height: 100%;
+        top: 0;
         // #endif
         position: fixed;
-        z-index: var(--hi-movable-index, var(--hi-index-middle));
+        z-index: var(--hi-index-default);
         pointer-events: none;
 
-        &__button {
+        &__movable-view {
             pointer-events: all;
-            width: var(--hi-movable-button-width, 88rpx);
-            height: var(--hi-movable-button-height, 88rpx);
-            left: var(--hi-movable-button-left, 20rpx);
-            right: var(--hi-movable-button-right, 20rpx);
-            top: var(--hi-movable-button-top, 20rpx);
-            bottom: var(--hi-movable-button-bottom, 20rpx);
-            margin-left: var(--hi-movable-button-margin-left);
-            margin-top: var(--hi-movable-button-margin-top);
-            background: var(--hi-movable-button-background, #ffffff);
-            border-radius: var(--hi-movable-button-border-radius, 50%);
+            width: 88rpx;
+            height: 88rpx;
+            left: 10px;
+            right: 10px;
+            top: 10px;
+            bottom: 10px;
+            background: #ffffff;
+            border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--hi-movable-button-font-color);
-            font-size: var(--hi-movable-button-font-size);
-            box-shadow: var(--hi-movable-button-shadow, var(--hi-shadow-main));
+            line-height: 1;
+        }
 
-            &__icon {
-                --hi-icon-color: var(--hi-movable-button-icon-color, var(--hi-movable-button-font-color));
-                --hi-icon-size: var(--hi-movable-button-icon-size, 1.5em);
-            }
+        &__icon {
+            font-size: 50rpx;
+        }
 
-            &__text {
-                color: var(--hi-movable-button-text-color, var(--hi-movable-button-font-color));
-                font-size: var(--hi-movable-button-text-size, 0.6em);
-            }
+        &__text {
+            font-size: 18rpx;
         }
 
         &--left-top {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 20rpx);
-                right: var(--hi-movable-button-right, auto);
-                top: var(--hi-movable-button-top, 20rpx);
-                bottom: var(--hi-movable-button-bottom, auto);
+            .hi-movable-button__movable-view {
+                left: 10px;
+                right: auto;
+                top: 10px;
+                bottom: auto;
             }
         }
 
         &--left-center {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 20rpx);
-                right: var(--hi-movable-button-right, auto);
-                top: var(--hi-movable-button-top, 50%);
-                bottom: var(--hi-movable-button-bottom, auto);
-                margin-top: var(--hi-movable-button-margin-top, calc(-1 * var(--hi-movable-button-height, 100rpx) / 2));
+            .hi-movable-button__movable-view {
+                left: 10px;
+                right: auto;
+                top: 50%;
+                bottom: auto;
+                margin-top: -44rpx;
             }
         }
 
         &--left-bottom {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 20rpx);
-                right: var(--hi-movable-button-right, auto);
-                top: var(--hi-movable-button-top, auto);
-                bottom: var(--hi-movable-button-bottom, 20rpx);
+            .hi-movable-button__movable-view {
+                left: 10px;
+                right: auto;
+                top: auto;
+                bottom: 10px;
             }
         }
 
         &--right-top {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, auto);
-                right: var(--hi-movable-button-right, 20rpx);
-                top: var(--hi-movable-button-top, 20rpx);
-                bottom: var(--hi-movable-button-bottom, auto);
+            .hi-movable-button__movable-view {
+                left: auto;
+                right: 10px;
+                top: 10px;
+                bottom: auto;
             }
         }
 
         &--right-center {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, auto);
-                right: var(--hi-movable-button-right, 20rpx);
-                top: var(--hi-movable-button-top, 50%);
-                bottom: var(--hi-movable-button-bottom, auto);
-                margin-top: var(--hi-movable-button-margin-top, calc(-1 * var(--hi-movable-button-height, 100rpx) / 2));
+            .hi-movable-button__movable-view {
+                left: auto;
+                right: 10px;
+                top: 50%;
+                bottom: auto;
+                margin-top: -44rpx;
             }
         }
 
         &--right-bottom {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, auto);
-                right: var(--hi-movable-button-right, 20rpx);
-                top: var(--hi-movable-button-top, auto);
-                bottom: var(--hi-movable-button-bottom, 20rpx);
+            .hi-movable-button__movable-view {
+                left: auto;
+                right: 10px;
+                top: auto;
+                bottom: 10px;
             }
         }
 
         &--center-top {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 50%);
-                right: var(--hi-movable-button-right, auto);
-                top: var(--hi-movable-button-top, 20rpx);
-                bottom: var(--hi-movable-button-bottom, auto);
-                margin-left: var(--hi-movable-button-margin-left, calc(-1 * var(--hi-movable-button-width, 100rpx) / 2));
+            .hi-movable-button__movable-view {
+                left: 50%;
+                right: auto;
+                top: 10px;
+                bottom: auto;
+                margin-left: -44rpx;
             }
         }
 
         &--center-center {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 50%);
-                right: var(--hi-movable-button-right, auto);
-                top: var(--hi-movable-button-top, 50%);
-                bottom: var(--hi-movable-button-bottom, auto);
-                margin-left: var(--hi-movable-button-margin-left, calc(-1 * var(--hi-movable-button-width, 100rpx) / 2));
-                margin-top: calc(-1 * var(--hi-movable-button-height, 100rpx) / 2);
+            .hi-movable-button__movable-view {
+                left: 50%;
+                right: auto;
+                top: 50%;
+                bottom: auto;
+                margin-left: -44rpx;
+                margin-top: -44rpx;
             }
         }
 
         &--center-bottom {
-            .hi-movable__button {
-                left: var(--hi-movable-button-left, 50%);
-                right: var(--hi-movable-button-right, auto);
-                top: var(--hi-movable-button-top, auto);
-                bottom: var(--hi-movable-button-bottom, 20rpx);
-                margin-left: var(--hi-movable-button-margin-left, calc(-1 * var(--hi-movable-button-width, 100rpx) / 2));
+            .hi-movable-button__movable-view {
+                left: 50%;
+                right: auto;
+                top: auto;
+                bottom: 10px;
+                margin-left: -44rpx;
             }
         }
     }

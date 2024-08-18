@@ -1,15 +1,15 @@
 {
     "id": "hi-loading",
     "displayName": "hi-loading",
-    "version": "1.0.3",
-    "description": "加载组件",
+    "version": "3.0.0",
+    "description": "加载",
     "keywords": [
         "",
         "hi",
         "loading",
         "加载"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

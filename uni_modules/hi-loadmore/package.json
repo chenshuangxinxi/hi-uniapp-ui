@@ -1,16 +1,15 @@
 {
     "id": "hi-loadmore",
     "displayName": "hi-loadmore",
-    "version": "1.0.2",
-    "description": "加载更多组件",
+    "version": "3.0.0",
+    "description": "加载更多",
     "keywords": [
         "",
         "hi",
         "loadmore",
-        "加载",
-        "更多"
+        "加载更多"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

@@ -1,63 +1,35 @@
 <!--
- * hi-ui - 遮罩层组件
+ * hi-popup - 弹出层
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <hi-overlay
-        class="hi-popup"
-        :class="_classes"
-        :style="_styles"
-        v-model="hiOverlayModelValue"
-        :async="async"
-        :align="hiOverlayAlign"
-        :duration="duration"
-        @close="handleOverlayClose"
-        @asyncClose="handleOverlayAsyncClose"
-    >
-        <view class="hi-popup__content" @tap.stop>
-            <view class="hi-popup__head" v-if="showHead">
-                <slot name="head">
-                    <view class="hi-popup__title" v-if="showTitle">
+    <view class="hi-popup" :class="_classes" :style="_styles" v-if="show">
+        <view class="hi-popup__mask" @tap="handleMaskClick" v-if="showMask"></view>
+        <view class="hi-popup__content">
+            <view class="hi-popup__header" v-if="showHeader">
+                <slot name="header">
+                    <view class="hi-popup__title">
                         <slot name="title">{{ title }}</slot>
                     </view>
-
-                    <view class="hi-popup__close">
+                    <view class="hi-popup__close" v-if="showClose" @tap="handleCloseClick" :hover-class="hoverClass">
                         <slot name="close">
-                            <hi-icon :name="closeIconName" :v-bind="closeIconProps" v-if="showClose" @tap.stop="handleCloseClick"></hi-icon>
+                            <hi-icon class="hi-popup__close__icon" :name="closeIconName"></hi-icon>
                         </slot>
                     </view>
                 </slot>
             </view>
             <view class="hi-popup__body">
-                <scroll-view
-                    scroll-y
-                    class="hi-popup__body__scroll-view"
-                    :upper-threshold="upperThreshold"
-                    :lower-threshold="lowerThreshold"
-                    :refresher-enabled="refresherEnabled"
-                    :refresher-threshold="refresherThreshold"
-                    :refresher-default-style="refresherDefaultStyle"
-                    :refresher-background="refresherBackground"
-                    :scroll-anchoring="scrollAnchoring"
-                    :refresher-triggered="refresherTriggered"
-                    @scrolltoupper="_emits('scrolltoupper')"
-                    @scrolltolower="_emits('scrolltolower')"
-                    @scroll="_emits('scroll')"
-                    @refresherpulling="_emits('refresherpulling')"
-                    @refresherrefresh="_emits('refresherrefresh')"
-                    @refresherrestore="_emits('refresherrestore')"
-                    @refresherabort="_emits('refresherabort')"
-                >
+                <scroll-view scroll-y class="hi-popup__body__scroll-view" @scrolltolower="_emits('scrolltolower')" @scroll="_emits('scroll')">
                     <slot></slot>
                 </scroll-view>
             </view>
-            <view class="hi-popup__foot" v-if="showFoot">
-                <slot name="foot"></slot>
+            <view class="hi-popup__footer" v-if="showFooter">
+                <slot name="footer"></slot>
             </view>
         </view>
-    </hi-overlay>
+    </view>
 </template>
 
 <!-- 由于 HbuilderX 不支持 defineOptions() 写法，故只能在此处进行配置 -->
@@ -73,18 +45,7 @@
     const _props = defineProps(props);
 
     // 组件事件
-    const _emits = defineEmits([
-        "close",
-        "asyncClose",
-        "update:modelValue",
-        "scrolltoupper",
-        "scrolltolower",
-        "scroll",
-        "refresherpulling",
-        "refresherrefresh",
-        "refresherrestore",
-        "refresherabort"
-    ]);
+    const _emits = defineEmits(["close", "scrolltolower", "scroll"]);
 
     // 组件类名
     const _classes = computed(() => {
@@ -94,7 +55,7 @@
         classes.push(`hi-popup--${_props.mode}`);
 
         // 是否显示
-        if (_props.modelValue) classes.push("hi-popup--show");
+        if (_props.show) classes.push("hi-popup--show");
 
         return classes;
     });
@@ -103,11 +64,9 @@
     const _styles = computed(() => {
         const styles = [];
 
-        // 过渡效果持续时间
-        if (_props.duration) styles.push(`--hi-popup-duration: ${_props.duration}`);
-
         // 宽
         if (_props.width) styles.push(`--hi-popup-width: ${_props.width}`);
+        if (_props.maxWidth) styles.push(`--hi-popup-max-width: ${_props.maxWidth}`);
 
         // 高
         if (_props.height) styles.push(`--hi-popup-height: ${_props.height}`);
@@ -116,48 +75,13 @@
         return styles;
     });
 
-    // 模式
-    const hiOverlayAlign = computed(() => {
-        if (_props.mode === "top") return "center-top";
-        if (_props.mode === "bottom") return "center-bottom";
-        if (_props.mode === "center") return "center-center";
-        if (_props.mode === "left") return "left-center";
-        if (_props.mode === "right") return "right-center";
-        return "center-center";
-    });
-
-    // hi-overlay v-model 的值
-    const hiOverlayModelValue = computed({
-        get() {
-            return _props.modelValue;
-        },
-        set(value) {
-            // 遮罩可点击
-            if (_props.overlayClickable) {
-                _emits("update:modelValue", value);
-            }
-        }
-    });
-
     /**
-     * 遮罩关闭事件
+     * 遮罩点击事件
      */
-    function handleOverlayClose() {
+    function handleMaskClick() {
         // 遮罩可点击
-        if (_props.overlayClickable) {
+        if (_props.maskClickable) {
             _emits("close");
-            return;
-        }
-    }
-
-    /**
-     * 遮罩异步关闭事件
-     */
-    function handleOverlayAsyncClose() {
-        // 遮罩可点击
-        if (_props.overlayClickable) {
-            _emits("asyncClose");
-            return;
         }
     }
 
@@ -165,207 +89,248 @@
      * 关闭按钮点击事件
      */
     function handleCloseClick() {
-        // 异步关闭
-        if (_props.async) {
-            _emits("asyncClose");
-            return;
-        }
-
-        _emits("update:modelValue", false);
         _emits("close");
     }
 </script>
 
 <style lang="scss" scoped>
     .hi-popup {
+        height: 0;
+
+        &__mask {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--hi-background-overlay);
+            opacity: 0;
+            z-index: var(--hi-index-big);
+            overflow: hidden;
+        }
+
         &__content {
-            width: var(--hi-popup-width, 80%);
-            max-width: var(--hi-popup-max-width, 100%);
-            height: var(--hi-popup-height);
-            max-height: var(--hi-popup-max-height, 50%);
-            background-color: var(--hi-popup-background, #ffffff);
+            width: 80%;
+            max-width: 100%;
+            max-height: 50%;
+            background: #ffffff;
             opacity: 0;
             display: flex;
             flex-direction: column;
-            border-radius: var(--hi-popup-border-radius, var(--hi-radius-main));
-            padding-top: var(--hi-popup-padding-top);
-            padding-left: var(--hi-popup-padding-left);
-            padding-right: var(--hi-popup-padding-right);
-            padding-bottom: var(--hi-popup-padding-bottom);
-            overflow: var(--hi-popup-overflow, hidden);
+            overflow: hidden;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: var(--hi-index-big);
         }
 
-        &__head {
-            padding: var(--hi-popup-head-padding, 0.6em 3em);
-            text-align: var(--hi-popup-head-text-align, center);
-            font-size: var(--hi-popup-head-font-size, 1.25em);
-            font-weight: var(--hi-popup-head-font-weight, 700);
-            color: var(--hi-popup-head-font-color);
+        &__header {
+            padding: 6px 15px;
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: 700;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            min-height: 2.2em;
         }
 
         &__title {
-            font-size: var(--hi-popup-title-font-size);
-            font-weight: var(--hi-popup-title-font-weight);
-            color: var(--hi-popup-title-font-color);
-            text-align: var(--hi-popup-title-text-align);
+            flex: 1;
         }
 
         &__close {
-            position: absolute;
-            right: var(--hi-popup-close-right, 0.6em);
-            top: var(--hi-popup-close-top, 50%);
-            transform: var(--hi-popup-close-transform, translateY(-50%));
-            color: var(--hi-popup-close-color);
-            font-size: var(--hi-popup-close-size);
-            background: var(--hi-popup-close-background);
-            border-radius: var(--hi-popup-close-border-radius);
+            width: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         &__body {
             flex: 1;
+            border-style: solid;
+            border-color: var(--hi-border-color);
+            border-top-width: 0.5px;
+            border-right-width: 0;
+            border-bottom-width: 0.5px;
+            border-left-width: 0;
             overflow: hidden;
-            background: var(--hi-popup-body-background);
-            border-style: var(--hi-popup-body-border-style, solid);
-            border-color: var(--hi-popup-body-border-color, var(--hi-border-color-default));
-            border-top-width: var(--hi-popup-body-border-top-width, 0);
-            border-right-width: var(--hi-popup-body-border-right-width, 0);
-            border-bottom-width: var(--hi-popup-body-border-bottom-width, 0);
-            border-left-width: var(--hi-popup-body-border-left-width, 0);
             display: flex;
-            flex-direction: column;
 
             &__scroll-view {
-                height: 100%;
                 width: 100%;
             }
         }
 
-        &__foot {
+        &__footer {
             flex-shrink: 0;
             display: flex;
             align-items: center;
         }
 
         &--show {
-            .hi-popup__content {
-                animation-name: hi-popup-body-ani;
-                animation-duration: var(--hi-popup-duration, 500ms);
-                animation-timing-function: var(--hi-popup-function, ease-in-out);
+            .hi-popup__mask {
+                animation-duration: 300ms;
+                animation-timing-function: linear;
                 animation-fill-mode: forwards;
+                animation-name: hi-popup-mask-ani;
+            }
+
+            .hi-popup__content {
+                animation-duration: 300ms;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+                animation-name: hi-popup-content-ani;
+            }
+
+            &.hi-popup--center .hi-popup__content {
+                animation-name: hi-popup-content-ani-center;
             }
 
             &.hi-popup--top .hi-popup__content {
-                animation-name: hi-popup-body-ani-top;
+                animation-name: hi-popup-content-ani-top;
             }
 
             &.hi-popup--bottom .hi-popup__content {
-                animation-name: hi-popup-body-ani-bottom;
+                animation-name: hi-popup-content-ani-bottom;
             }
 
             &.hi-popup--left .hi-popup__content {
-                animation-name: hi-popup-body-ani-left;
+                animation-name: hi-popup-content-ani-left;
             }
 
             &.hi-popup--right .hi-popup__content {
-                animation-name: hi-popup-body-ani-right;
+                animation-name: hi-popup-content-ani-right;
+            }
+        }
+
+        &--center {
+            .hi-popup__content {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
             }
         }
 
         &--top {
             .hi-popup__content {
-                width: var(--hi-popup-width, 100%);
-                border-radius: var(--hi-popup-border-radius, 0 0 var(--hi-radius-main) var(--hi-radius-main));
+                left: 50%;
+                top: 0;
+                transform: translate(-50%, 0);
+                width: 100%;
             }
         }
 
         &--bottom {
             .hi-popup__content {
-                width: var(--hi-popup-width, 100%);
-                border-radius: var(--hi-popup-border-radius, var(--hi-radius-main) var(--hi-radius-main) 0 0);
-                padding-bottom: var(--hi-popup-padding-bottom, env(safe-area-inset-bottom));
+                left: 50%;
+                bottom: 0;
+                transform: translate(-50%, 0);
+                width: 100%;
+                padding-bottom: env(safe-area-inset-bottom);
             }
         }
 
         &--left {
             .hi-popup__content {
-                width: var(--hi-popup-width, auto);
-                max-width: var(--hi-popup-max-width, 80%);
-                height: var(--hi-popup-height, 100%);
-                max-height: var(--hi-popup-max-height, 100%);
-                border-radius: var(--hi-popup-border-radius, 0 var(--hi-radius-main) var(--hi-radius-main) 0);
-                padding-bottom: var(--hi-popup-padding-bottom, env(safe-area-inset-bottom));
+                left: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+                width: 100%;
+                max-width: 80%;
+                height: 100%;
+                max-height: 100%;
+                padding-bottom: env(safe-area-inset-bottom);
             }
         }
 
         &--right {
             .hi-popup__content {
-                width: var(--hi-popup-width, auto);
-                max-width: var(--hi-popup-max-width, 80%);
-                height: var(--hi-popup-height, 100%);
-                max-height: var(--hi-popup-max-height, 100%);
-                border-radius: var(--hi-popup-border-radius, var(--hi-radius-main) 0 0 var(--hi-radius-main));
-                padding-bottom: var(--hi-popup-padding-bottom, env(safe-area-inset-bottom));
+                left: auto;
+                right: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+                width: 100%;
+                max-width: 80%;
+                height: 100%;
+                max-height: 100%;
+                padding-bottom: env(safe-area-inset-bottom);
             }
         }
 
-        @keyframes hi-popup-body-ani {
+        @keyframes hi-popup-mask-ani {
             0% {
                 opacity: 0;
-                transform: scale(0);
             }
+
             100% {
                 opacity: 1;
-                transform: scale(1);
             }
         }
 
-        @keyframes hi-popup-body-ani-top {
+        @keyframes hi-popup-content-ani {
             0% {
                 opacity: 0;
-                transform: translateY(-100%);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
-        @keyframes hi-popup-body-ani-bottom {
+        @keyframes hi-popup-content-ani-center {
             0% {
                 opacity: 0;
-                transform: translateY(100%);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
-        @keyframes hi-popup-body-ani-left {
+        @keyframes hi-popup-content-ani-top {
             0% {
                 opacity: 0;
-                transform: translateX(-100%);
+                transform: translate(-50%, -100%);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translate(-50%, 0);
             }
         }
 
-        @keyframes hi-popup-body-ani-right {
+        @keyframes hi-popup-content-ani-bottom {
             0% {
                 opacity: 0;
-                transform: translateX(100%);
+                transform: translate(-50%, 100%);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes hi-popup-content-ani-left {
+            0% {
+                opacity: 0;
+                transform: translate(-100%, -50%);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(0, -50%);
+            }
+        }
+
+        @keyframes hi-popup-content-ani-right {
+            0% {
+                opacity: 0;
+                transform: translate(100%, -50%);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(0, -50%);
             }
         }
     }

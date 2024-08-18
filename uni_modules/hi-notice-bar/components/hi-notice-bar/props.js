@@ -2,16 +2,20 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
-    // 使用 v-model 绑定显示状态
-    modelValue: {
-        type: Boolean,
-        default: true
+    // 文字、更多、关闭点击时的 hover-class
+    hoverClass: {
+        type: String,
+        default: "hi-hover"
     },
 
     // 显示状态
+    show: {
+        type: Boolean,
+        default: true
+    },
 
     // 数据
     list: {
@@ -26,57 +30,45 @@ export default {
     },
 
     // 是否显示通知图标
-    noticeIcon: {
+    showIcon: {
         type: Boolean,
         default: true
     },
 
     // 通知图标名称
-    noticeIconName: {
+    iconName: {
         type: String,
         default: "__gonggao"
     },
 
-    // 通知图标的其他配置
-    noticeIconProps: {
-        type: Object,
-        default: null
+    // 是否显示更多按钮
+    showArrow: {
+        type: Boolean,
+        default: false
     },
 
-    // 模式。arrow: 显示箭头图标，closable: 显示关闭图标，"arrow closable": 同时显示两个图标，为空则不显示图标
-    mode: {
-        type: String,
-        default: "arrow"
+    // 是否显示关闭按钮
+    showClose: {
+        type: Boolean,
+        default: false
     },
 
     // 箭头图标名称
-    arrowName: {
+    arrowIconName: {
         type: String,
         default: "__you"
     },
 
-    // 箭头图标的其他配置
-    arrowProps: {
-        type: Object,
-        default: null
-    },
-
     // 关闭图标名称
-    closeName: {
+    closeIconName: {
         type: String,
         default: "__shanchu"
     },
 
-    // 关闭图标的其他配置
-    closeProps: {
-        type: Object,
-        default: null
-    },
-
-    // 滚动模式。row | column
-    direction: {
-        type: String,
-        default: "row"
+    // 是否纵向
+    vertical: {
+        type: Boolean,
+        default: false
     },
 
     // 滚动持续时长，单位秒，duration 和 speed 两者只能存在一个

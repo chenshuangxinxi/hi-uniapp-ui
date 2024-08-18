@@ -2,7 +2,7 @@
  * hi-ui - 扩展组件
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
@@ -21,11 +21,11 @@
 
     // 扩展组件
     const extendComponents = ref([
-        { title: "商品组件", icon: "/static/images/icons/goods.png", path: "/pages/goods/goods" },
-        { title: "分类组件", icon: "/static/images/icons/classify.png", path: "/pages/classify/classify" },
-        { title: "商品/物品属性组件", icon: "/static/images/icons/attrs.png", path: "/pages/attrs/attrs" },
-        { title: "商品/物品参数组件", icon: "/static/images/icons/params.png", path: "/pages/params/params" },
-        { title: "固定在页面底部的组件", icon: "/static/images/icons/fixed-bottom.png", path: "/pages/fixed-bottom/fixed-bottom" }
+        { title: "商品组件", icon: "/static/images/icons/goods.png", path: "/subPackages/goods/pages/list" },
+        { title: "分类组件", icon: "/static/images/icons/classify.png", path: "/subPackages/classify/pages/list" },
+        { title: "属性组件", icon: "/static/images/icons/attrs.png", path: "/subPackages/attrs/pages/list" },
+        { title: "参数组件", icon: "/static/images/icons/params.png", path: "/subPackages/params/pages/list" },
+        { title: "按钮组合", icon: "/static/images/icons/button-group.png", path: "/subPackages/button-group/pages/list" }
     ]);
 
     /**

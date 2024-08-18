@@ -1,15 +1,15 @@
 {
     "id": "hi-swiper",
     "displayName": "hi-swiper",
-    "version": "1.2.4",
-    "description": "轮播组件。",
+    "version": "3.0.0",
+    "description": "轮播。",
     "keywords": [
         "",
         "hi",
         "swiper",
         "轮播"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

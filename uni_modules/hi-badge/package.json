@@ -1,15 +1,15 @@
 {
     "id": "hi-badge",
     "displayName": "hi-badge",
-    "version": "1.0.3",
-    "description": "徽标数组件",
+    "version": "3.0.0",
+    "description": "徽标数",
     "keywords": [
         "",
         "hi",
         "badge",
-        "徽标"
+        "徽标数"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },
@@ -39,9 +39,7 @@
         },
         "dependencies": [
             "hi-config",
-            "hi-styles",
-            "hi-icon",
-            "hi-button"
+            "hi-styles"
         ],
         "encrypt": [],
         "platforms": {

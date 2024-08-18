@@ -1,18 +1,10 @@
 {
     "pages": [
-        // 首页
+        // 基础组件
         {
             "path": "pages/index/index",
             "style": {
                 "navigationBarTitleText": "基础组件"
-            }
-        },
-
-        // 扩展组件
-        {
-            "path": "pages/extend/extend",
-            "style": {
-                "navigationBarTitleText": "扩展组件"
             }
         },
 
@@ -21,6 +13,150 @@
             "path": "pages/icon/icon",
             "style": {
                 "navigationBarTitleText": "图标"
+            }
+        },
+
+        // 按钮
+        {
+            "path": "pages/button/button",
+            "style": {
+                "navigationBarTitleText": "按钮"
+            }
+        },
+
+        // 图片
+        {
+            "path": "pages/image/image",
+            "style": {
+                "navigationBarTitleText": "图片"
+            }
+        },
+
+        // 徽标数
+        {
+            "path": "pages/badge/badge",
+            "style": {
+                "navigationBarTitleText": "徽标数"
+            }
+        },
+
+        // 标签
+        {
+            "path": "pages/tag/tag",
+            "style": {
+                "navigationBarTitleText": "标签"
+            }
+        },
+
+        // loading - 加载
+        {
+            "path": "pages/loading/loading",
+            "style": {
+                "navigationBarTitleText": "loading - 加载"
+            }
+        },
+
+        // loadmore - 加载更多
+        {
+            "path": "pages/loadmore/loadmore",
+            "style": {
+                "navigationBarTitleText": "loadmore - 加载更多"
+            }
+        },
+
+        // 滚动通知
+        {
+            "path": "pages/notice-bar/notice-bar",
+            "style": {
+                "navigationBarTitleText": "滚动通知"
+            }
+        },
+
+        // 弹出层
+        {
+            "path": "pages/popup/popup",
+            "style": {
+                "navigationBarTitleText": "弹出层"
+            }
+        },
+
+        // 轮播
+        {
+            "path": "pages/swiper/swiper",
+            "style": {
+                "navigationBarTitleText": "轮播"
+            }
+        },
+
+        // 轮播指示器
+        {
+            "path": "pages/swiper-indicator/swiper-indicator",
+            "style": {
+                "navigationBarTitleText": "轮播指示器"
+            }
+        },
+
+        // 可拖动按钮
+        {
+            "path": "pages/movable-button/movable-button",
+            "style": {
+                "navigationBarTitleText": "可拖动按钮"
+            }
+        },
+
+        // 遮罩层
+        {
+            "path": "pages/overlay/overlay",
+            "style": {
+                "navigationBarTitleText": "遮罩层"
+            }
+        },
+
+        // 列表
+        {
+            "path": "pages/list/list",
+            "style": {
+                "navigationBarTitleText": "列表"
+            }
+        },
+
+        // 复选框
+        {
+            "path": "pages/checkbox/checkbox",
+            "style": {
+                "navigationBarTitleText": "复选框"
+            }
+        },
+
+        // 复选框组
+        {
+            "path": "pages/checkbox-group/checkbox-group",
+            "style": {
+                "navigationBarTitleText": "复选框组"
+            }
+        },
+
+        // 单选框
+        {
+            "path": "pages/radio/radio",
+            "style": {
+                "navigationBarTitleText": "单选框"
+            }
+        },
+
+        // 单选框组
+        {
+            "path": "pages/radio-group/radio-group",
+            "style": {
+                "navigationBarTitleText": "单选框组"
+            }
+        },
+
+        // 步进器
+        {
+            "path": "pages/number-step/number-step",
+            "style": {
+                "navigationBarTitleText": "步进器"
             }
         },
 
@@ -40,84 +176,11 @@
             }
         },
 
-        // 页面头部
-        {
-            "path": "pages/page-header/page-header",
-            "style": {
-                "navigationBarTitleText": "页面头部",
-                "navigationStyle": "custom"
-            }
-        },
-
-        // 按钮
-        {
-            "path": "pages/button/button",
-            "style": {
-                "navigationBarTitleText": "按钮"
-            }
-        },
-
-        // 轮播
-        {
-            "path": "pages/swiper/swiper",
-            "style": {
-                "navigationBarTitleText": "轮播"
-            }
-        },
-
-        // 滚动通知
-        {
-            "path": "pages/notice-bar/notice-bar",
-            "style": {
-                "navigationBarTitleText": "滚动通知"
-            }
-        },
-
-        // 价格
-        {
-            "path": "pages/price/price",
-            "style": {
-                "navigationBarTitleText": "价格"
-            }
-        },
-
-        // 图片
-        {
-            "path": "pages/image/image",
-            "style": {
-                "navigationBarTitleText": "图片"
-            }
-        },
-
-        // loading - 加载
-        {
-            "path": "pages/loading/loading",
-            "style": {
-                "navigationBarTitleText": "loading - 加载"
-            }
-        },
-
         // 内容为空
         {
             "path": "pages/empty/empty",
             "style": {
                 "navigationBarTitleText": "内容为空"
-            }
-        },
-
-        // 加载更多
-        {
-            "path": "pages/loadmore/loadmore",
-            "style": {
-                "navigationBarTitleText": "加载更多"
-            }
-        },
-
-        // 拖动按钮
-        {
-            "path": "pages/movable-button/movable-button",
-            "style": {
-                "navigationBarTitleText": "拖动按钮"
             }
         },
 
@@ -129,11 +192,11 @@
             }
         },
 
-        // 徽标数
+        // 价格
         {
-            "path": "pages/badge/badge",
+            "path": "pages/price/price",
             "style": {
-                "navigationBarTitleText": "徽标数"
+                "navigationBarTitleText": "价格"
             }
         },
 
@@ -142,86 +205,6 @@
             "path": "pages/filter/filter",
             "style": {
                 "navigationBarTitleText": "过滤器"
-            }
-        },
-
-        // 商品组件
-        {
-            "path": "pages/goods/goods",
-            "style": {
-                "navigationBarTitleText": "商品组件"
-            }
-        },
-
-        // 分类组件
-        {
-            "path": "pages/classify/classify",
-            "style": {
-                "navigationBarTitleText": "分类组件"
-            }
-        },
-
-        // 商品/物品属性组件
-        {
-            "path": "pages/attrs/attrs",
-            "style": {
-                "navigationBarTitleText": "商品/物品属性组件"
-            }
-        },
-
-        // 商品/物品参数组件
-        {
-            "path": "pages/params/params",
-            "style": {
-                "navigationBarTitleText": "商品/物品参数组件"
-            }
-        },
-
-        // 固定在页面底部的组件
-        {
-            "path": "pages/fixed-bottom/fixed-bottom",
-            "style": {
-                "navigationBarTitleText": "固定在页面底部的组件"
-            }
-        },
-
-        // 步进器
-        {
-            "path": "pages/number-step/number-step",
-            "style": {
-                "navigationBarTitleText": "步进器"
-            }
-        },
-
-        // 标签
-        {
-            "path": "pages/tag/tag",
-            "style": {
-                "navigationBarTitleText": "标签"
-            }
-        },
-
-        // 复选框
-        {
-            "path": "pages/checkbox/checkbox",
-            "style": {
-                "navigationBarTitleText": "复选框"
-            }
-        },
-
-        // 遮罩层
-        {
-            "path": "pages/overlay/overlay",
-            "style": {
-                "navigationBarTitleText": "遮罩层"
-            }
-        },
-
-        // 弹出层
-        {
-            "path": "pages/popup/popup",
-            "style": {
-                "navigationBarTitleText": "弹出层"
             }
         },
 
@@ -239,67 +222,100 @@
             "style": {
                 "navigationBarTitleText": "头像组"
             }
+        },
+
+        // 扩展组件
+        {
+            "path": "pages/extend/extend",
+            "style": {
+                "navigationBarTitleText": "扩展组件"
+            }
         }
     ],
-    "subPackages": [{
-        "root": "subPackages/goods",
-        "pages": [{
-            "path": "pages/aster",
-            "style": {
-                "navigationBarTitleText": "商品-紫菀-aster"
-            }
-        }, {
-            "path": "pages/bamboo",
-            "style": {
-                "navigationBarTitleText": "商品-竹-bamboo"
-            }
-        }]
-    }, {
-        "root": "subPackages/classify",
-        "pages": [{
-            "path": "pages/aster",
-            "style": {
-                "navigationBarTitleText": "分类-紫菀-aster"
-            }
-        }]
-    }, {
-        "root": "subPackages/attrs",
-        "pages": [{
-            "path": "pages/aster",
-            "style": {
-                "navigationBarTitleText": "商品/物品属性-紫菀-aster"
-            }
-        }]
-    }, {
-        "root": "subPackages/params",
-        "pages": [{
-            "path": "pages/aster",
-            "style": {
-                "navigationBarTitleText": "商品/物品参数-紫菀-aster"
-            }
-        }]
-    }, {
-        "root": "subPackages/fixed-bottom",
-        "pages": [{
-            "path": "pages/aster",
-            "style": {
-                "navigationBarTitleText": "底部组件-紫菀-aster"
-            }
-        }, {
-            "path": "pages/bamboo",
-            "style": {
-                "navigationBarTitleText": "底部组件-竹-bamboo"
-            }
-        }, {
-            "path": "pages/camellia",
-            "style": {
-                "navigationBarTitleText": "底部组件-山茶花-camellia"
-            }
-        }]
-    }],
+    "subPackages": [
+        // 商品组件
+        {
+            "root": "subPackages/goods",
+            "pages": [{
+                "path": "pages/list",
+                "style": {
+                    "navigationBarTitleText": "商品组件"
+                }
+            }, {
+                "path": "pages/apple",
+                "style": {
+                    "navigationBarTitleText": "商品 - Apple"
+                }
+            }, {
+                "path": "pages/bamboo",
+                "style": {
+                    "navigationBarTitleText": "商品 - Bamboo"
+                }
+            }]
+        },
+
+        // 分类组件
+        {
+            "root": "subPackages/classify",
+            "pages": [{
+                "path": "pages/list",
+                "style": {
+                    "navigationBarTitleText": "分类组件"
+                }
+            }, {
+                "path": "pages/apple",
+                "style": {
+                    "navigationBarTitleText": "分类 - Apple"
+                }
+            }]
+        },
+
+        // 属性组件
+        {
+            "root": "subPackages/attrs",
+            "pages": [{
+                "path": "pages/list",
+                "style": {
+                    "navigationBarTitleText": "属性组件"
+                }
+            }, {
+                "path": "pages/apple",
+                "style": {
+                    "navigationBarTitleText": "属性 - Apple"
+                }
+            }]
+        },
+
+        // 参数组件
+        {
+            "root": "subPackages/params",
+            "pages": [{
+                "path": "pages/list",
+                "style": {
+                    "navigationBarTitleText": "参数组件"
+                }
+            }, {
+                "path": "pages/apple",
+                "style": {
+                    "navigationBarTitleText": "参数 - Apple"
+                }
+            }]
+        },
+
+        // 按钮组合
+        {
+            "root": "subPackages/button-group",
+            "pages": [{
+                "path": "pages/list",
+                "style": {
+                    "navigationBarTitleText": "按钮组合"
+                }
+            }]
+        }
+    ],
     "globalStyle": {
         "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "hi-ui",
+        "navigationBarTitleText": "HiUi",
         "navigationBarBackgroundColor": "#ffffff",
         "backgroundColor": "#ffffff"
     },

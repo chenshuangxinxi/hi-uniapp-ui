@@ -2,10 +2,10 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
-    // hover class
+    // hover-class
     hoverClass: {
         type: String,
         default: "hi-hover"
@@ -15,108 +15,6 @@ export default {
     disabled: {
         type: Boolean,
         default: false
-    },
-
-    // disabled class
-    disabledClass: {
-        type: String,
-        default: "hi-disabled"
-    },
-
-    // 主题
-    theme: {
-        type: String,
-        default: ""
-    },
-
-    // 是否镂空？
-    plain: {
-        type: Boolean,
-        default: false
-    },
-
-    // 是否块级按钮？
-    block: {
-        type: Boolean,
-        default: false
-    },
-
-    // 按钮形状。 square | round | circle
-    shape: {
-        type: String,
-        default: "square"
-    },
-
-    // 文字大小
-    size: {
-        type: String,
-        default: ""
-    },
-
-    // 文字颜色
-    color: {
-        type: String,
-        default: ""
-    },
-
-    // 副文字大小
-    subSize: {
-        type: String,
-        default: ""
-    },
-
-    // 副文字颜色
-    subColor: {
-        type: String,
-        default: ""
-    },
-
-    // 背景
-    bg: {
-        type: String,
-        default: ""
-    },
-
-    // 圆角
-    radius: {
-        type: String,
-        default: ""
-    },
-
-    // 宽
-    width: {
-        type: String,
-        default: ""
-    },
-
-    // 高
-    height: {
-        type: String,
-        default: ""
-    },
-
-    // 边框颜色
-    borderColor: {
-        type: String,
-        default: ""
-    },
-
-    // 图标大小，影响左侧图标、右侧图标和 loading 图标
-    iconSize: {
-        type: String,
-        default: ""
-    },
-
-    // 图标裁剪模式，影响左侧图标、右侧图标和 loading 图标
-    iconMode: {
-        type: String,
-        default: ""
-    },
-
-    // 图标颜色，影响左侧图标、右侧图标和 loading 图标
-    iconColor: {
-        type: String,
-        default: ""
     },
 
     // 是否显示 loading
@@ -137,68 +35,14 @@ export default {
         default: "__loading"
     },
 
-    // loading 图标颜色
-    loadingIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // loading 图标大小
-    loadingIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // loading 图标图片裁剪模式
-    loadingIconMode: {
-        type: String,
-        default: ""
-    },
-
     // 左侧图标名称
     leftIconName: {
         type: String,
         default: ""
     },
 
-    // 左侧图标大小
-    leftIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // 左侧图标颜色
-    leftIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // 左侧图标裁剪模式
-    leftIconMode: {
-        type: String,
-        default: ""
-    },
-
     // 右侧图标名称
     rightIconName: {
-        type: String,
-        default: ""
-    },
-
-    // 右侧图标大小
-    rightIconSize: {
-        type: String,
-        default: ""
-    },
-
-    // 右侧图标颜色
-    rightIconColor: {
-        type: String,
-        default: ""
-    },
-
-    // 右侧图标裁剪模式
-    rightIconMode: {
         type: String,
         default: ""
     },

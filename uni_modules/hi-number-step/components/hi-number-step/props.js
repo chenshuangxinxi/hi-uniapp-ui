@@ -2,9 +2,15 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
+    // 加减按钮的 hover-class
+    hoverClass: {
+        type: String,
+        default: "hi-hover"
+    },
+
     // 使用 v-model 双向绑定值
     modelValue: {
         type: Number,
@@ -35,22 +41,10 @@ export default {
         default: "__jian"
     },
 
-    // 减号按钮图标的其他配置
-    minusIconProps: {
-        type: Object,
-        default: () => ({})
-    },
-
     // 加号按钮图标的名称
     plusIconName: {
         type: String,
         default: "__jia"
-    },
-
-    // 加号按钮图标的其他配置
-    plusIconProps: {
-        type: Object,
-        default: () => ({})
     },
 
     // 是否禁用减号按钮

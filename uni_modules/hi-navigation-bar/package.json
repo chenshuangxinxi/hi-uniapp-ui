@@ -1,15 +1,15 @@
 {
     "id": "hi-navigation-bar",
     "displayName": "hi-navigation-bar",
-    "version": "1.2.4",
-    "description": "导航栏组件",
+    "version": "3.0.0",
+    "description": "导航栏",
     "keywords": [
         "",
         "hi",
         "navigation-bar",
         "导航栏"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

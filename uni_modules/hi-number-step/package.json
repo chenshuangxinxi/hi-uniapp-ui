@@ -1,15 +1,15 @@
 {
     "id": "hi-number-step",
     "displayName": "hi-number-step",
-    "version": "1.0.1",
-    "description": "步进器组件",
+    "version": "3.0.0",
+    "description": "步进器",
     "keywords": [
         "",
         "hi",
         "number-step",
         "步进器"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

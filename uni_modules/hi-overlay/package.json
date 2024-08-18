@@ -1,15 +1,15 @@
 {
     "id": "hi-overlay",
     "displayName": "hi-overlay",
-    "version": "1.0.1",
-    "description": "遮罩层组件",
+    "version": "3.0.0",
+    "description": "遮罩层",
     "keywords": [
         "",
         "hi",
         "overlay",
         "遮罩层"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },
@@ -39,8 +39,7 @@
         },
         "dependencies": [
             "hi-config",
-            "hi-styles",
-            "hi-icon"
+            "hi-styles"
         ],
         "encrypt": [],
         "platforms": {

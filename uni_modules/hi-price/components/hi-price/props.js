@@ -2,15 +2,9 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
-    // 是否显示正负符号
-    symbol: {
-        type: Boolean,
-        default: false
-    },
-
     // 价格单位
     unit: {
         type: String,
@@ -18,7 +12,7 @@ export default {
     },
 
     // 价格
-    price: {
+    value: {
         type: [String, Number],
         default: 0
     },
@@ -42,7 +36,7 @@ export default {
     },
 
     // 是否显示删除线？
-    delete: {
+    showDelete: {
         type: Boolean,
         default: false
     }

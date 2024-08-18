@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 导航栏组件演示页面
+ * hi-navigation-bar - 导航栏
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
@@ -36,38 +36,26 @@
             <view class="demo-module__content">
                 <hi-navigation-bar
                     align="center"
-                    :leftMenu="leftIcons1"
-                    :rightMenu="rightIcons1"
-                    @leftClick="handleLeftClick"
-                    @rightClick="handleRightClick"
+                    :leftMenu="menus"
+                    :rightMenu="menus"
+                    @leftMenuClick="handleLeftClick"
+                    @rightMenuClick="handleRightClick"
                 ></hi-navigation-bar>
-            </view>
-        </view>
-
-        <!-- 自定义菜单按钮 -->
-        <view class="demo-module">
-            <view class="demo-module__title">自定义菜单按钮</view>
-            <view class="demo-module__content">
+                <view class="gap"></view>
                 <hi-navigation-bar
                     align="center"
-                    :leftMenu="leftIcons2"
-                    :rightMenu="rightIcons2"
-                    @leftClick="handleLeftClick"
-                    @rightClick="handleRightClick"
+                    :leftMenu="menus2"
+                    :rightMenu="menus2"
+                    @leftMenuClick="handleLeftClick"
+                    @rightMenuClick="handleRightClick"
                 ></hi-navigation-bar>
-            </view>
-        </view>
-
-        <!-- 自定义菜单按钮 -->
-        <view class="demo-module">
-            <view class="demo-module__title">自定义菜单按钮</view>
-            <view class="demo-module__content">
+                <view class="gap"></view>
                 <hi-navigation-bar
                     align="center"
-                    :leftMenu="leftIcons"
-                    :rightMenu="rightIcons"
-                    @leftClick="handleLeftClick"
-                    @rightClick="handleRightClick"
+                    :leftMenu="menus3"
+                    :rightMenu="menus3"
+                    @leftMenuClick="handleLeftClick"
+                    @rightMenuClick="handleRightClick"
                 ></hi-navigation-bar>
             </view>
         </view>
@@ -78,31 +66,19 @@
     import { ref } from "vue";
 
     // 左侧菜单按钮
-    const leftIcons = ref([
-        { show: true, iconProps: { name: "weixin" }, text: "微信" },
-        { show: true, iconProps: { name: "douyin" }, text: "抖音" }
-    ]);
-    const leftIcons1 = ref([
-        { show: true, iconProps: { name: "weixin" } },
-        { show: true, iconProps: { name: "douyin" } }
-    ]);
-    const leftIcons2 = ref([
-        { show: true, text: "微信" },
-        { show: true, text: "抖音" }
+    const menus = ref([
+        { show: true, iconName: "weixin", text: "微信" },
+        { show: true, iconName: "douyin", text: "抖音" }
     ]);
 
-    // 右侧菜单按钮
-    const rightIcons = ref([
-        { show: true, iconProps: { name: "__gonggao" }, text: "公告" },
-        { show: true, iconProps: { name: "__shezhi" }, text: "设置" }
+    const menus2 = ref([
+        { show: true, iconName: "weixin" },
+        { show: true, iconName: "douyin" }
     ]);
-    const rightIcons1 = ref([
-        { show: true, iconProps: { name: "__gonggao" } },
-        { show: true, iconProps: { name: "__shezhi" } }
-    ]);
-    const rightIcons2 = ref([
-        { show: true, text: "公告" },
-        { show: true, text: "设置" }
+
+    const menus3 = ref([
+        { show: true, text: "微信" },
+        { show: true, text: "抖音" }
     ]);
 
     /**
@@ -132,5 +108,8 @@
 
 <style lang="scss" scoped>
     .demo-module {
+        .gap {
+            height: 10px;
+        }
     }
 </style>

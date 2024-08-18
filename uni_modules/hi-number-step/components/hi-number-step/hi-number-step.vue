@@ -1,24 +1,29 @@
 <!--
- * hi-ui - 滚动通知组件
+ * hi-number-step - 步进器
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-number-step" :class="_classes" :style="_styles">
+        <!-- 减 -->
         <hi-icon
             class="hi-number-step__icon hi-number-step__icon--minus"
+            :hover-class="hoverClass"
             :name="minusIconName"
-            v-bind="minusIconProps"
             @tap="onMinus"
             :class="{ 'hi-number-step__icon--disabled': _disabledMinus }"
             v-if="showMinus"
         ></hi-icon>
+
+        <!-- 值 -->
         <input class="hi-number-step__input" type="digit" v-model="inputValue" @input="onInput" :disabled="disabledInput" />
+
+        <!-- 加 -->
         <hi-icon
             class="hi-number-step__icon hi-number-step__icon--plus"
+            :hover-class="hoverClass"
             :name="plusIconName"
-            v-bind="plusIconProps"
             @tap="onPlus"
             :class="{ 'hi-number-step__icon--disabled': _disabledPlus }"
             v-if="showPlus"
@@ -39,14 +44,14 @@
     const _props = defineProps(props);
 
     // 组件事件
-    const _emits = defineEmits(["change", "update:modelValue"]);
+    const _emits = defineEmits(["change", "asyncChange", "update:modelValue"]);
 
     // 组件类名
     const _classes = computed(() => {
         const classes = [];
 
         // 是否禁用全部？
-        if (_props.disabled) classes.push(`hi-number-step--disabled`);
+        if (_props.disabled) classes.push(`hi-disabled hi-number-step--disabled`);
 
         return classes;
     });
@@ -85,18 +90,20 @@
     function onPlus() {
         // 开启了异步变更
         if (_props.async) {
-            _emits("change", _props.modelValue + _props.step);
+            _emits("asyncChange", _props.modelValue + _props.step);
             return;
         }
 
         // 当前值加上步进值超出最大值
         if (_props.modelValue + _props.step > _props.max) {
             _emits("update:modelValue", _props.max);
+            _emits("change", _props.max);
             return;
         }
 
         // 当前值加上步进值未超出最大值
         _emits("update:modelValue", _props.modelValue + _props.step);
+        _emits("change", _props.modelValue + _props.step);
     }
 
     /**
@@ -105,18 +112,20 @@
     function onMinus() {
         // 开启了异步变更
         if (_props.async) {
-            _emits("change", _props.modelValue - _props.step);
+            _emits("asyncChange", _props.modelValue - _props.step);
             return;
         }
 
         // 当前值减去步进值小于最小值
         if (_props.modelValue - _props.step < _props.min) {
             _emits("update:modelValue", _props.min);
+            _emits("change", _props.min);
             return;
         }
 
         // 当前值减去步进值未小于最小值
         _emits("update:modelValue", _props.modelValue - _props.step);
+        _emits("change", _props.modelValue - _props.step);
     }
 
     /**
@@ -129,7 +138,7 @@
 
         // 开启了异步变更
         if (_props.async) {
-            _emits("change", value);
+            _emits("asyncChange", value);
             return;
         }
 
@@ -144,6 +153,7 @@
 
         // 未超出范围
         _emits("update:modelValue", value);
+        _emits("change", value);
     }
 
     /**
@@ -162,44 +172,20 @@
 <style lang="scss" scoped>
     .hi-number-step {
         display: inline-flex;
-        border-width: var(--hi-number-step-border-width, 1px);
-        border-style: var(--hi-number-step-border-style, solid);
-        border-color: var(--hi-number-step-border-color, var(--hi-border-color-default));
-        border-radius: var(--hi-number-step-border-radius, var(--hi-radius-small));
+        height: 2em;
+        border: 0.5px solid var(--hi-border-color);
         overflow: hidden;
-        height: var(--hi-number-step-height, 2.5em);
         align-items: stretch;
-
-        &:focus-within {
-            border-color: var(--hi-number-step-focus-border-color, var(--hi-border-color-default));
-        }
+        text-align: center;
 
         &__icon {
-            width: var(--hi-number-step-button-width, 2.5em);
+            width: 2em;
             flex-shrink: 0;
-            background: var(--hi-number-step-button-background);
-            --hi-icon-color: var(--hi-number-step-button-font-color);
-            --hi-icon-size: var(--hi-number-step-button-font-size);
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100%;
-
-            &--minus {
-                background: var(--hi-number-step-minus-button-background);
-                --hi-icon-color: var(--hi-number-step-minus-button-font-color);
-                --hi-icon-size: var(--hi-number-step-minus-button-font-size);
-            }
-
-            &--plus {
-                background: var(--hi-number-step-plus-button-background);
-                --hi-icon-color: var(--hi-number-step-plus-button-font-color);
-                --hi-icon-size: var(--hi-number-step-plus-button-font-size);
-            }
-
-            &:active {
-                opacity: var(--hi-number-step-button-active-opacity, var(--hi-opacity-hover));
-            }
+            width: 2em;
 
             &--disabled {
                 pointer-events: none;
@@ -208,26 +194,12 @@
         }
 
         &__input {
-            border-style: var(--hi-number-step-input-border-style, solid);
-            border-color: var(--hi-number-step-input-border-color, var(--hi-border-color-default));
-            border-left-width: var(--hi-number-step-input-border-left-width, 1px);
-            border-right-width: var(--hi-number-step-input-border-right-width, 1px);
-            border-top-width: var(--hi-number-step-input-border-top-width, 0);
-            border-bottom-width: var(--hi-number-step-input-border-bottom-width, 1px);
-            height: var(--hi-number-step-input-height, 100%);
-            text-align: var(--hi-number-step-input-text-align, center);
-            padding: var(--hi-number-step-input-padding);
-            margin: var(--hi-number-step-input-margin);
-            width: var(--hi-number-step-input-width, 5em);
-            font-size: var(--hi-number-step-input-font-size, inherit);
-            color: var(--hi-number-step-input-color, inherit);
-            border-radius: var(--hi-number-step-input-border-radius, 0);
-            background: var(--hi-number-step-input-background);
-        }
-
-        &--disabled {
-            pointer-events: none;
-            opacity: var(--hi-opacity-disabled);
+            border-left: inherit;
+            border-right: inherit;
+            height: 100%;
+            width: 3em;
+            flex: 1;
+            font-size: inherit;
         }
     }
 </style>

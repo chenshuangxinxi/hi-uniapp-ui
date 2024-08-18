@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 徽标数组件
+ * hi-badge - 徽标数
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-badge" :class="_classes" :style="_styles" v-if="isShow">
@@ -24,7 +24,7 @@
     const _props = defineProps(props);
 
     // 组件事件
-    const _emits = defineEmits(["click"]);
+    const _emits = defineEmits([""]);
 
     // 组件类名
     const _classes = computed(() => {
@@ -33,19 +33,12 @@
         // 模式
         classes.push(`hi-badge--${_props.mode}`);
 
-        // 主题
-        classes.push(`hi-badge--${_props.theme}`);
-
         return classes;
     });
 
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
-
-        // 主题
-        if (_props.theme) styles.push(`--hi-badge-background: var(--hi-theme-${_props.theme});`);
-
         return styles;
     });
 
@@ -85,25 +78,29 @@
 
 <style lang="scss" scoped>
     .hi-badge {
-        background: var(--hi-badge-background, var(--hi-theme-main));
-        color: var(--hi-badge-font-color, #fff);
-        font-size: var(--hi-badge-font-size, 0.7em);
-        font-weight: var(--hi-badge-font-weight, 400);
-        border-radius: var(--hi-badge-border-radius, 100px);
-        padding: var(--hi-badge-padding, 8rpx 16rpx);
-        position: var(--hi-badge-position, absolute);
-        left: var(--hi-badge-left);
-        right: var(--hi-badge-right, 0);
-        top: var(--hi-badge-top, 0);
-        bottom: var(--hi-badge-bottom);
-        z-index: var(--hi-badge-index, 6);
-        transform: var(--hi-badge-transform, translate(25%, -25%));
+        background: var(--hi-theme-primary);
+        color: #ffffff;
+        border-radius: 100px;
+        padding: 0 0.7em;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 6;
+        transform: translate(25%, -25%);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8em;
+        line-height: 1;
+        height: 2em;
+        min-width: 2em;
 
         &--dot {
-            width: var(--hi-badge-dot-size, 16rpx);
-            height: var(--hi-badge-dot-size, 16rpx);
+            width: 0.6em;
+            height: 0.6em;
             border-radius: 50%;
             padding: 0;
+            min-width: 0;
 
             .hi-badge__value {
                 display: none;

@@ -1,13 +1,13 @@
 <!--
- * hi-ui - 徽标数组件
+ * hi-badge - 徽标数
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
         <!-- 基础使用 -->
-        <view class="demo-module demo-module--default">
+        <view class="demo-module">
             <view class="demo-module__title">基础使用</view>
             <view class="demo-module__tips">默认值为0时不显示，需配置 showZero 为 true 才会显示</view>
             <view class="demo-module__content">
@@ -21,7 +21,7 @@
         </view>
 
         <!-- 圆点模式 -->
-        <view class="demo-module demo-module--default">
+        <view class="demo-module">
             <view class="demo-module__title">圆点模式</view>
             <view class="demo-module__content">
                 <hi-badge mode="dot"></hi-badge>
@@ -34,7 +34,7 @@
         </view>
 
         <!-- overflow 模式 -->
-        <view class="demo-module demo-module--default">
+        <view class="demo-module">
             <view class="demo-module__title">overflow 模式</view>
             <view class="demo-module__tips">max 的值默认为 99</view>
             <view class="demo-module__content">
@@ -44,7 +44,7 @@
         </view>
 
         <!-- ellipsis 模式 -->
-        <view class="demo-module demo-module--default">
+        <view class="demo-module">
             <view class="demo-module__title">ellipsis 模式</view>
             <view class="demo-module__tips">max 的值默认为 99</view>
             <view class="demo-module__content">
@@ -54,7 +54,7 @@
         </view>
 
         <!-- limit 模式 -->
-        <view class="demo-module demo-module--default">
+        <view class="demo-module">
             <view class="demo-module__title">limit 模式</view>
             <view class="demo-module__tips">limit 的分割值默认为 1000，limit 分割后的后缀默认为 k</view>
             <view class="demo-module__content">
@@ -81,7 +81,7 @@
         }
 
         .hi-badge {
-            --hi-badge-position: static;
+            position: static;
         }
     }
 </style>

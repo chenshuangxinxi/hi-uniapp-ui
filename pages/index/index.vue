@@ -2,7 +2,7 @@
  * hi-ui - 基础组件
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
@@ -84,20 +84,25 @@
 
     // 反馈组件
     const feedbackComponents = ref([
-        { title: "通知公告", icon: "/static/images/icons/notice-bar.png", path: "/pages/notice-bar/notice-bar" },
+        { title: "滚动通知", icon: "/static/images/icons/notice-bar.png", path: "/pages/notice-bar/notice-bar" },
         { title: "弹出层", icon: "/static/images/icons/popup.png", path: "/pages/popup/popup" }
     ]);
 
     // 布局组件
     const layoutComponents = ref([
         { title: "轮播", icon: "/static/images/icons/swiper.png", path: "/pages/swiper/swiper" },
-        { title: "拖动按钮", icon: "/static/images/icons/movable-button.png", path: "/pages/movable-button/movable-button" },
-        { title: "遮罩层", icon: "/static/images/icons/overlay.png", path: "/pages/overlay/overlay" }
+        { title: "轮播指示器", icon: "/static/images/icons/swiper.png", path: "/pages/swiper-indicator/swiper-indicator" },
+        { title: "可拖动按钮", icon: "/static/images/icons/movable-button.png", path: "/pages/movable-button/movable-button" },
+        { title: "遮罩层", icon: "/static/images/icons/overlay.png", path: "/pages/overlay/overlay" },
+        { title: "列表", icon: "/static/images/icons/list.png", path: "/pages/list/list" }
     ]);
 
     // 表单组件
     const formComponents = ref([
         { title: "复选框", icon: "/static/images/icons/checkbox.png", path: "/pages/checkbox/checkbox" },
+        { title: "复选框组", icon: "/static/images/icons/checkbox.png", path: "/pages/checkbox-group/checkbox-group" },
+        { title: "单选框", icon: "/static/images/icons/radio.png", path: "/pages/radio/radio" },
+        { title: "单选框组", icon: "/static/images/icons/radio.png", path: "/pages/radio-group/radio-group" },
         { title: "步进器", icon: "/static/images/icons/number-step.png", path: "/pages/number-step/number-step" }
     ]);
 
@@ -105,7 +110,6 @@
     const navComponents = ref([
         { title: "状态栏", icon: "/static/images/icons/status-bar.png", path: "/pages/status-bar/status-bar" },
         { title: "导航栏", icon: "/static/images/icons/navigation-bar.png", path: "/pages/navigation-bar/navigation-bar" },
-        { title: "页面头部", icon: "/static/images/icons/page-header.png", path: "/pages/page-header/page-header" },
         { title: "内容为空", icon: "/static/images/icons/empty.png", path: "/pages/empty/empty" },
         { title: "电梯导航", icon: "/static/images/icons/elevator.png", path: "/pages/elevator/elevator" }
     ]);

@@ -1,12 +1,15 @@
 <!--
- * hi-ui - 滚动通知组件
+ * hi-notice-bar - 滚动通知
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <view class="hi-notice-bar" :class="_classes" :style="_styles" v-if="modelValue">
-        <hi-icon class="hi-notice-bar__icon hi-notice-bar__icon--notice" :name="noticeIconName" v-bind="noticeIconProps" v-if="noticeIcon"></hi-icon>
+    <view class="hi-notice-bar" :class="_classes" :style="_styles" v-if="show">
+        <!-- 左侧通知图标 -->
+        <hi-icon class="hi-notice-bar__icon hi-notice-bar__icon--notice" :name="iconName" v-if="showIcon" :hover-class="hoverClass"></hi-icon>
+
+        <!-- 内容区域 -->
         <view class="hi-notice-bar__content">
             <view
                 class="hi-notice-bar__text"
@@ -16,23 +19,28 @@
                 :key="_index"
                 @transitionend="onTransitionEnd(_index)"
                 @tap="_emits('click', _item, _index)"
+                :hover-class="hoverClass"
             >
                 {{ _item[keyName] }}
             </view>
         </view>
+
+        <!-- 更多 -->
         <hi-icon
             class="hi-notice-bar__icon hi-notice-bar__icon--arrow"
-            :name="arrowName"
-            v-bind="arrowProps"
-            v-if="mode.split(' ').includes('arrow')"
+            :name="arrowIconName"
+            v-if="showArrow"
             @tap="_emits('arrow', current)"
+            :hover-class="hoverClass"
         ></hi-icon>
+
+        <!-- 关闭 -->
         <hi-icon
             class="hi-notice-bar__icon hi-notice-bar__icon--close"
-            :name="closeName"
-            v-bind="closeProps"
-            v-if="mode.split(' ').includes('closable')"
-            @tap="handleClose"
+            :name="closeIconName"
+            v-if="showClose"
+            @tap="_emits('close')"
+            :hover-class="hoverClass"
         ></hi-icon>
     </view>
 </template>
@@ -45,20 +53,20 @@
 <script setup>
     import { ref, computed, onMounted, getCurrentInstance, nextTick } from "vue";
     import props from "./props.js";
-    import { isNumber } from "@/uni_modules/hi-functions";
 
     // 组件属性
     const _props = defineProps(props);
 
     // 组件事件
-    const _emits = defineEmits(["click", "arrow", "close", "update:modelValue"]);
+    const _emits = defineEmits(["click", "arrow", "close"]);
 
     // 组件类名
     const _classes = computed(() => {
         const classes = [];
 
-        // 滚动方向
-        if (_props.direction) classes.push(`hi-notice-bar--${_props.direction}`);
+        // 纵向
+        if (_props.vertical) classes.push(`hi-notice-bar--column`);
+        else classes.push(`hi-notice-bar--row`);
 
         // 步进式滚动
         if (_props.step) classes.push(`hi-notice-bar--step`);
@@ -70,6 +78,7 @@
     const _textClasses = computed(() => {
         const classes = [];
 
+        // 步进式滚动时锁定文本为 1 行
         if (_props.step) classes.push(`hi-line-1`);
 
         return classes.join(" ");
@@ -127,25 +136,26 @@
             let timer = setTimeout(() => {
                 current.value = index + 1 >= _props.list.length ? 0 : index + 1;
                 clearTimeout(timer);
-            }, (_props.interval || 5) * 1000);
+            }, _props.interval * 1000);
         }
 
         // 设置了滚动间隔
-        else if (isNumber(_props.interval)) {
+        // 这里和上面的逻辑一样，应该写到一个判断条件中，为了以后的扩展，先这样写吧~
+        else if (_props.interval) {
             let timer = setTimeout(() => {
                 current.value = index + 1 >= _props.list.length ? 0 : index + 1;
                 clearTimeout(timer);
             }, _props.interval * 1000);
         }
 
-        // 非步近时，滚动结束后就需要切换下标
+        // 其他，滚动结束后就需要切换下标
         else {
             current.value = index + 1 >= _props.list.length ? 0 : index + 1;
         }
     }
 
     /**
-     * 计算滚动同时的样式
+     * 计算滚动通知文本的样式
      * @param {Object} _item 滚动通知数据
      * @param {Number} _index 滚动通知下标
      */
@@ -158,7 +168,7 @@
         // 2. 设置了每秒滚动距离，需手动计算时长
         else if (_props?.speed) {
             // 横向滚动
-            if (_props?.direction === "row") {
+            if (!_props?.vertical) {
                 styles.push(`--hi-notice-bar-duration: ${(rects.value[_index]?.width ?? 0) / _props.speed}s`);
             }
 
@@ -170,42 +180,25 @@
 
         return styles;
     }
-
-    /**
-     * 关闭事件
-     */
-    function handleClose() {
-        _emits("close");
-    }
 </script>
 
 <style lang="scss" scoped>
     .hi-notice-bar {
         display: flex;
         align-items: center;
-        background: var(--hi-notice-bar-background);
-        color: var(--hi-notice-bar-color);
-        padding: var(--hi-notice-bar-padding);
-        font-size: var(--hi-notice-bar-size);
-        line-height: var(--hi-notice-line-height, 1.5);
 
         &__content {
             flex: 1;
             position: relative;
             overflow: hidden;
-            height: var(--hi-notice-bar-text-height, 1.5em);
+            height: 1.5em;
             display: flex;
             align-items: center;
-            margin: var(--hi-notice-bar-text-margin, 0 0.5em);
+            margin: 0 5px;
         }
 
         &__text {
             position: absolute;
-        }
-
-        &__icon {
-            font-size: var(--hi-notice-bar-notice-icon-size 1.15em);
-            color: var(--hi-notice-bar-notice-icon-color);
         }
 
         &--row {

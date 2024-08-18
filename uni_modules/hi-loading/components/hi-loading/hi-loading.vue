@@ -1,16 +1,16 @@
 <!--
- * hi-ui - loading 组件
+ * hi-loading - 加载
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-loading" :class="_classes" :style="_styles">
         <!-- 图标 -->
-        <hi-icon class="hi-loading__icon" :name="name" v-bind="iconProps"></hi-icon>
+        <hi-icon class="hi-loading__icon" :name="iconName"></hi-icon>
 
         <!-- 文字 -->
-        <text class="hi-loading__text" v-if="text">{{ text }}</text>
+        <text class="hi-loading__text">{{ text }}</text>
     </view>
 </template>
 
@@ -29,10 +29,6 @@
     // 组件类名
     const _classes = computed(() => {
         const classes = [];
-
-        // 方向
-        classes.push(`hi-loading--${_props.direction}`);
-
         return classes;
     });
 
@@ -45,31 +41,21 @@
 
 <style lang="scss" scoped>
     .hi-loading {
-        color: var(--hi-loading-color, var(--hi-font-color-middle));
+        color: var(--hi-color-light);
         display: inline-flex;
-        flex-direction: var(--hi-loading-flex-direction, row);
+        flex-direction: row;
         align-items: center;
         justify-content: center;
-
-        &--column {
-            flex-direction: var(--hi-loading-flex-direction, column);
-        }
+        gap: 5px;
+        font-size: 0.8em;
 
         // 图标
         &__icon {
-            --hi-icon-color: var(--hi-loading-icon-color, var(--hi-loading-color));
-            --hi-icon-size: var(--hi-loading-icon-size, 1.3em);
-            margin: var(--hi-loading-icon-margin, 5px);
+            font-size: 1.5em;
             animation-name: hi-loading-ani;
-            animation-duration: var(--hi-loading-duration, 1.5s);
+            animation-duration: 1500ms;
             animation-iteration-count: infinite;
-            animation-timing-function: var(--hi-loading-function, linear);
-        }
-
-        // 文字
-        &__text {
-            color: var(--hi-loading-text-color, var(--hi-loading-color));
-            font-size: var(--hi-loading-text-size, 0.8em);
+            animation-timing-function: linear;
         }
 
         // 动画

@@ -1,16 +1,15 @@
 {
     "id": "hi-checkbox",
     "displayName": "hi-checkbox",
-    "version": "1.0.0",
-    "description": "复选框组件",
+    "version": "3.0.0",
+    "description": "复选框",
     "keywords": [
         "",
         "hi",
         "checkbox",
-        "多选",
-        "复选"
+        "复选框"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

@@ -2,7 +2,7 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
     // 列表
@@ -18,15 +18,15 @@ export default {
     },
 
     // 展示的数量
-    number: {
+    count: {
         type: Number,
-        default: 6
+        default: 5
     },
 
     // 头像偏移量
     offset: {
         type: String,
-        default: ""
+        default: "-16rpx"
     },
 
     // 是否开启动画
@@ -47,16 +47,10 @@ export default {
         default: "scaleToFill"
     },
 
-    // 头像宽度
-    width: {
+    // 头像宽高
+    size: {
         type: String,
-        default: ""
-    },
-
-    // 头像高度
-    height: {
-        type: String,
-        default: ""
+        default: "40rpx"
     },
 
     // 是否显示更多按钮
@@ -69,11 +63,5 @@ export default {
     moreIconName: {
         type: String,
         default: "__gengduo"
-    },
-
-    // 更多按钮的其他配置
-    moreIconProps: {
-        type: Object,
-        default: () => ({})
     }
 };

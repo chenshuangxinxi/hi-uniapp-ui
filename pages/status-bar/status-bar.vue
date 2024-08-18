@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 状态栏组件演示页面
+ * hi-status-br - 状态栏
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="page-view">
@@ -31,7 +31,7 @@
     .demo-module {
         .status-bar {
             // #ifdef H5
-            --hi-status-bar-height: 50px;
+            height: 50px;
             // #endif
         }
     }

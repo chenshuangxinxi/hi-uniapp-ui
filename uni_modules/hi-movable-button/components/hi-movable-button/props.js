@@ -2,37 +2,19 @@
  * 组件属性
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  */
 export default {
     // hover-class
     hoverClass: {
         type: String,
-        default: "hi-hover-class"
+        default: "hi-hover"
     },
 
-    // 宽
-    width: {
-        type: String,
-        default: "88rpx"
-    },
-
-    // 高
-    height: {
-        type: String,
-        default: "88rpx"
-    },
-
-    // 图标
+    // 图标名称
     iconName: {
         type: String,
         default: "__zhuye"
-    },
-
-    // 图标的其他配置
-    iconProps: {
-        type: Object,
-        default: () => ({})
     },
 
     // 文字
@@ -124,23 +106,5 @@ export default {
     animation: {
         type: Boolean,
         default: true
-    },
-
-    // 是否显示徽标数？
-    showBadge: {
-        type: Boolean,
-        default: false
-    },
-
-    // 徽标数的值
-    badgeValue: {
-        type: Number,
-        default: 0
-    },
-
-    // 徽标数的其他配置
-    badgeProps: {
-        type: Object,
-        default: () => ({})
     }
 };

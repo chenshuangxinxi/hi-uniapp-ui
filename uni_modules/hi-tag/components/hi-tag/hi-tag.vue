@@ -1,14 +1,16 @@
 <!--
- * hi-ui - 标签组件
+ * hi-tag - 标签
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <view class="hi-tag" :class="_classes" :style="_styles">
-        <hi-icon class="hi-tag__icon" :name="iconName" v-bind="iconProps" v-if="iconName || iconProps?.name"></hi-icon>
-        <text class="hi-tag__text">{{ text }}</text>
-        <hi-icon class="hi-tag__close" :name="closeIconName" v-bind="closeIconProps" v-if="closable" @tap.stop="_emits('close')"></hi-icon>
+    <view class="hi-tag" :class="_classes" :style="_styles" :hover-class="hoverClass">
+        <hi-icon class="hi-tag__icon" :name="iconName" v-if="iconName"></hi-icon>
+        <view class="hi-tag__text">{{ text }}</view>
+        <view class="hi-tag__close" v-if="showClose" @tap.stop="_emits('close')" :hover-class="hoverClass">
+            <hi-icon class="hi-tag__close__icon" :name="closeIconName"></hi-icon>
+        </view>
     </view>
 </template>
 
@@ -30,30 +32,12 @@
     // 组件类名
     const _classes = computed(() => {
         const classes = [];
-
-        // 是否镂空
-        if (_props.plain) classes.push(`hi-tag--plain`);
-
-        // 是否圆角
-        if (_props.round) classes.push(`hi-tag--round`);
-
         return classes;
     });
 
     // 组件样式
     const _styles = computed(() => {
         const styles = [];
-
-        // 主题
-        if (_props.theme) {
-            styles.push(`--hi-tag-background: var(--hi-theme-${_props.theme})`);
-            styles.push(`--hi-tag-border-color: var(--hi-theme-${_props.theme})`);
-            styles.push(`--hi-tag-font-color: #ffffff`);
-
-            // 主题还镂空
-            if (_props.plain) styles.push(`--hi-tag-font-color: var(--hi-theme-${_props.theme})`);
-        }
-
         return styles;
     });
 </script>
@@ -62,46 +46,37 @@
     .hi-tag {
         display: inline-flex;
         align-items: center;
-        background: var(--hi-tag-background, #ffffff);
-        height: var(--hi-tag-height, 2em);
-        line-height: var(--hi-tag-line-height, 1);
-        color: var(--hi-tag-font-color);
-        padding: var(--hi-tag-padding, 0 0.6em);
-        font-size: var(--hi-tag-font-size, 0.8em);
-        border-radius: var(--hi-tag-border-radius, var(--hi-radius-small));
-        gap: var(--hi-tag-content-gap, 3px);
-        border-width: var(--hi-tag-border-width, 0);
-        border-style: var(--hi-tag-border-style, solid);
-        border-color: var(--hi-tag-border-color);
+        background: var(--hi-theme-primary);
+        color: #ffffff;
+        padding: 0 0.6em;
+        gap: 3px;
+        position: relative;
+        font-size: 0.8em;
+        height: 1.5em;
+        line-height: 1;
 
         &__icon {
-            --hi-icon-color: var(--hi-tag-icon-font-color);
-            --hi-icon-size: var(--hi-tag-icon-font-size);
-            --hi-icon-image-width: var(--hi-tag-icon-image-width);
-            --hi-icon-image-height: var(--hi-tag-icon-image-height);
-        }
-
-        &__text {
-            font-size: var(--hi-tag-text-font-size);
-            color: var(--hi-tag-text-font-color);
+            font-size: 1.15em;
         }
 
         &__close {
-            --hi-icon-color: var(--hi-tag-close-font-color);
-            --hi-icon-size: var(--hi-tag-close-font-size);
+            position: absolute;
+            top: -0.6em;
+            right: -0.6em;
+            width: 1.2em;
+            height: 1.2em;
+            background: var(--hi-theme-error);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
 
-            &:active {
-                opacity: var(--hi-tag-active-opacity, var(--hi-opacity-hover));
+            &__icon {
+                color: #ffffff;
+                font-size: 0.7em;
             }
-        }
-
-        &--plain {
-            border-width: var(--hi-tag-border-width, 1px);
-            background: transparent;
-        }
-
-        &--round {
-            border-radius: var(--hi-tag-border-radius, 1000px);
         }
     }
 </style>

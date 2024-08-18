@@ -1,11 +1,11 @@
 <!--
- * HiUi - 图标
+ * hi-icon - 图标
  *
  * @author 济南晨霜信息技术有限公司
  * @mobile 18560000860 / 18754137913
  -->
 <template>
-    <view class="hi-icon" :class="_classes" :style="_styles" :hover-class="hoverClass" @tap="_emits('click')">
+    <view class="hi-icon" :class="_classes" :style="_styles">
         <!-- 字体图标 -->
         <text class="hi-icon__iconfont" :class="_iconfontClasses" v-if="!_isImage"></text>
 
@@ -27,15 +27,9 @@
     // props
     const _props = defineProps(props);
 
-    // emits
-    const _emits = defineEmits(["click"]);
-
     // classes
     const _classes = computed(() => {
         const classes = [];
-
-        // 禁用
-        if (_props.disabled) classes.push(`${_props.disabledClass} hi-icon--disabled`);
 
         // 图片图标
         if (_isImage.value) classes.push("hi-icon--image");
@@ -46,13 +40,6 @@
     // styles
     const _styles = computed(() => {
         const styles = [];
-
-        // 图标大小
-        if (_props.size) styles.push(`--hi-icon-size: ${_props.size}`);
-
-        // 图标颜色
-        if (_props.color) styles.push(`--hi-icon-color: ${_props.color}`);
-
         return styles;
     });
 
@@ -103,8 +90,6 @@
     @import "./hi-ui-iconfont.css";
 
     .hi-icon {
-        color: var(--hi-icon-color);
-        font-size: var(--hi-icon-size);
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -119,13 +104,13 @@
         &__image {
             display: inline-block;
             font-size: 1em;
-            width: var(--hi-icon-image-width, 1em);
-            height: var(--hi-icon-image-height, 1em);
+            width: 1em;
+            height: 1em;
         }
 
         &--image {
-            width: var(--hi-icon-image-width, 1em);
-            height: var(--hi-icon-image-height, 1em);
+            width: 1em;
+            height: 1em;
         }
     }
 </style>

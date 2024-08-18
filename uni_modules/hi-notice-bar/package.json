@@ -1,15 +1,15 @@
 {
     "id": "hi-notice-bar",
     "displayName": "hi-notice-bar",
-    "version": "1.2.5",
-    "description": "滚动通知组件",
+    "version": "3.0.0",
+    "description": "滚动通知",
     "keywords": [
         "",
         "hi",
         "notice-bar",
         "滚动通知"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

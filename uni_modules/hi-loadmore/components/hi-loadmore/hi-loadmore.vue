@@ -1,8 +1,8 @@
 <!--
- * hi-ui - loadmore 加载更多组件
+ * hi-loadmore - 加载更多
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-loadmore" :class="_classes" :style="_styles" :hover-class="hoverClass">
@@ -13,7 +13,7 @@
 
         <!-- loading -->
         <view class="hi-loadmore__body hi-loadmore__body--loading" v-else-if="status === 'loading'">
-            <hi-icon class="hi-loadmore__icon" :name="loadingIconName" v-bind="loadingIconProps"></hi-icon>
+            <hi-icon class="hi-loadmore__icon" :name="iconName"></hi-icon>
             <text class="hi-loadmore__text">{{ loadingText }}</text>
         </view>
 
@@ -57,27 +57,23 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: var(--hi-loadmore-padding, 20rpx);
-        font-size: var(--hi-loadmore-size, 0.8em);
-        color: var(--hi-loading-more-color, var(--hi-font-color-light));
+        color: var(--hi-color-light);
+        font-size: 0.8em;
 
         &__body {
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: row;
+            gap: 5px;
         }
 
         &__icon {
-            font-size: var(--hi-loadmore-icon-size, 1.3em);
-            color: var(--hi-loadmore-icon-color, var(--hi-loadmore-color));
+            font-size: 1.5em;
             animation-name: hi-ani-spin;
-            animation-duration: var(--hi-loadmore-duration, 1500ms);
+            animation-duration: 1500ms;
             animation-iteration-count: infinite;
-            animation-timing-function: var(--hi-loadmore-function, linear);
-        }
-
-        &__text {
-            margin: var(--hi-loadmore-text-margin, 0 5px);
+            animation-timing-function: linear;
         }
     }
 </style>

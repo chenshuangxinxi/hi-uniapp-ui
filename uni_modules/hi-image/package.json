@@ -1,15 +1,15 @@
 {
     "id": "hi-image",
     "displayName": "hi-image",
-    "version": "1.0.8",
-    "description": "图片组件",
+    "version": "3.0.0",
+    "description": "图片",
     "keywords": [
         "",
         "hi",
         "image",
         "图片"
     ],
-    "repository": "https://gitee.com/chenshuangxinxi/hi-uniapp-ui",
+    "repository": "https://github.com/ChenShuangXinXi/hi-uniapp-ui",
     "engines": {
         "HBuilderX": "^4.0"
     },

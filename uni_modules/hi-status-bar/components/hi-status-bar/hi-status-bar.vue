@@ -1,8 +1,8 @@
 <!--
- * hi-ui - 状态栏组件
+ * hi-status-bar - 状态栏
  *
  * @author 济南晨霜信息技术有限公司
- * @mobile 18560000860 / 15275181688 / 19256078701 / 18754137913
+ * @mobile 18560000860 / 18754137913
  -->
 <template>
     <view class="hi-status-bar" :class="_classes" :style="_styles"></view>
@@ -56,7 +56,7 @@
 
 <style lang="scss" scoped>
     .hi-status-bar {
-        height: var(--hi-status-bar-height, var(--hi-status-bar-height--default));
-        background: var(--hi-status-bar-background, var(--hi-status-bar-background--default));
+        height: var(--hi-status-bar-height--default);
+        background: var(--hi-status-bar-background--default);
     }
 </style>
