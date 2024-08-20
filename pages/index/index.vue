@@ -103,7 +103,8 @@
         { title: "复选框组", icon: "/static/images/icons/checkbox.png", path: "/pages/checkbox-group/checkbox-group" },
         { title: "单选框", icon: "/static/images/icons/radio.png", path: "/pages/radio/radio" },
         { title: "单选框组", icon: "/static/images/icons/radio.png", path: "/pages/radio-group/radio-group" },
-        { title: "步进器", icon: "/static/images/icons/number-step.png", path: "/pages/number-step/number-step" }
+        { title: "步进器", icon: "/static/images/icons/number-step.png", path: "/pages/number-step/number-step" },
+        { title: "省市区选择器", icon: "/static/images/icons/region.png", path: "/pages/region-picker/region-picker" }
     ]);
 
     // 导航组件

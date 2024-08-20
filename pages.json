@@ -160,6 +160,14 @@
             }
         },
 
+        // 省市区选择器
+        {
+            "path": "pages/region-picker/region-picker",
+            "style": {
+                "navigationBarTitleText": "省市区选择器"
+            }
+        },
+
         // 状态栏
         {
             "path": "pages/status-bar/status-bar",
