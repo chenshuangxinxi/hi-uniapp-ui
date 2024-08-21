@@ -5,11 +5,11 @@
 
 import App from "./App";
 
-// 引入 HiUi 配置文件
-import "@/uni_modules/hi-config";
+// 引入 hi-ui 主文件
+import "@/uni_modules/hi-ui/index";
 
 // 配置扩展图标前缀
-uni.$hi.config.icon.prefix = ["hi-uniapp-ui-iconfont"];
+uni.$hi.config.icon.prefix = ["app-iconfont"];
 
 // #ifndef VUE3
 import Vue from "vue";
@@ -23,7 +23,9 @@ app.$mount();
 // #endif
 
 // #ifdef VUE3
-import { createSSRApp } from "vue";
+import {
+    createSSRApp
+} from "vue";
 export function createApp() {
     const app = createSSRApp(App);
     return {
